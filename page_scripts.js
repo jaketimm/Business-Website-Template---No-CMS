@@ -52,6 +52,7 @@ function adjustBannerSectionOffset() {
 //////////////////////////////////////////////////
 // Word Press API Blog Integration
 // Replace yourwebsite.com only
+
 document.addEventListener('DOMContentLoaded', function() {
     const apiUrl = 'https://public-api.wordpress.com/wp/v2/sites/webdevtestblog5.wordpress.com/posts';
 

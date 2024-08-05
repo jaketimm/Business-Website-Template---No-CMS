@@ -52,10 +52,10 @@ function adjustBannerSectionOffset() {
 
 // Script to position the blog post container so it has offset from the the nav bar's bottom edge.
 
-window.addEventListener('load', adjustBannerSectionOffset);
-window.addEventListener('resize', adjustBannerSectionOffset);
+window.addEventListener('load', adjustBlogSectionOffset);
+window.addEventListener('resize', adjustBlogSectionOffset);
 
-function adjustBannerSectionOffset() {
+function adjustBlogSectionOffset() {
     // Get the height of the navigation header
     const header = document.getElementById('cs-navigation');
     const headerHeight = header.offsetHeight;

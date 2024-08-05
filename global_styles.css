@@ -2162,7 +2162,7 @@ body, h2, div {
 
 /* Individual Post Styling */
 .post {
-  background-color: #fff;
+  background-color: #d3d3d3bb;
   border-radius: 8px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   margin-bottom: 20px;

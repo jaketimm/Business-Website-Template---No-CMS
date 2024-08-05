@@ -2151,7 +2151,7 @@ body {
   flex-wrap: wrap;          /* Allow posts to wrap to new lines */
   gap: 20px;                /* Space between posts */
   justify-content: space-between; /* Distribute space between posts */
-  max-width: 60%;
+  max-width: 90%;
   margin: 0 auto;           /* Center the container */
   padding: 20px;
   margin-top: 5%;

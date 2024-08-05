@@ -2146,11 +2146,6 @@ body {
 <--- -------------------------- -*/
 
 
-
-/*-- -------------------------- -->
-/*         Blog Posts         */
-/* -------------------------- --*/
-
 /* Container for blog posts */
 #posts-container {
   display: flex;            /* Use flexbox for layout */
@@ -2197,7 +2192,7 @@ body {
 }
 
 /* Mobile styles */
-@media (max-width: 768px) {
+@media only screen and (min-width: 0rem) {
   #posts-container {
       padding: 10px;
   }

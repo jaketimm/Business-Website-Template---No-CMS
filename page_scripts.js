@@ -52,8 +52,8 @@ function adjustBannerSectionOffset() {
 
 // Script to position the blog post container so it has offset from the the upper container's bottom edge.
 
-window.addEventListener('load', adjustBlogSectionOffset);
-window.addEventListener('resize', adjustBlogSectionOffset);
+//window.addEventListener('load', adjustBlogSectionOffset);
+//window.addEventListener('resize', adjustBlogSectionOffset);
 
 function adjustBlogSectionOffset() {
     // Get the height of the navigation header

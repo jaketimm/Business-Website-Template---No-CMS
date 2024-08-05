@@ -1344,6 +1344,7 @@ body {
   #RPsbsr-248 .cs-container {
       /* 60px - 100px top and bottom */
       padding: clamp(3.75rem, 7.82vw, 6.25rem) 0;
+      background-color: #2b2b2b;
   }
   #RPsbsr-248 .cs-container:before {
       /* Left Line */
@@ -1430,13 +1431,13 @@ body {
       object-fit: cover;
   }
   #RPsbsr-248 .cs-topper {
-      color: var(--bodyTextColor);
+      color: var(--bodyTextColorWhite);
   }
   #RPsbsr-248 .cs-title {
-      color: var(--primary);
+      color: var(--bodyTextColorWhite);
   }
   #RPsbsr-248 .cs-text {
-      color: var(--bodyTextColor);
+      color: var(--bodyTextColorWhite);
   }
 }
 /* Tablet - 768px */

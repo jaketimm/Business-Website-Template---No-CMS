@@ -2190,9 +2190,10 @@ body {
 }
 
 /* Mobile styles */
-@media (max-width: 768px) {
+@media only screen and (min-width: 0rem) {
   #posts-container {
       padding: 10px;
+      max-width: 90%;
   }
 
   .post {

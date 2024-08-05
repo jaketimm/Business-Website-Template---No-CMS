@@ -2137,4 +2137,84 @@ body {
     width: 100%;
   }
 }
-                                
+
+
+/*-- -------------------------- -->
+<---         Blog Posts         -->
+<--- -------------------------- -*/
+
+
+/* Basic Reset */
+body, h2, div {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+ 
+}
+
+/* Overall Body Styling */
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f4f4f4;
+  color: #000000;
+  line-height: 1.6;
+  padding: 20px;
+}
+
+/* Container for blog posts */
+#posts-container {
+  max-width: 800px;
+  margin: 0 auto; /* Center the container */
+  padding: 20px;
+}
+
+/* Individual Post Styling */
+.post {
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  margin-bottom: 20px;
+  padding: 20px;
+}
+
+/* Post Title Styling */
+.post h2 {
+  font-size: 1.5em;
+  margin-bottom: 10px;
+  
+}
+
+/* Post Title Link Styling */
+.post h2 a {
+  text-decoration: none;
+  color: var(--primary);
+}
+
+.post h2 a:hover {
+  text-decoration: underline;
+}
+
+/* Post Excerpt Styling */
+.post div {
+  font-size: 1em;
+  color: #666;
+}
+
+/* Mobile stlyes */
+@media only screen and (min-width: 0rem) {
+  #posts-container {
+      padding: 10px;
+  }
+
+  .post {
+      padding: 15px;
+  }
+
+  .post h2 {
+      font-size: 1.2em;
+  }
+
+  .post div {
+      font-size: 0.9em;
+  }
+}

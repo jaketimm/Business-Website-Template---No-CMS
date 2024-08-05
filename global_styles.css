@@ -1340,6 +1340,7 @@ body {
 @media only screen and (min-width: 0rem) {
   #RPsbsr-248 {
       padding: 0 1rem;
+      background-color: #2b2b2b;
   }
   #RPsbsr-248 .cs-container {
       /* 60px - 100px top and bottom */

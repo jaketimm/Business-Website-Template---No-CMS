@@ -2142,9 +2142,8 @@ body {
 
 
 /*-- -------------------------- -->
-<---         Blog Posts         -->
-<--- -------------------------- -*/
-
+/*         Blog Posts         */
+/* -------------------------- --*/
 
 /* Container for blog posts */
 #posts-container {
@@ -2152,11 +2151,10 @@ body {
   flex-wrap: wrap;          /* Allow posts to wrap to new lines */
   gap: 20px;                /* Space between posts */
   justify-content: space-between; /* Distribute space between posts */
-  max-width: 80%;
+  max-width: 60%;
   margin: 0 auto;           /* Center the container */
   padding: 20px;
-  margin-top: 2%;
-  
+  margin-top: 5%;
 }
 
 /* Individual Post Styling */
@@ -2192,7 +2190,7 @@ body {
 }
 
 /* Mobile styles */
-@media only screen and (min-width: 0rem) {
+@media (max-width: 768px) {
   #posts-container {
       padding: 10px;
   }
@@ -2210,4 +2208,3 @@ body {
       font-size: 0.9em;
   }
 }
-

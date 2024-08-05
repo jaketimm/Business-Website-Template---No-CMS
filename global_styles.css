@@ -2147,12 +2147,21 @@ body {
 
 
 
+/*-- -------------------------- -->
+/*         Blog Posts         */
+/* -------------------------- --*/
+
 /* Container for blog posts */
 #posts-container {
-  max-width: 800px;
-  margin: 0 auto; /* Center the container */
+  display: flex;            /* Use flexbox for layout */
+  flex-wrap: wrap;          /* Allow posts to wrap to new lines */
+  gap: 20px;                /* Space between posts */
+  justify-content: space-between; /* Distribute space between posts */
+  max-width: 80%;
+  margin: 0 auto;           /* Center the container */
   padding: 20px;
-  margin-top: 5%;
+  margin-top: 2%;
+  
 }
 
 /* Individual Post Styling */
@@ -2160,21 +2169,21 @@ body {
   background-color: #d3d3d3bb;
   border-radius: 8px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  margin-bottom: 20px;
   padding: 20px;
+  box-sizing: border-box;   /* Include padding and border in element's total width and height */
+  flex: 1 1 calc(33.333% - 20px); /* Three posts per row, adjusting for gaps */
 }
 
 /* Post Title Styling */
 .post h2 {
   font-size: 1.5em;
   margin-bottom: 10px;
-  
 }
 
 /* Post Title Link Styling */
 .post h2 a {
   text-decoration: none;
-  color: var(--primary);
+  color: var(--primary);    /* Ensure var(--primary) is defined in your CSS */
 }
 
 .post h2 a:hover {
@@ -2187,13 +2196,14 @@ body {
   color: #666;
 }
 
-/* Mobile stlyes */
-@media only screen and (min-width: 0rem) {
+/* Mobile styles */
+@media (max-width: 768px) {
   #posts-container {
       padding: 10px;
   }
 
   .post {
+      flex: 1 1 100%;       /* Each post takes up full width on mobile screens */
       padding: 15px;
   }
 
@@ -2205,3 +2215,4 @@ body {
       font-size: 0.9em;
   }
 }
+

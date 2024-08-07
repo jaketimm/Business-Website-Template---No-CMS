@@ -574,6 +574,54 @@ iframe {
   }
 }
 
+/*-- -------------------------- -->
+<---      Top Banner/Text       -->
+<---      Page Description      -->
+<--- -------------------------- -*/
+
+/* Mobile */
+@media only screen and (min-width: 0rem) {
+  #cs-content-831 {
+      /* set text align to left if content needs to be left aligned */
+      text-align: center;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      /* centers content horizontally, set to flex-start to left align */
+      align-items: center;
+  }
+  #cs-content-831 .cs-topper {
+      font-size: var(--topperFontSize);
+      line-height: 1.2em;
+      text-transform: uppercase;
+      text-align: inherit;
+      letter-spacing: 0.1em;
+      font-weight: 700;
+      color: var(--bodyTextColor);
+      margin-bottom: 0.25rem;
+      display: block;
+  }
+  #cs-content-831 .cs-title {
+      font-size: var(--headerFontSize);
+      font-weight: 900;
+      line-height: 1.2em;
+      text-align: inherit;
+      max-width: 43.75rem;
+      margin: 0 0 1rem 0;
+      color: var(--primary);
+      position: relative;
+  }
+  #cs-content-831 .cs-text {
+      font-size: var(--bodyFontSize);
+      line-height: 1.5em;
+      text-align: inherit;
+      width: 100%;
+      max-width: 40.625rem;
+      margin: 0;
+      color: var(--bodyTextColor);
+  }
+}
+                              
 
 /*-- -------------------------- -->
 <-  Bio Page text and image box -->
@@ -2417,16 +2465,11 @@ body {
 /* Container for blog posts */
 #posts-container {
   display: flex;
-  /* Use flexbox for layout */
   flex-wrap: wrap;
-  /* Allow posts to wrap to new lines */
   gap: 20px;
-  /* Space between posts */
   justify-content: space-between;
-  /* Distribute space between posts */
   max-width: 90%;
   margin: 0 auto;
-  /* Center the container */
   padding: 20px;
   margin-top: 5%;
   margin-bottom: 5%;
@@ -2439,9 +2482,11 @@ body {
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   padding: 20px;
   box-sizing: border-box;
-  /* Include padding and border in element's total width and height */
   flex: 1 1 calc(30% - 20px);
-  /* Three posts per row, adjusting for gaps */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between; /* Pushes the button to the bottom */
+  position: relative;
 }
 
 /* Post Title Styling */
@@ -2454,17 +2499,29 @@ body {
 .post h2 a {
   text-decoration: none;
   color: var(--primary);
-  /* Ensure var(--primary) is defined in your CSS */
-}
-
-.post h2 a:hover {
-  text-decoration: underline;
 }
 
 /* Post Excerpt Styling */
 .post div {
   font-size: 1em;
-  color: #666;
+  color: #000000;
+  margin-top: 0;
+  margin-bottom: 2%; /* Ensures space between text and button */
+}
+
+
+
+.post-button-solid {
+  padding: 10px 20px;
+  background-color: var(--primary);
+  color: white;
+  text-decoration: none;
+  border-radius: 5px;
+  font-weight: bold;
+}
+
+.post-button-solid:hover {
+  background-color: var(--primary);
 }
 
 /* Mobile styles */
@@ -2475,8 +2532,8 @@ body {
 
   .post {
     flex: 1 1 100%;
-    /* Each post takes up full width on mobile screens */
     padding: 15px;
+    /* Adjust padding on mobile screens */
   }
 
   .post h2 {
@@ -2485,5 +2542,12 @@ body {
 
   .post div {
     font-size: 0.9em;
+    margin-bottom: 15px; /* Adjust margin for better spacing on mobile */
+  }
+
+  .read-more-container {
+    margin-top: 20px;
+    /* Ensure there's space above the button */
+    margin-bottom: 0; /* Reset margin-bottom to avoid extra space */
   }
 }

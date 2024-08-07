@@ -57,7 +57,7 @@ function adjustBannerSectionOffset() {
 
 function adjustBlogSectionOffset() {
     // Get the height of the navigation header
-    const header = document.getElementById('Banner-Section');
+    const header = document.getElementById('cs-content-831');
     const headerHeight = header.offsetHeight;
 
     // Get the Blog Post Section and set its top margin
@@ -65,4 +65,19 @@ function adjustBlogSectionOffset() {
     blogSection.style.paddingTop = `${headerHeight + 50}px`;
 }
 
+
+// Script to position the toppers so the top edge always aligns with the nav bar's bottom edge.
+
+window.addEventListener('load', adjustBannerSectionOffset);
+window.addEventListener('resize', adjustBannerSectionOffset);
+
+function adjustBannerSectionOffset() {
+    // Get the height of the navigation header
+    const header = document.getElementById('cs-navigation');
+    const headerHeight = header.offsetHeight;
+
+    // Get the Banner Section and set its top margin
+    const topperSection = document.getElementById('cs-content-831');
+    topperSection.style.paddingTop = `${headerHeight + 50}px`;
+}
 

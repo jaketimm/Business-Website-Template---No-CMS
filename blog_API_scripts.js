@@ -26,9 +26,13 @@ document.addEventListener('DOMContentLoaded', function() {
                 const truncatedExcerpt = truncateText(post.excerpt.rendered, 50);
 
                 postElement.innerHTML = `
-                    <h2><a href="${post.link}" target="_blank">${post.title.rendered}</a></h2>
+                    <h2><a target="_blank">${post.title.rendered}</a></h2>
                     <div>${truncatedExcerpt}</div>
-                `;
+                    <div class="read-more-container">
+                      <a class="post-button-solid" aria-label="Read more about ${post.title.rendered}" href="${post.link}">Read More</a>
+                    </div>
+`;
+
 
                 postsContainer.appendChild(postElement);
             });

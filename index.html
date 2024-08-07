@@ -185,7 +185,7 @@
                         </picture>
                         <h3 class="cs-h3">Our Services</h3>
                         <p class="cs-item-text">Lorem ipsum dolor sit amet, consectetur.</p>
-                        <a href="services_page_1.html" aria-label="See a list of our services" class="cs-link">Read More</a>
+                        <a href="services_page_1.html" title="See a list of our services" class="cs-link">Read More</a>
                     </div>
                     <picture class="cs-picture">
                         <source media="(max-width: 600px)"
@@ -207,7 +207,7 @@
                         </picture>
                         <h3 class="cs-h3">Pricing</h3>
                         <p class="cs-item-text">Lorem ipsum dolor sit amet, consectetur.</p>
-                        <a href="services_page_2.html" aria-label="See our prices" class="cs-link"> Read More</a>
+                        <a href="services_page_2.html" title="See our prices" class="cs-link"> Read More</a>
                     </div>
                     <picture class="cs-picture">
                         <source media="(max-width: 600px)"
@@ -373,20 +373,5 @@
 
     <!-- Link to gloabl Javascript file -->
     <script src="page_scripts.js"></script>
-
-
-    <!-- Decap CMS -->
-    <script>
-        if (window.netlifyIdentity) {
-            window.netlifyIdentity.on("init", user => {
-                if (!user) {
-                    window.netlifyIdentity.on("login", () => {
-                        document.location.href = "/admin/";
-                    });
-                }
-            });
-        }
-    </script>
-
 
 </body>

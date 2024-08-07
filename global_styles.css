@@ -2462,31 +2462,28 @@ body {
 /*         Blog Posts         */
 /* -------------------------- --*/
 
-/* Container for blog posts */
 #posts-container {
   display: flex;
   flex-wrap: wrap;
   gap: 20px;
   justify-content: space-between;
   max-width: 90%;
-  margin: 0 auto;
+  margin: 5% auto; /* Combined margin settings */
   padding: 20px;
-  margin-top: 5%;
-  margin-bottom: 5%;
 }
 
-/* Individual Post Styling */
 .post {
   background-color: #d3d3d3bb;
   border-radius: 8px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   padding: 20px;
   box-sizing: border-box;
-  flex: 1 1 calc(30% - 20px);
+  flex: 1 1 calc(30% - 20px); /* Adjust to fit within container */
   display: flex;
   flex-direction: column;
   justify-content: space-between; /* Pushes the button to the bottom */
   position: relative;
+  min-height: 300px; /* Ensure minimum height for consistent layout */
 }
 
 /* Post Title Styling */
@@ -2505,10 +2502,8 @@ body {
 .post div {
   font-size: 1em;
   color: #000000;
-  margin-top: 0;
-  margin-bottom: 2%; /* Ensures space between text and button */
+  margin-bottom: auto; /* Pushes the button down if needed */
 }
-
 
 
 .post-button-solid {

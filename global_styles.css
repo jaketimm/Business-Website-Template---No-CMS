@@ -2519,6 +2519,12 @@ body {
   background-color: var(--primary);
 }
 
+.read-more-container {
+  margin-top: 4%;
+  /* Ensure there's space above the button */
+  margin-bottom: 0; /* Reset margin-bottom to avoid extra space */
+}
+
 /* Mobile styles */
 @media (max-width: 768px) {
   #posts-container {

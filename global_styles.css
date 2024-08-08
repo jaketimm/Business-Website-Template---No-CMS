@@ -756,6 +756,14 @@ iframe {
   }
 }
 
+/* Mobile - 360px and up */
+@media only screen and (max-width: 48rem) {
+  #meet-us-1021 .cs-picture {
+      height: 90vw; /* Ensure height is adjusted automatically */
+      width: auto;
+  }
+}
+
                             
 
 /*-- -------------------------- -->

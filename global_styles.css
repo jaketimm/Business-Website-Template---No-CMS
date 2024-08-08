@@ -720,6 +720,14 @@ iframe {
       opacity: 0.8;
       display: block;
   }
+  #meet-us-1021 .cs-email {
+    /* 14px - 16px */
+    font-size: clamp(0.875rem, 1.5vw, 1rem);
+    line-height: 1.5em;
+    color: var(--bodyTextColorWhite);
+    opacity: 0.8;
+    display: block;
+}
   #meet-us-1021 .cs-picture {
       width: 100%;
       /* 246px - 500px */

@@ -633,7 +633,7 @@ iframe {
                               
 
 /*-- -------------------------- -->
-<-            Bio Page          -->
+<-         About/Bio Page       -->
 <--- -------------------------- -*/
 
 /* Mobile - 360px */
@@ -642,7 +642,7 @@ iframe {
       padding: var(--sectionPadding);
   }
   #meet-us-1021 .cs-container {
-      width: 100%;
+      width: 80%;
       max-width: 80rem;
       margin: auto;
       position: relative;

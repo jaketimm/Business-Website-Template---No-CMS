@@ -19,10 +19,18 @@
 }
 
 body {
+  font-family: Arial, sans-serif;
+  line-height: 1.6;
   margin: 0;
   padding: 0;
+  color: #000;
+  margin: 0;
+  padding: 0;
+
+  /* Set text color*/
 }
 
+ 
 *,
 *:before,
 *:after {
@@ -624,62 +632,131 @@ iframe {
                               
 
 /*-- -------------------------- -->
-<-  Bio Page text and image box -->
+<-            Bio Page          -->
 <--- -------------------------- -*/
-body {
-  font-family: Arial, sans-serif;
-  line-height: 1.6;
-  margin: 0;
-  padding: 0;
-  color: #000;
-  /* Set text color*/
-}
 
-#about_container h1 {
-  color: var(--primary);
-  /* Set text color*/
-}
-
-.about_container {
-
-  max-width: 75%;
-  margin: 0 auto;
-  padding: 20px;
-  margin-bottom: 10%;
-}
-
-.profile-img {
-  display: block;
-  margin: 0 auto;
-  width: 200px;
-  /* Adjust size as needed */
-  height: auto;
-  border-radius: 50%;
-  /* Round the image for a circular effect */
-  margin-bottom: 20px;
-}
-
-.bio {
-  text-align: justify;
-  /* Justify the text */
-  width: 75%;
-  margin: 0 auto;
-  /* Center the element horizontally */
-  margin-bottom: 5%;
-  /* Optional: Adding padding to improve appearance */
-  padding: 0 10px;
-  /* Adjust padding as needed */
-}
-
+/* Mobile - 360px */
 @media only screen and (min-width: 0rem) {
-  .bio {
-    width: 100%;
-    /* Full width on mobile devices */
-    padding: 0 5px;
-    /* Adjust padding for mobile as needed */
+  #meet-us-1021 {
+      padding: var(--sectionPadding);
+  }
+  #meet-us-1021 .cs-container {
+      width: 100%;
+      max-width: 80rem;
+      margin: auto;
+      position: relative;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      /* 48px - 64px */
+      gap: clamp(3rem, 6vw, 4rem);
+  }
+
+  #meet-us-1021 .cs-graphic {
+      width: 100%;
+      max-width: 26.82352941rem;
+      margin: 0 0 1rem 0;
+  }
+
+  #meet-us-1021 .cs-card-group {
+      width: 100%;
+      padding: 0;
+      margin: 0;
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      align-items: center;
+      flex-wrap: wrap;
+      /* 16px - 20px */
+      gap: clamp(1rem, 2vw, 1.25rem);
+  }
+  #meet-us-1021 .cs-item {
+      list-style: none;
+      width: 100%;
+      max-width: 25.8125rem;
+      position: relative;
+      z-index: 1;
+      /*border: 2px solid var(--bodyTextColor);*/
+  }
+  #meet-us-1021 .cs-item:hover .cs-picture {
+      background-color: #000;
+  }
+  #meet-us-1021 .cs-item:hover .cs-picture img {
+      transform: scale(1.1);
+      opacity: 0.6;
+  }
+  #meet-us-1021 .cs-info {
+      width: 85.5%;
+      /* 16px - 24px */
+      padding: clamp(1rem, 2vw, 1.5rem);
+      margin: -3.75rem auto 0;
+      box-sizing: border-box;
+      background-color: #1a1a1a;
+      border-top: 4px solid var(--primary);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      z-index: 10;
+  }
+  #meet-us-1021 .cs-name {
+      /* 16px - 25px */
+      font-size: clamp(1rem, 2vw, 1.5625rem);
+      font-weight: 700;
+      line-height: 1.2em;
+      /* 4px - 8px */
+      margin: 0 0 clamp(0.25rem, 1vw, 0.5rem);
+      color: var(--bodyTextColorWhite);
+      display: block;
+      transition: color 0.3s;
+  }
+  #meet-us-1021 .cs-job {
+      /* 14px - 16px */
+      font-size: clamp(0.875rem, 1.5vw, 1rem);
+      line-height: 1.5em;
+      color: var(--bodyTextColorWhite);
+      opacity: 0.8;
+      display: block;
+  }
+  #meet-us-1021 .cs-picture {
+      width: 100%;
+      /* 246px - 500px */
+      height: clamp(15.375rem, 40vw, 32.25rem);
+      overflow: hidden;
+      display: block;
+      position: relative;
+      transition: background-color 0.3s;
+      z-index: -1;
+  }
+  #meet-us-1021 .cs-picture img {
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: 100%;
+      width: 100%;
+      /* makes it behave like a background image */
+      object-fit: cover;
+      /* makes the image position itself at the top of the parent */
+      object-position: top;
+      transition:
+          transform 0.6s,
+          opacity 0.3s;
+  }
+}
+/* Tablet - 768px */
+@media only screen and (min-width: 48rem) {
+  #meet-us-1021 .cs-card-group {
+      display: grid;
+      grid-template-columns: repeat(12, 1fr);
+      width: 100%;
+  }
+  #meet-us-1021 .cs-item {
+      grid-column: span 4;
   }
 }
 
+                            
 
 /*-- -------------------------- -->
 <---       Services Page        -->

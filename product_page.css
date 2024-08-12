@@ -1,0 +1,695 @@
+:root {
+    /* Add these styles to your global stylesheet, which is used across all site pages. You only need to do this once. All elements in the library derive their variables and base styles from this central sheet, simplifying site-wide edits. For instance, if you want to modify how your h2's appear across the site, you just update it once in the global styles, and the changes apply everywhere. */
+    --primary: #4633d4;
+    /* These are highlight colors for text, box edges, ect. */
+    --primaryLight: #543dff;
+    --secondary: #878787;
+    --secondaryLight: #bebebe;
+    --headerColor: #ffffff;
+    --bodyTextColor: #000000;
+    /* global text color */
+    --bodyTextColorWhite: #ffffff;
+    /* 13px - 16px */
+    --topperFontSize: clamp(0.8125rem, 1.6vw, 1rem);
+    /* 31px - 49px */
+    --headerFontSize: clamp(1.9375rem, 3.9vw, 3.0625rem);
+    --bodyFontSize: 1rem;
+    /* 60px - 100px top and bottom */
+    --sectionPadding: clamp(3.75rem, 7.82vw, 6.25rem) 1rem;
+  }
+  
+  body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+    color: #000;
+    margin: 0;
+    padding: 0;
+  
+    /* Set text color*/
+  }
+  
+   
+  *,
+  *:before,
+  *:after {
+    /* prevents padding from affecting height and width */
+    box-sizing: border-box;
+  }
+  
+  .cs-topper {
+    font-size: var(--topperFontSize);
+    line-height: 1.2em;
+    text-transform: uppercase;
+    text-align: inherit;
+    letter-spacing: .1em;
+    font-weight: 700;
+    /* color: var(--headerColor); to have it match global color style*/
+    color: #000000;
+    margin-bottom: 0.25rem;
+    display: block;
+  }
+  
+  .cs-title {
+    font-size: var(--headerFontSize);
+    font-weight: 900;
+    line-height: 1.2em;
+    text-align: inherit;
+    max-width: 43.75rem;
+    margin: 0 0 1rem 0;
+    color: var(--primary);
+    position: relative;
+  }
+  
+  .cs-text {
+    font-size: var(--bodyFontSize);
+    line-height: 1.5em;
+    text-align: inherit;
+    width: 100%;
+    max-width: 40.625rem;
+    margin: 0;
+    color: var(--bodyTextColor);
+  }
+
+
+/*-- -------------------------- -->
+<---    Top Banner w/ Text      -->
+<--- -------------------------- -*/
+
+
+/* Fixed banner styles */
+#Banner-Section-With-Text .banner {
+    position: relative;
+    width: 100%;
+    height: 30vh;
+    overflow: hidden;
+}
+
+#Banner-Section-With-Text .banner img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Add the black tint overlay */
+#Banner-Section-With-Text .banner::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5); /* Black tint with 50% opacity */
+    z-index: 1; /* Ensure it sits on top of the image but below the text box */
+}
+
+
+#Banner-Section-With-Text .text-box {
+    position: absolute;
+    top: 50%;
+    left: 5%;
+    transform: translateY(-50%);
+    color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    max-width: 50%; /* Limit width for better readability */
+    z-index: 2;
+ 
+}
+
+#Banner-Section-With-Text .text-box h1 {
+    margin-top: 5%;
+    font-size: var(--topperFontSize);
+}
+
+#Banner-Section-With-Text .text-box p {
+    margin-top: 0;
+    font-size: var(--headerFontSize);
+}
+
+/* Mobile-specific styles */
+@media only screen and (max-width: 63.9375rem) {
+    #Banner-Section-With-Text .banner {
+        height: 20vh;
+    }
+    
+    #Banner-Section-With-Text .text-box {
+        left: 2%;
+        max-width: 90%; /* Adjust max-width for smaller screens */
+    }
+}
+
+
+/*-- -------------------------- -->
+<---   Products Side By Side   -->
+<--- -------------------------- -*/
+
+/* Mobile - 360px */
+@media only screen and (min-width: 0rem) {
+
+    #RPsbs-products,
+    #RPsbs-products {
+      padding: 0 1em;
+      position: relative;
+      z-index: 1;
+    }
+  
+    #RPsbs-products .cs-container,
+    #RPsbs-products .cs-container {
+      width: 100%;
+      /* changes to 1280px on tablet */
+      max-width: 34.375rem;
+      padding: var(--sectionPadding);
+      padding-left: 0;
+      padding-right: 0;
+      margin: auto;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      /* 48px - 108px */
+      gap: clamp(3rem, 8vw, 6.75rem);
+      position: relative;
+    }
+  
+    #RPsbs-products .cs-content,
+    #RPsbs-products .cs-content {
+      /* set text align to left if content needs to be left aligned */
+      text-align: left;
+      width: 100%;
+      /* changes at tablet */
+      max-width: 27.125rem;
+      display: flex;
+      flex-direction: column;
+      /* centers content horizontally, set to flex-start to left align */
+      align-items: flex-start;
+    }
+  
+    #RPsbs-products .cs-title,
+    #RPsbs-products .cs-title {
+      max-width: 20ch;
+    }
+  
+    #RPsbs-products .cs-text,
+    #RPsbs-products .cs-text {
+      margin-bottom: 1rem;
+      opacity: 0.8;
+    }
+  
+    #RPsbs-products .cs-text:last-of-type,
+    #RPsbs-products .cs-text:last-of-type {
+      margin-bottom: 2rem;
+    }
+  
+    #RPsbs-products .cs-button-solid,
+    #RPsbs-products .cs-button-solid {
+      font-size: 1rem;
+      /* 46px - 56px */
+      line-height: clamp(2.875rem, 5.5vw, 3.5rem);
+      text-decoration: none;
+      font-weight: 700;
+      text-align: center;
+      margin: 0;
+      color: #fff;
+      min-width: 9.375rem;
+      padding: 0 1.5rem;
+      background-color: var(--primary);
+      border-radius: 0.25rem;
+      display: inline-block;
+      position: relative;
+      z-index: 1;
+      /* prevents padding from adding to the width */
+      box-sizing: border-box;
+    }
+  
+    #RPsbs-products .cs-button-solid:before,
+    #RPsbs-products .cs-button-solid:before {
+      content: "";
+      position: absolute;
+      height: 100%;
+      width: 0%;
+      background: #000;
+      opacity: 1;
+      top: 0;
+      left: 0;
+      z-index: -1;
+      border-radius: 0.25rem;
+      transition: width 0.3s;
+    }
+  
+    #RPsbs-products .cs-button-solid:hover:before,
+    #RPsbs-products .cs-button-solid:hover:before {
+      width: 100%;
+    }
+  
+    #RPsbs-products .cs-picture,
+    #RPsbs-products .cs-picture {
+      width: 100%;
+      max-width: 27.125rem;
+      margin: 0;
+      border: 1px solid #f1f1f4;
+      position: relative;
+      display: block;
+      /* width divided by height */
+      aspect-ratio: 1;
+      /* prevents border from adding to height and width */
+      box-sizing: border-box;
+    }
+  
+    #RPsbs-products .cs-picture img,
+    #RPsbs-products .cs-picture img {
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: 100%;
+      width: 100%;
+      object-fit: cover;
+    }
+  }
+  
+  /* Tablet - 768px */
+  @media only screen and (min-width: 48rem) {
+  
+    #RPsbs-products .cs-container,
+    #RPsbs-products .cs-container {
+      max-width: 80rem;
+      flex-direction: row;
+      justify-content: center;
+      align-items: center;
+    }
+  
+    #RPsbs-products .cs-lines,
+    #RPsbs-products .cs-lines {
+      height: 100%;
+      width: 35%;
+      display: block;
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: -1;
+    }
+  
+  
+    #RPsbs-products .cs-picture,
+    #RPsbs-products .cs-picture {
+      /* 344px - 434px */
+      width: clamp(21.5rem, 37.5vw, 27.125rem);
+      flex: none;
+    }
+  
+    #RPsbs-products .cs-content,
+    #RPsbs-products .cs-content {
+      max-width: 33.875rem;
+      margin: 0;
+      width: 45%;
+    }
+  }
+
+
+
+/*-- -------------------------- -->
+<---         Services           -->
+<--- -------------------------- -*/
+
+/* Mobile - 360px */
+@media only screen and (min-width: 0rem) {
+    #services-1121 {
+      padding: var(--sectionPadding);
+      background-color: #1a1a1a;
+      position: relative;
+      z-index: 1;
+    }
+    #services-1121 .cs-container {
+      width: 100%;
+      max-width: 80rem;
+      margin: auto;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      /* 48px - 64px */
+      gap: clamp(3rem, 6vw, 4rem);
+    }
+    #services-1121 .cs-card-group {
+      width: 100%;
+      padding: 0;
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      /* changes to a clamp on tablet */
+      gap: 2.5rem;
+    }
+    #services-1121 .cs-item {
+      text-align: center;
+      list-style: none;
+      width: 100%;
+      max-width: 25.8125rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      /* 16px - 24px */
+      gap: clamp(1rem, 3vw, 1.5rem);
+    }
+    #services-1121 .cs-image-group {
+      /* 80px - 100px */
+      width: clamp(5rem, 8vw, 6.25rem);
+      height: clamp(5rem, 8vw, 6.25rem);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      /* prevents flexbox from squishing it */
+      flex: none;
+      position: relative;
+      z-index: 1;
+    }
+    #services-1121 .cs-icon {
+      /* 36px - 48px */
+      width: clamp(2.25rem, 4vw, 3rem);
+      height: auto;
+    }
+    #services-1121 .cs-graphic {
+      width: 100%;
+      height: auto;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      z-index: -1;
+    }
+    #services-1121 .cs-h2 {
+      /* 20px - 25px */
+      font-size: clamp(1.25rem, 2.5vw, 1.5625rem);
+      line-height: 1.2em;
+      font-weight: 700;
+      text-align: inherit;
+      margin: 0 0 0.75rem;
+      color: var(--bodyTextColorWhite);
+    }
+    #services-1121 .cs-item-text {
+      font-size: 1rem;
+      line-height: 1.5em;
+      text-align: inherit;
+      margin: 0;
+      color: var(--bodyTextColorWhite);
+    }
+    #services-1121 .cs-waves {
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: 0;
+      /* makes it act like a background image */
+      object-fit: cover;
+      position: absolute;
+      z-index: -1;
+    }
+  }
+  /* Tablet - 768px */
+  @media only screen and (min-width: 48rem) {
+    #services-1121 .cs-card-group {
+      flex-direction: row;
+      /*justify-content: space-between;
+      align-items: stretch;*/
+      /* 16px - 20px */
+      gap: clamp(1rem, 2.5vw, 1.25rem);
+    }
+  }
+  /* Small Desktop - 1024px */
+  @media only screen and (min-width: 64rem) {
+    #services-1121 .cs-item {
+      text-align: left;
+      flex-direction: row;
+      align-items: center;
+      /*justify-content: space-between;*/
+    }
+  }
+
+
+
+
+
+/*-- -------------------------- -->
+<---      Why Choose Us         -->
+<--- -------------------------- -*/
+
+/* Mobile - 360px */
+@media only screen and (min-width: 0rem) {
+    #why-choose-1634 {
+      padding: var(--sectionPadding);
+    }
+    #why-choose-1634 .cs-container {
+      width: 100%;
+      /* changes to 1280px at tablet */
+      max-width: 36.5rem;
+      margin: auto;
+      align-items: left;
+      /* 48px - 100px */
+      gap: clamp(3rem, 10vw, 6.25rem);
+    }
+    #why-choose-1634 .cs-content {
+      /* set text align to left if content needs to be left aligned */
+      text-align: left;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      /* centers content horizontally, set to flex-start to left align */
+      align-items: flex-start;
+    }
+    #why-choose-1634 .cs-flex {
+      max-width: 38.5rem;
+    }
+    #why-choose-1634 .cs-title {
+      max-width: 20ch;
+    }
+    #why-choose-1634 .cs-text {
+      margin-bottom: 1rem;
+    }
+    #why-choose-1634 .cs-text:last-of-type {
+      margin-bottom: 0;
+    }
+    #why-choose-1634 .cs-wrapper {
+      width: 100%;
+    }
+    #why-choose-1634 .cs-card-group {
+      width: 100%;
+      margin: 0;
+      padding: 0;
+      display: grid;
+      grid-template-columns: repeat(12, 1fr);
+      row-gap: 1.75rem;
+      /* 16px - 20px */
+      column-gap: clamp(1rem, 2.3vw, 1.25rem);
+    }
+    #why-choose-1634 .cs-item {
+      text-align: left;
+      list-style: none;
+      width: 100%;
+      margin: 0;
+      box-sizing: border-box;
+      display: flex;
+      grid-column: span 12;
+      flex-direction: column;
+      align-items: flex-start;
+      /* 16px - 24px */
+      gap: clamp(1rem, 3vw, 1.5rem);
+    }
+    #why-choose-1634 .cs-icon-wrapper {
+      /* 60px - 80px */
+      width: clamp(3.75rem, 7vw, 5rem);
+      height: clamp(3.75rem, 7vw, 5rem);
+      margin: 0;
+      box-sizing: border-box;
+      border: 1px solid var(--primary);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+      /* prevents flexbox from squishing it */
+      flex: none;
+    }
+    #why-choose-1634 .cs-icon {
+      width: 2rem;
+      height: auto;
+      display: block;
+    }
+    #why-choose-1634 .cs-h3 {
+      font-size: 1.25rem;
+      line-height: 1.5em;
+      margin: 0;
+      margin-bottom: 0.5rem;
+      color: var(--headerColor);
+      text-align: inherit;
+    }
+    #why-choose-1634 .cs-item-text {
+      /* 14px - 16px */
+      font-size: clamp(0.875rem, 1.5vw, 1rem);
+      line-height: 1.5em;
+      margin: 0;
+      color: var(--bodyTextColor);
+      text-align: inherit;
+    }
+    #why-choose-1634 .cs-wrapper {
+      /* makes the contents of this container act as though the container doesn't exist. They are now children of the cs-container so they can be positioned around each other. This allows us to sue the order property to place the cs-image-group at the top of the page on mobile */
+      display: contents;
+    }
+    #why-choose-1634 .cs-image-group {
+      font-size: min(2.7vw, 1em);
+      width: 33.875em;
+      height: 30.875em;
+      /* sends it to teh top in the 1st position */
+      order: -1;
+      position: relative;
+      z-index: 1;
+    }
+    #why-choose-1634 .cs-picture-wrapper {
+      width: 80.073801%;
+      height: 83.805668%;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      justify-content: stretch;
+      position: absolute;
+      z-index: 1;
+      top: 0;
+      left: 0;
+    }
+    #why-choose-1634 .cs-box {
+      width: 60%;
+      margin-top: -2.375em;
+      margin-left: 1.5em;
+      padding: 1em;
+      background-color: #f7f7f7;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 0.25rem;
+      position: relative;
+      z-index: 10;
+    }
+    #why-choose-1634 .cs-header {
+      font-size: 1em;
+      line-height: 1.2em;
+      font-weight: 700;
+      margin: 0;
+      color: var(--headerColor);
+      display: block;
+    }
+    #why-choose-1634 .cs-desc {
+      font-size: 0.875em;
+      line-height: 1.5em;
+      margin: 0;
+      color: var(--primary);
+      display: block;
+    }
+    #why-choose-1634 .cs-picture {
+      position: relative;
+      z-index: 1;
+    }
+    #why-choose-1634 .cs-picture img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      position: absolute;
+      top: 0;
+      left: 0;
+    }
+    #why-choose-1634 .cs-picture1 {
+      width: 100%;
+      height: 100%;
+    }
+    #why-choose-1634 .cs-picture2 {
+      width: 36.346863%;
+      height: 39.878543%;
+      position: absolute;
+      bottom: 0;
+      right: 0;
+    }
+  }
+  /* Tablet - 768px */
+  @media only screen and (min-width: 48rem) {
+    #why-choose-1634 .cs-container {
+      max-width: 80rem;
+    }
+    #why-choose-1634 .cs-content {
+      flex-direction: row;
+      justify-content: center;
+      align-items: center;
+    }
+    #why-choose-1634 .cs-flex {
+      text-align: left;
+      width: 40vw;
+      max-width: 40rem;
+      flex: none;
+    }
+    #why-choose-1634 .cs-title {
+      margin: 0;
+    }
+    #why-choose-1634 .cs-h3,
+    #why-choose-1634 .cs-item-text {
+      text-align: left;
+    }
+    #why-choose-1634 .cs-item {
+      grid-column: span 4;
+    }
+    #why-choose-1634 .cs-image-group {
+      width: 100%;
+    }
+  }
+  /* Small Desktop - 1024px */
+  @media only screen and (min-width: 64rem) {
+    #why-choose-1634 {
+      /* set the darker background color on the main div */
+      background-color: #F8F5F1;
+      overflow: hidden;
+    }
+    #why-choose-1634 .cs-content {
+      align-items: flex-start;
+    }
+    #why-choose-1634 .cs-flex {
+      width: 50%;
+    }
+    #why-choose-1634 .cs-wrapper {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: stretch;
+      gap: 2.5rem;
+      position: relative;
+      z-index: 1;
+    }
+    #why-choose-1634 .cs-wrapper:before {
+      /* make the white space dependant on the height of the cs-wrapper as a pseudo element attached to the cs wrapper. This makes the white background responsive to the amount of items you have in your list. When the list grows or shrinks, the design will maintain its same spacing */
+      content: '';
+      width: 100vw;
+      height: 100vw;
+      background: #fff;
+      opacity: 1;
+      position: absolute;
+      display: block;
+      top: 0;
+      left: 50%;
+      z-index: -1;
+      transform: translateX(-50%);
+    }
+    #why-choose-1634 .cs-card-group {
+      max-width: 39.375rem;
+      /* use padding to push add the same amount of space between the content and the top of the card group as the negative margin top value on the cs-image-group. This makes sure that it counter acts the effects of the negative margin affecting the card group as well */
+      padding-top: 3rem;
+      align-self: flex-start;
+    }
+    #why-choose-1634 .cs-image-group {
+      width: 33.875em;
+      /* by setting height to auto, it will stretch to fill the container height. So when you add or subtract more cards and change the height of the container, the image group will shrink as well. Thats why we set the heights of the images in percentages. They will always be X% tall inside the cs-image-group. So when the image group stretches to match the container height, the pictures percentage height also grows proportionally. This ensures the design responds to changes in height from the card section on the left. */
+      height: auto;
+      min-height: 30.875em;
+      /* makes it overlap the .cs-wrapper div */
+      margin-top: -3rem;
+      order: 2;
+      flex: none;
+    }
+    #why-choose-1634 .cs-item {
+      grid-column: span 12;
+      flex-direction: row;
+    }
+  }
+                                  

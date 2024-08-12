@@ -1266,7 +1266,7 @@ iframe {
 
 
 /*-- -------------------------- -->
-<---        Homepage            -->
+<---        Top Banner          -->
 <--- -------------------------- -*/
 
 
@@ -2578,6 +2578,7 @@ iframe {
   justify-content: space-between; /* Pushes the button to the bottom */
   position: relative;
   min-height: 300px; /* Ensure minimum height for consistent layout */
+  max-width: calc(33.33% - 20px); /* Adjust to fit within container */
 }
 
 /* Post Title Styling */

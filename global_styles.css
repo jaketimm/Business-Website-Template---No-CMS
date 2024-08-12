@@ -2627,9 +2627,8 @@ iframe {
   }
 
   .post {
-    flex: 1 1 100%;
-    padding: 15px;
-    /* Adjust padding on mobile screens */
+    flex: 1 1 calc(100% - 20px); /* Full width for very small screens */
+    max-width: calc(100% - 20px); /* Full width for very small screens */
   }
 
   .post h2 {

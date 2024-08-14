@@ -3097,8 +3097,15 @@ iframe {
     align-items: center;
     /* 48px - 64px */
     gap: clamp(3rem, 6vw, 4rem);
-    margin-bottom: 5%;
+    margin-bottom: 8%;
   }
+
+  /* Mobile-specific styles */
+  @media (max-width: 600px) {
+  #cta-51 .cs-container {
+      margin-bottom: 25%;
+  }
+ }
 
   #cta-51 .cs-content {
     /* set text align to left if content needs to be left aligned */

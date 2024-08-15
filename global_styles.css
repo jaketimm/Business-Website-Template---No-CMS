@@ -1,6 +1,6 @@
 :root {
   /* Add these styles to your global stylesheet, which is used across all site pages. You only need to do this once. All elements in the library derive their variables and base styles from this central sheet, simplifying site-wide edits. For instance, if you want to modify how your h2's appear across the site, you just update it once in the global styles, and the changes apply everywhere. */
-  --primary: #0d0764;
+  --primary: #040079fa;
   /* These are highlight colors for text, box edges, ect. */
   --primaryLight: #543dff;
   --secondary: #878787;
@@ -1891,7 +1891,7 @@ iframe {
 @media only screen and (min-width: 0rem) {
   #cs-footer-274 {
     padding: var(--sectionPadding);
-    background-color: #0d0764;
+    background-color: var(--primary);
     /* Navigation Links */
   }
 
@@ -1944,7 +1944,7 @@ iframe {
   #cs-footer-274 .cs-social-link {
     width: 1.5rem;
     height: 1.5rem;
-    background-color: #0d0764;
+    background-color: var(--primary);
     border-radius: 50%;
     display: flex;
     justify-content: center;
@@ -3112,6 +3112,8 @@ iframe {
   }
  }
 
+
+
   #cta-51 .cs-content {
     /* set text align to left if content needs to be left aligned */
     text-align: center;
@@ -3151,7 +3153,7 @@ iframe {
     color: #fff;
     min-width: 9.375rem;
     padding: 0 1.5rem;
-    background-color: #0d0764;
+    background-color: var(--primary);
     border-radius: 0.25rem;
     display: inline-block;
     position: relative;
@@ -3232,7 +3234,7 @@ iframe {
 }
 
 #cta-51 .custom-shape-divider-bottom-1723582066 .shape-fill {
-  fill: #0d0764;
+  fill: var(--primary);
 }
 
 
@@ -3480,3 +3482,13 @@ iframe {
     width: 45%;
   }
 }
+
+/* Global Decorative Line */
+.decorative-line {
+  border-top: 2px solid var(--primary);
+  width: 100%;
+  margin: 20px 0;
+  position: relative;
+}
+
+

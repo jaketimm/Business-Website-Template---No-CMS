@@ -622,6 +622,9 @@ iframe {
       margin: 0 0 1rem 0;
       color: var(--primary);
       position: relative;
+      /* Colored Line Underneath */
+      padding-bottom: 1%;
+      border-bottom: 2px solid var(--primary);
   }
   #cs-content-831 .cs-text {
       font-size: var(--bodyFontSize);

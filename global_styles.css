@@ -104,6 +104,10 @@ body {
   background-color: #fff8f8;
 }
 
+/* Apply only to product page */
+.products-page {
+  background-color: #fff8f8;
+}
 
 /*-- -------------------------- -->
 <---     YT Players Grid        -->
@@ -2920,11 +2924,12 @@ iframe {
 /* Mobile - 360px */
 @media only screen and (min-width: 0rem) {
 
-  #RPsbs-why-us,
+
   #RPsbs-why-us {
     padding: 0 1em;
     position: relative;
     z-index: 1;
+    background-color: #fff8f8
   }
 
   #RPsbs-why-us .cs-container {
@@ -3027,7 +3032,7 @@ iframe {
     box-sizing: border-box;
   }
 
-  #RPsbs-why-us .cs-picture img,
+
   #RPsbs-why-us .cs-picture img {
     position: absolute;
     top: 0;
@@ -3041,7 +3046,7 @@ iframe {
 /* Tablet - 768px */
 @media only screen and (min-width: 48rem) {
 
-  #RPsbs-why-us .cs-container,
+ 
   #RPsbs-why-us .cs-container {
     max-width: 80rem;
     flex-direction: row;
@@ -3049,7 +3054,7 @@ iframe {
     align-items: center;
   }
 
-  #RPsbs-why-us .cs-lines,
+ 
   #RPsbs-why-us .cs-lines {
     height: 100%;
     width: 35%;
@@ -3061,14 +3066,14 @@ iframe {
   }
 
 
-  #RPsbs-why-us .cs-picture,
+ 
   #RPsbs-why-us .cs-picture {
     /* 344px - 434px */
     width: clamp(21.5rem, 37.5vw, 27.125rem);
     flex: none;
   }
 
-  #RPsbs-why-us .cs-content,
+
   #RPsbs-why-us .cs-content {
     max-width: 33.875rem;
     margin: 0;
@@ -3228,4 +3233,250 @@ iframe {
 
 #cta-51 .custom-shape-divider-bottom-1723582066 .shape-fill {
   fill: #0d0764;
+}
+
+
+
+/*-- -------------------------- -->
+<---    Top Banner w/ Text      -->
+<--- -------------------------- -*/
+
+
+/* Fixed banner styles */
+#Banner-Section-With-Text .banner {
+  position: relative;
+  width: 100%;
+  height: 30vh;
+  overflow: hidden;
+}
+
+#Banner-Section-With-Text .banner img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Add the black tint overlay */
+#Banner-Section-With-Text .banner::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  /* Black tint with 50% opacity */
+  z-index: 1;
+  /* Ensure it sits on top of the image but below the text box */
+}
+
+
+#Banner-Section-With-Text .text-box {
+  position: absolute;
+  top: 50%;
+  left: 5%;
+  transform: translateY(-50%);
+  color: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  max-width: 50%;
+  /* Limit width for better readability */
+  z-index: 2;
+
+}
+
+#Banner-Section-With-Text .text-box h1 {
+  margin-top: 5%;
+  font-size: var(--topperFontSize);
+}
+
+#Banner-Section-With-Text .text-box p {
+  margin-top: 0;
+  font-size: var(--headerFontSize);
+}
+
+/* Mobile-specific styles */
+@media only screen and (max-width: 63.9375rem) {
+  #Banner-Section-With-Text .banner {
+    height: 30vh;
+  }
+
+  #Banner-Section-With-Text .text-box {
+    left: 2%;
+    max-width: 90%;
+    /* Adjust max-width for smaller screens */
+  }
+
+  #Banner-Section-With-Text .text-box h1 {
+    margin-bottom: 1%;
+  }
+
+  #Banner-Section-With-Text .text-box p {
+    margin-bottom: 2%;
+  }
+}
+
+
+/*-- -------------------------- -->
+<---   Products Side By Side   -->
+<--- -------------------------- -*/
+
+/* Mobile - 360px */
+@media only screen and (min-width: 0rem) {
+
+  #RPsbs-products,
+  #RPsbs-products {
+    padding: 0 1em;
+    position: relative;
+    z-index: 1;
+  }
+
+  #RPsbs-products .cs-container,
+  #RPsbs-products .cs-container {
+    width: 100%;
+    /* changes to 1280px on tablet */
+    max-width: 34.375rem;
+    padding: var(--sectionPadding);
+    padding-left: 0;
+    padding-right: 0;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* 48px - 108px */
+    gap: clamp(3rem, 8vw, 6.75rem);
+    position: relative;
+  }
+
+  #RPsbs-products .cs-content,
+  #RPsbs-products .cs-content {
+    /* set text align to left if content needs to be left aligned */
+    text-align: left;
+    width: 100%;
+    /* changes at tablet */
+    max-width: 27.125rem;
+    display: flex;
+    flex-direction: column;
+    /* centers content horizontally, set to flex-start to left align */
+    align-items: flex-start;
+  }
+
+  #RPsbs-products .cs-title,
+  #RPsbs-products .cs-title {
+    max-width: 20ch;
+  }
+
+  #RPsbs-products .cs-text,
+  #RPsbs-products .cs-text {
+    margin-bottom: 1rem;
+    opacity: 0.8;
+  }
+
+  #RPsbs-products .cs-text:last-of-type,
+  #RPsbs-products .cs-text:last-of-type {
+    margin-bottom: 2rem;
+  }
+
+  #RPsbs-products .cs-button-solid,
+  #RPsbs-products .cs-button-solid {
+    font-size: 1rem;
+    /* 46px - 56px */
+    line-height: clamp(2.875rem, 5.5vw, 3.5rem);
+    text-decoration: none;
+    font-weight: 700;
+    text-align: center;
+    margin: 0;
+    color: #fff;
+    min-width: 9.375rem;
+    padding: 0 1.5rem;
+    background-color: var(--primary);
+    border-radius: 0.25rem;
+    display: inline-block;
+    position: relative;
+    z-index: 1;
+    /* prevents padding from adding to the width */
+    box-sizing: border-box;
+  }
+
+  #RPsbs-products .cs-button-solid:before,
+  #RPsbs-products .cs-button-solid:before {
+    content: "";
+    position: absolute;
+    height: 100%;
+    width: 0%;
+    background: #000;
+    opacity: 1;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    border-radius: 0.25rem;
+    transition: width 0.3s;
+  }
+
+  #RPsbs-products .cs-button-solid:hover:before,
+  #RPsbs-products .cs-button-solid:hover:before {
+    width: 100%;
+  }
+
+  #RPsbs-products .cs-picture,
+  #RPsbs-products .cs-picture {
+    width: 100%;
+    max-width: 27.125rem;
+    margin: 0;
+    border: 1px solid #f1f1f4;
+    position: relative;
+    display: block;
+    /* width divided by height */
+    aspect-ratio: 1;
+    /* prevents border from adding to height and width */
+    box-sizing: border-box;
+  }
+
+  #RPsbs-products .cs-picture img,
+  #RPsbs-products .cs-picture img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+  }
+}
+
+/* Tablet - 768px */
+@media only screen and (min-width: 48rem) {
+
+  #RPsbs-products .cs-container,
+  #RPsbs-products .cs-container {
+    max-width: 80rem;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+  }
+
+  #RPsbs-products .cs-lines,
+  #RPsbs-products .cs-lines {
+    height: 100%;
+    width: 35%;
+    display: block;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: -1;
+  }
+
+
+  #RPsbs-products .cs-picture,
+  #RPsbs-products .cs-picture {
+    /* 344px - 434px */
+    width: clamp(21.5rem, 37.5vw, 27.125rem);
+    flex: none;
+  }
+
+  #RPsbs-products .cs-content,
+  #RPsbs-products .cs-content {
+    max-width: 33.875rem;
+    margin: 0;
+    width: 45%;
+  }
 }

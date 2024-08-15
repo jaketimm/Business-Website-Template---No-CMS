@@ -50,6 +50,23 @@ function adjustBannerSectionOffset() {
 }
 
 
+// Script to position the banner so the top edge always aligns with the nav bar's bottom edge.
+
+window.addEventListener('load', adjustTextBannerSectionOffset);
+window.addEventListener('resize', adjustTextBannerSectionOffset);
+
+function adjustTextBannerSectionOffset() {
+    // Get the height of the navigation header
+    const header = document.getElementById('cs-navigation');
+    const headerHeight = header.offsetHeight;
+
+    // Get the Banner Section and set its top margin
+    const bannerSection = document.getElementById('Banner-Section-With-Text');
+    bannerSection.style.paddingTop = `${headerHeight}px`;
+}
+
+
+
 
 
 // Script to position the toppers so the top edge always aligns with the nav bar's bottom edge.
@@ -66,4 +83,6 @@ function adjustTopperSectionOffset() {
     const topperSection = document.getElementById('cs-content-831');
     topperSection.style.paddingTop = `${headerHeight + 50}px`;
 }
+
+
 

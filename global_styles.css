@@ -30,7 +30,7 @@ body {
   /* Set text color*/
 }
 
- 
+
 *,
 *:before,
 *:after {
@@ -594,48 +594,51 @@ iframe {
 /* Mobile */
 @media only screen and (min-width: 0rem) {
   #cs-content-831 {
-      /* set text align to left if content needs to be left aligned */
-      text-align: center;
-      width: 100%;
-      display: flex;
-      flex-direction: column;
-      /* centers content horizontally, set to flex-start to left align */
-      align-items: center;
+    /* set text align to left if content needs to be left aligned */
+    text-align: center;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    /* centers content horizontally, set to flex-start to left align */
+    align-items: center;
   }
+
   #cs-content-831 .cs-topper {
-      font-size: var(--topperFontSize);
-      line-height: 1.2em;
-      text-transform: uppercase;
-      text-align: inherit;
-      letter-spacing: 0.1em;
-      font-weight: 700;
-      color: var(--bodyTextColor);
-      margin-bottom: 0.25rem;
-      display: block;
+    font-size: var(--topperFontSize);
+    line-height: 1.2em;
+    text-transform: uppercase;
+    text-align: inherit;
+    letter-spacing: 0.1em;
+    font-weight: 700;
+    color: var(--bodyTextColor);
+    margin-bottom: 0.25rem;
+    display: block;
   }
+
   #cs-content-831 .cs-title {
-      font-size: var(--headerFontSize);
-      font-weight: 900;
-      line-height: 1.2em;
-      text-align: inherit;
-      max-width: 43.75rem;
-      margin: 0 0 1rem 0;
-      color: var(--primary);
-      position: relative;
-      /* Colored Line Underneath */
-      padding-bottom: 1%;
-      border-bottom: 2px solid var(--primary);
+    font-size: var(--headerFontSize);
+    font-weight: 900;
+    line-height: 1.2em;
+    text-align: inherit;
+    max-width: 43.75rem;
+    margin: 0 0 1rem 0;
+    color: var(--primary);
+    position: relative;
+    /* Colored Line Underneath */
+    padding-bottom: 1%;
+    border-bottom: 2px solid var(--primary);
   }
+
   #cs-content-831 .cs-text {
-      font-size: var(--bodyFontSize);
-      line-height: 1.5em;
-      text-align: justify;
-      width: 90%;
-      margin: 0;
-      color: var(--bodyTextColor);
+    font-size: var(--bodyFontSize);
+    line-height: 1.5em;
+    text-align: justify;
+    width: 90%;
+    margin: 0;
+    color: var(--bodyTextColor);
   }
 }
-                              
+
 
 /*-- -------------------------- -->
 <-         About/Bio Page       -->
@@ -644,87 +647,95 @@ iframe {
 /* Mobile - 360px */
 @media only screen and (min-width: 0rem) {
   #meet-us-1021 {
-      padding: var(--sectionPadding);
+    padding: var(--sectionPadding);
   }
+
   #meet-us-1021 .cs-container {
-      width: 80%;
-      max-width: 80rem;
-      margin: auto;
-      position: relative;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      flex-direction: column;
-      /* 48px - 64px */
-      gap: clamp(3rem, 6vw, 4rem);
+    width: 80%;
+    max-width: 80rem;
+    margin: auto;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    /* 48px - 64px */
+    gap: clamp(3rem, 6vw, 4rem);
   }
 
   #meet-us-1021 .cs-graphic {
-      width: 100%;
-      max-width: 26.82352941rem;
-      margin: 0 0 1rem 0;
+    width: 100%;
+    max-width: 26.82352941rem;
+    margin: 0 0 1rem 0;
   }
 
   #meet-us-1021 .cs-card-group {
-      width: 100%;
-      padding: 0;
-      margin: 0;
-      display: flex;
-      flex-direction: row;
-      justify-content: center;
-      align-items: center;
-      flex-wrap: wrap;
-      /* 16px - 20px */
-      gap: clamp(1rem, 2vw, 1.25rem);
+    width: 100%;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    /* 16px - 20px */
+    gap: clamp(1rem, 2vw, 1.25rem);
   }
+
   #meet-us-1021 .cs-item {
-      list-style: none;
-      width: 100%;
-      max-width: 25.8125rem;
-      position: relative;
-      z-index: 1;
-      /*border: 2px solid var(--bodyTextColor);*/
+    list-style: none;
+    width: 100%;
+    max-width: 25.8125rem;
+    position: relative;
+    z-index: 1;
+    /*border: 2px solid var(--bodyTextColor);*/
   }
+
   #meet-us-1021 .cs-item:hover .cs-picture {
-      background-color: #000;
+    background-color: #000;
   }
+
   #meet-us-1021 .cs-item:hover .cs-picture img {
-      transform: scale(1.1);
-      opacity: 0.6;
+    transform: scale(1.1);
+    opacity: 0.6;
   }
+
   #meet-us-1021 .cs-info {
-      width: 85.5%;
-      /* 16px - 24px */
-      padding: clamp(1rem, 2vw, 1.5rem);
-      margin: -3.75rem auto 0;
-      box-sizing: border-box;
-      background-color: #1a1a1a;
-      border-top: 4px solid var(--primary);
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      flex-direction: column;
-      z-index: 10;
+    width: 85.5%;
+    /* 16px - 24px */
+    padding: clamp(1rem, 2vw, 1.5rem);
+    margin: -3.75rem auto 0;
+    box-sizing: border-box;
+    background-color: #1a1a1a;
+    border-top: 4px solid var(--primary);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    z-index: 10;
   }
+
   #meet-us-1021 .cs-name {
-      /* 16px - 25px */
-      font-size: clamp(1rem, 2vw, 1.5625rem);
-      font-weight: 700;
-      line-height: 1.2em;
-      /* 4px - 8px */
-      margin: 0 0 clamp(0.25rem, 1vw, 0.5rem);
-      color: var(--bodyTextColorWhite);
-      display: block;
-      transition: color 0.3s;
+    /* 16px - 25px */
+    font-size: clamp(1rem, 2vw, 1.5625rem);
+    font-weight: 700;
+    line-height: 1.2em;
+    /* 4px - 8px */
+    margin: 0 0 clamp(0.25rem, 1vw, 0.5rem);
+    color: var(--bodyTextColorWhite);
+    display: block;
+    transition: color 0.3s;
   }
+
   #meet-us-1021 .cs-job {
-      /* 14px - 16px */
-      font-size: clamp(0.875rem, 1.5vw, 1rem);
-      line-height: 1.5em;
-      color: var(--bodyTextColorWhite);
-      opacity: 0.8;
-      display: block;
+    /* 14px - 16px */
+    font-size: clamp(0.875rem, 1.5vw, 1rem);
+    line-height: 1.5em;
+    color: var(--bodyTextColorWhite);
+    opacity: 0.8;
+    display: block;
   }
+
   #meet-us-1021 .cs-email {
     /* 14px - 16px */
     font-size: clamp(0.875rem, 1.5vw, 1rem);
@@ -732,53 +743,58 @@ iframe {
     color: var(--bodyTextColorWhite);
     opacity: 0.8;
     display: block;
-}
+  }
+
   #meet-us-1021 .cs-picture {
-      width: 100%;
-      /* 246px - 500px */
-      height: clamp(15.375rem, 40vw, 32.25rem);
-      overflow: hidden;
-      display: block;
-      position: relative;
-      transition: background-color 0.3s;
-      z-index: -1;
+    width: 100%;
+    /* 246px - 500px */
+    height: clamp(15.375rem, 40vw, 32.25rem);
+    overflow: hidden;
+    display: block;
+    position: relative;
+    transition: background-color 0.3s;
+    z-index: -1;
   }
+
   #meet-us-1021 .cs-picture img {
-      position: absolute;
-      top: 0;
-      left: 0;
-      height: 100%;
-      width: 100%;
-      /* makes it behave like a background image */
-      object-fit: cover;
-      /* makes the image position itself at the top of the parent */
-      object-position: top;
-      transition:
-          transform 0.6s,
-          opacity 0.3s;
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    /* makes it behave like a background image */
+    object-fit: cover;
+    /* makes the image position itself at the top of the parent */
+    object-position: top;
+    transition:
+      transform 0.6s,
+      opacity 0.3s;
   }
 }
+
 /* Tablet - 768px */
 @media only screen and (min-width: 48rem) {
   #meet-us-1021 .cs-card-group {
-      display: grid;
-      grid-template-columns: repeat(12, 1fr);
-      width: 100%;
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    width: 100%;
   }
+
   #meet-us-1021 .cs-item {
-      grid-column: span 4;
+    grid-column: span 4;
   }
 }
 
 /* Mobile - 360px and up */
 @media only screen and (max-width: 48rem) {
   #meet-us-1021 .cs-picture {
-      height: 90vw; /* Ensure height is adjusted automatically */
-      width: auto;
+    height: 90vw;
+    /* Ensure height is adjusted automatically */
+    width: auto;
   }
 }
 
-                            
+
 
 /*-- -------------------------- -->
 <---       Services Page        -->
@@ -2565,7 +2581,8 @@ iframe {
   gap: 20px;
   justify-content: space-between;
   max-width: 90%;
-  margin: 5% auto; /* Combined margin settings */
+  margin: 5% auto;
+  /* Combined margin settings */
   padding: 20px;
 }
 
@@ -2575,13 +2592,17 @@ iframe {
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   padding: 20px;
   box-sizing: border-box;
-  flex: 1 1 calc(30% - 20px); /* Adjust to fit within container */
+  flex: 1 1 calc(30% - 20px);
+  /* Adjust to fit within container */
   display: flex;
   flex-direction: column;
-  justify-content: space-between; /* Pushes the button to the bottom */
+  justify-content: space-between;
+  /* Pushes the button to the bottom */
   position: relative;
-  min-height: 300px; /* Ensure minimum height for consistent layout */
-  max-width: calc(33.33% - 20px); /* Adjust to fit within container */
+  min-height: 300px;
+  /* Ensure minimum height for consistent layout */
+  max-width: calc(33.33% - 20px);
+  /* Adjust to fit within container */
 }
 
 /* Post Title Styling */
@@ -2600,7 +2621,8 @@ iframe {
 .post div {
   font-size: 1em;
   color: #000000;
-  margin-bottom: auto; /* Pushes the button down if needed */
+  margin-bottom: auto;
+  /* Pushes the button down if needed */
 }
 
 
@@ -2620,7 +2642,8 @@ iframe {
 .read-more-container {
   margin-top: 4%;
   /* Ensure there's space above the button */
-  margin-bottom: 0; /* Reset margin-bottom to avoid extra space */
+  margin-bottom: 0;
+  /* Reset margin-bottom to avoid extra space */
 }
 
 /* Mobile styles */
@@ -2630,8 +2653,10 @@ iframe {
   }
 
   .post {
-    flex: 1 1 calc(100% - 20px); /* Full width for very small screens */
-    max-width: calc(100% - 20px); /* Full width for very small screens */
+    flex: 1 1 calc(100% - 20px);
+    /* Full width for very small screens */
+    max-width: calc(100% - 20px);
+    /* Full width for very small screens */
   }
 
   .post h2 {
@@ -2640,13 +2665,15 @@ iframe {
 
   .post div {
     font-size: 0.9em;
-    margin-bottom: 15px; /* Adjust margin for better spacing on mobile */
+    margin-bottom: 15px;
+    /* Adjust margin for better spacing on mobile */
   }
 
   .read-more-container {
     margin-top: 20px;
     /* Ensure there's space above the button */
-    margin-bottom: 0; /* Reset margin-bottom to avoid extra space */
+    margin-bottom: 0;
+    /* Reset margin-bottom to avoid extra space */
   }
 }
 
@@ -2687,13 +2714,17 @@ iframe {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
+
   }
 
-  #service-cards .cs-title {
-    width: 100%;
+ #service-cards .cs-title {
+    display: inline-block; /* Make sure the span behaves like a block-level element */
+    position: relative; /* Create a positioning context for the pseudo-elements */
     color: var(--bodyTextColor);
-    margin-bottom: 10%;
-  }
+    margin-bottom: 10%; /* Space below the title */
+    padding-right: 60px; /* Ensure there's enough space on the right for the lines */
+}
+
 
   #service-cards .cs-text-wrapper {
     display: flex;
@@ -2753,20 +2784,28 @@ iframe {
 
 
   #service-cards .cs-read-more {
-    display: block; /* Make it appear on its own line */
+    display: block;
+    /* Make it appear on its own line */
     margin-top: 10px;
     font-size: var(--topperFontSize);
     font-weight: bold;
-    color: var(--bodyTextColor); /* Adjust color as needed */
-    text-decoration: none; /* Remove underline by default */
+    color: var(--bodyTextColor);
+    /* Adjust color as needed */
+    text-decoration: none;
+    /* Remove underline by default */
     transition: color 0.3s, text-decoration 0.3s;
+    border-bottom: 2px solid var(--primary);
   }
 
   #service-cards .cs-read-more::after {
-    content: " >"; /* Add a right-facing arrow after the text */
-    font-size: var(--topperFontSize); /* Match font size with text */
-    margin-left: 5px; /* Space between text and arrow */
-    display: inline; /* Ensure it appears inline with text */
+    content: " >";
+    /* Add a right-facing arrow after the text */
+    font-size: var(--topperFontSize);
+    /* Match font size with text */
+    margin-left: 5px;
+    /* Space between text and arrow */
+    display: inline;
+    /* Ensure it appears inline with text */
   }
 
   /* Tablet - 768px */
@@ -2779,7 +2818,7 @@ iframe {
       align-items: center;
     }
 
-    #RPsbs-why-us .cs-content {
+    #service-cards .cs-content {
       max-width: 33.875rem;
       margin: 0;
       width: 45%;
@@ -2917,7 +2956,7 @@ iframe {
 
 
 /*-- -------------------------- -->
-<---   Why Us Side By Side   -->
+<--- Why Choose Us Side By Side -->
 <--- -------------------------- -*/
 
 /* Mobile - 360px */
@@ -2957,10 +2996,33 @@ iframe {
   }
 
   #RPsbs-why-us .cs-title {
-    width: 100%;
+    display: inline-block; /* Keeps the header from stretching full-width */
+    position: relative; /* For positioning the pseudo-elements */
     color: var(--bodyTextColor);
-    margin-bottom: 10%;
+    margin-bottom: 10%; /* Space below the title */
+    padding-right: 60px; /* Space on the right for the lines */
   }
+
+  #RPsbs-why-us .cs-title::before {
+    content: '';
+    position: absolute;
+    background: var(--primary); /* Line color */
+    width: 50px; /* Width of the top line */
+    height: 3px; /* Height of the top line */
+    right: 0; /* Align to the right edge of the .cs-title */
+    top: 10px; /* Position at the top */
+}
+
+  #RPsbs-why-us .cs-title::after {
+    content: '';
+    position: absolute;
+    background: var(--primary); /* Line color */
+    width: 30px; /* Width of the bottom line */
+    height: 3px; /* Height of the bottom line */
+    right: 20px; /* Align to the right edge of the .cs-title */
+    top: 18px; /* Position slightly below the top line */
+}
+
 
   #RPsbs-why-us .cs-text-wrapper {
     display: flex;
@@ -3045,7 +3107,7 @@ iframe {
 /* Tablet - 768px */
 @media only screen and (min-width: 48rem) {
 
- 
+
   #RPsbs-why-us .cs-container {
     max-width: 80rem;
     flex-direction: row;
@@ -3053,7 +3115,7 @@ iframe {
     align-items: center;
   }
 
- 
+
   #RPsbs-why-us .cs-lines {
     height: 100%;
     width: 35%;
@@ -3065,7 +3127,7 @@ iframe {
   }
 
 
- 
+
   #RPsbs-why-us .cs-picture {
     /* 344px - 434px */
     width: clamp(21.5rem, 37.5vw, 27.125rem);
@@ -3106,10 +3168,10 @@ iframe {
 
   /* Mobile-specific styles */
   @media (max-width: 600px) {
-  #cta-51 .cs-container {
+    #cta-51 .cs-container {
       margin-bottom: 25%;
+    }
   }
- }
 
 
 
@@ -3327,14 +3389,14 @@ iframe {
 /* Mobile - 360px */
 @media only screen and (min-width: 0rem) {
 
-  #RPsbs-products,
+
   #RPsbs-products {
     padding: 0 1em;
     position: relative;
     z-index: 1;
   }
 
-  #RPsbs-products .cs-container,
+
   #RPsbs-products .cs-container {
     width: 100%;
     /* changes to 1280px on tablet */
@@ -3351,7 +3413,7 @@ iframe {
     position: relative;
   }
 
-  #RPsbs-products .cs-content,
+
   #RPsbs-products .cs-content {
     /* set text align to left if content needs to be left aligned */
     text-align: left;
@@ -3364,23 +3426,47 @@ iframe {
     align-items: flex-start;
   }
 
-  #RPsbs-products .cs-title,
+
   #RPsbs-products .cs-title {
-    max-width: 20ch;
+    display: inline-block; /* Keeps the header from stretching full-width */
+    position: relative; /* For positioning the pseudo-elements */
+    color: var(--primary);
+    margin-bottom: 10%; /* Space below the title */
+    padding-right: 60px; /* Space on the right for the lines */
   }
 
-  #RPsbs-products .cs-text,
+  #RPsbs-products .cs-title::before {
+    content: '';
+    position: absolute;
+    background: var(--primary); /* Line color */
+    width: 50px; /* Width of the top line */
+    height: 3px; /* Height of the top line */
+    right: 0; /* Align to the right edge of the .cs-title */
+    top: 10px; /* Position at the top */
+}
+
+   #RPsbs-products .cs-title::after {
+    content: '';
+    position: absolute;
+    background: var(--primary); /* Line color */
+    width: 30px; /* Width of the bottom line */
+    height: 3px; /* Height of the bottom line */
+    right: 20px; /* Align to the right edge of the .cs-title */
+    top: 18px; /* Position slightly below the top line */
+}
+
+
   #RPsbs-products .cs-text {
     margin-bottom: 1rem;
     opacity: 0.8;
   }
 
-  #RPsbs-products .cs-text:last-of-type,
+
   #RPsbs-products .cs-text:last-of-type {
     margin-bottom: 2rem;
   }
 
-  #RPsbs-products .cs-button-solid,
+
   #RPsbs-products .cs-button-solid {
     font-size: 1rem;
     /* 46px - 56px */
@@ -3401,7 +3487,7 @@ iframe {
     box-sizing: border-box;
   }
 
-  #RPsbs-products .cs-button-solid:before,
+
   #RPsbs-products .cs-button-solid:before {
     content: "";
     position: absolute;
@@ -3416,12 +3502,12 @@ iframe {
     transition: width 0.3s;
   }
 
-  #RPsbs-products .cs-button-solid:hover:before,
+ 
   #RPsbs-products .cs-button-solid:hover:before {
     width: 100%;
   }
 
-  #RPsbs-products .cs-picture,
+
   #RPsbs-products .cs-picture {
     width: 100%;
     max-width: 27.125rem;
@@ -3435,7 +3521,7 @@ iframe {
     box-sizing: border-box;
   }
 
-  #RPsbs-products .cs-picture img,
+
   #RPsbs-products .cs-picture img {
     position: absolute;
     top: 0;
@@ -3449,7 +3535,7 @@ iframe {
 /* Tablet - 768px */
 @media only screen and (min-width: 48rem) {
 
-  #RPsbs-products .cs-container,
+ 
   #RPsbs-products .cs-container {
     max-width: 80rem;
     flex-direction: row;
@@ -3457,7 +3543,7 @@ iframe {
     align-items: center;
   }
 
-  #RPsbs-products .cs-lines,
+
   #RPsbs-products .cs-lines {
     height: 100%;
     width: 35%;
@@ -3469,14 +3555,14 @@ iframe {
   }
 
 
-  #RPsbs-products .cs-picture,
+
   #RPsbs-products .cs-picture {
     /* 344px - 434px */
     width: clamp(21.5rem, 37.5vw, 27.125rem);
     flex: none;
   }
 
-  #RPsbs-products .cs-content,
+
   #RPsbs-products .cs-content {
     max-width: 33.875rem;
     margin: 0;
@@ -3487,9 +3573,7 @@ iframe {
 /* Global Decorative Line */
 .decorative-line {
   border-top: 2px solid var(--primary);
-  width: 100%;
+  width: 75vw;
   margin: 20px 0;
   position: relative;
 }
-
-

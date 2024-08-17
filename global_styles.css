@@ -693,6 +693,7 @@ iframe {
   /* Adjust the width to 10% for phones */
   #cs-content-831 .cs-title-decorative::before,
   #cs-content-831 .cs-title-decorative::after {
+      left: -15%;
       width: 10%;
       /* Width of the line on phones */
   }

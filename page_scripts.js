@@ -61,8 +61,8 @@ function adjustTextBannerSectionOffset() {
     const headerHeight = header.offsetHeight;
 
     // Get the Banner Section and set its top margin
-    const bannerSection = document.getElementById('Banner-Section-With-Text');
-    bannerSection.style.paddingTop = `${headerHeight}px`;
+    const bannerSectionText = document.getElementById('Banner-Section-With-Text');
+    bannerSectionText.style.paddingTop = `${headerHeight}px`;
 }
 
 

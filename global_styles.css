@@ -688,6 +688,16 @@ iframe {
     /* Width of the right line */
   }
 
+  /* Media Query for Phones */
+@media only screen and (max-width: 600px) {
+  /* Adjust the width to 10% for phones */
+  #cs-content-831 .cs-title-decorative::before,
+  #cs-content-831 .cs-title-decorative::after {
+      width: 10%;
+      /* Width of the line on phones */
+  }
+}
+
   #cs-content-831 .cs-text {
     font-size: var(--bodyFontSize);
     line-height: 1.5em;

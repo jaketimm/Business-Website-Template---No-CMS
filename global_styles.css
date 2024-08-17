@@ -690,12 +690,14 @@ iframe {
 
   /* Media Query for Phones */
 @media only screen and (max-width: 600px) {
-  /* Adjust the width to 10% for phones */
-  #cs-content-831 .cs-title-decorative::before,
+  /* Adjust the width for phones */
+  #cs-content-831 .cs-title-decorative::before{
+    left: -15%;
+    width: 25%;
+  }
   #cs-content-831 .cs-title-decorative::after {
-      left: -15%;
-      width: 10%;
-      /* Width of the line on phones */
+    right: -15%;
+    width: 25%;
   }
 }
 

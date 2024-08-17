@@ -616,18 +616,76 @@ iframe {
     display: block;
   }
 
+  /* Standard Title */
   #cs-content-831 .cs-title {
     font-size: var(--headerFontSize);
     font-weight: 900;
     line-height: 1.2em;
     text-align: inherit;
-    max-width:50vw;
+    max-width: 50vw;
     margin: 0 0 1rem 0;
     color: var(--primary);
     position: relative;
     /* Colored Line Underneath */
     padding-bottom: 1%;
     border-bottom: 2px solid var(--primary);
+  }
+
+  /* Title with decorative lines */
+  #cs-content-831 .cs-title-decorative {
+    font-size: var(--headerFontSize);
+    font-weight: 900;
+    line-height: 1.2em;
+    margin: 0;
+    color: var(--primary);
+    position: relative;
+    padding: 0 60px;
+    /* Padding to make space for the lines */
+    display: inline-block;
+    /* Keeps the header from stretching full-width */
+  }
+
+  /* Second line */
+  #cs-content-831 .cs-title-decorative-second-line {
+    color: var(--bodyTextColor);
+    font-size: var(--headerFontSize);
+    font-weight: 900;
+    line-height: 1.2em;
+    margin-top: 0.5rem;
+    /* Space between title and second line */
+    margin-bottom: 2%;
+    /* Adjust as needed */
+  }
+
+  /* Decorative lines on both sides of the title */
+  #cs-content-831 .cs-title-decorative::before,
+  #cs-content-831 .cs-title-decorative::after {
+    content: '';
+    position: absolute;
+    background: var(--primary);
+    /* Line color */
+    height: 3px;
+    /* Height of the line */
+    top: 50%;
+    /* Center vertically relative to the title */
+    transform: translateY(-50%);
+    /* Adjust centering */
+  }
+
+  /* Line before the title on the left */
+  #cs-content-831 .cs-title-decorative::before {
+    left: -70px;
+    /* Distance from the title (adjust as needed) */
+    width: 100px;
+    /* Width of the left line */
+  }
+
+  /* Line after the title on the right */
+  #cs-content-831 .cs-title-decorative::after {
+    right: -70px;
+    /* Distance from the title (adjust as needed) */
+    width: 100px;
+    /* Width of the right line */
   }
 
   #cs-content-831 .cs-text {
@@ -2093,7 +2151,7 @@ iframe {
     width: 100%;
     max-width: 80rem;
     margin: auto;
-    margin-top: 5%;
+    margin-top: 0;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -2718,13 +2776,17 @@ iframe {
 
   }
 
- #service-cards .cs-title {
-    display: inline-block; /* Make sure the span behaves like a block-level element */
-    position: relative; /* Create a positioning context for the pseudo-elements */
+  #service-cards .cs-title {
+    display: inline-block;
+    /* Make sure the span behaves like a block-level element */
+    position: relative;
+    /* Create a positioning context for the pseudo-elements */
     color: var(--bodyTextColor);
-    margin-bottom: 10%; /* Space below the title */
-    padding-right: 60px; /* Ensure there's enough space on the right for the lines */
-}
+    margin-bottom: 10%;
+    /* Space below the title */
+    padding-right: 60px;
+    /* Ensure there's enough space on the right for the lines */
+  }
 
 
   #service-cards .cs-text-wrapper {
@@ -2997,18 +3059,23 @@ iframe {
   }
 
   #RPsbs-why-us .cs-title {
-    display: inline-block; /* Keeps the header from stretching full-width */
-    position: relative; /* For positioning the pseudo-elements */
+    display: inline-block;
+    /* Keeps the header from stretching full-width */
+    position: relative;
+    /* For positioning the pseudo-elements */
     color: var(--primary);
-    padding-right: 60px; /* Space on the right for the lines */
+    padding-right: 60px;
+    /* Space on the right for the lines */
     margin-bottom: 0;
   }
 
   #RPsbs-why-us .cs-title-second-line {
-    position: relative; /* For positioning the pseudo-elements */
+    position: relative;
+    /* For positioning the pseudo-elements */
     color: var(--bodyTextColor);
     margin-top: 0;
-    margin-bottom: 10%; /* Space below the title */
+    margin-bottom: 10%;
+    /* Space below the title */
     font-size: var(--headerFontSize);
     font-weight: 900;
     line-height: 1.2em;
@@ -3020,22 +3087,32 @@ iframe {
   #RPsbs-why-us .cs-title::before {
     content: '';
     position: absolute;
-    background: var(--primary); /* Line color */
-    width: 50px; /* Width of the top line */
-    height: 3px; /* Height of the top line */
-    right: 0; /* Align to the right edge of the .cs-title */
-    top: 10px; /* Position at the top */
-}
+    background: var(--primary);
+    /* Line color */
+    width: 50px;
+    /* Width of the top line */
+    height: 3px;
+    /* Height of the top line */
+    right: 0;
+    /* Align to the right edge of the .cs-title */
+    top: 10px;
+    /* Position at the top */
+  }
 
   #RPsbs-why-us .cs-title::after {
     content: '';
     position: absolute;
-    background: var(--primary); /* Line color */
-    width: 30px; /* Width of the bottom line */
-    height: 3px; /* Height of the bottom line */
-    right: 20px; /* Align to the right edge of the .cs-title */
-    top: 18px; /* Position slightly below the top line */
-}
+    background: var(--primary);
+    /* Line color */
+    width: 30px;
+    /* Width of the bottom line */
+    height: 3px;
+    /* Height of the bottom line */
+    right: 20px;
+    /* Align to the right edge of the .cs-title */
+    top: 18px;
+    /* Position slightly below the top line */
+  }
 
 
   #RPsbs-why-us .cs-text-wrapper {
@@ -3442,18 +3519,23 @@ iframe {
 
 
   #RPsbs-products .cs-title {
-    display: inline-block; /* Keeps the header from stretching full-width */
-    position: relative; /* For positioning the pseudo-elements */
+    display: inline-block;
+    /* Keeps the header from stretching full-width */
+    position: relative;
+    /* For positioning the pseudo-elements */
     color: var(--primary);
-    padding-right: 60px; /* Space on the right for the lines */
+    padding-right: 60px;
+    /* Space on the right for the lines */
     margin-bottom: 0;
   }
 
   #RPsbs-products .cs-title-second-line {
-    position: relative; /* For positioning the pseudo-elements */
+    position: relative;
+    /* For positioning the pseudo-elements */
     color: var(--bodyTextColor);
     margin-top: 0;
-    margin-bottom: 10%; /* Space below the title */
+    margin-bottom: 10%;
+    /* Space below the title */
     font-size: var(--headerFontSize);
     font-weight: 900;
     line-height: 1.2em;
@@ -3465,22 +3547,32 @@ iframe {
   #RPsbs-products .cs-title::before {
     content: '';
     position: absolute;
-    background: var(--primary); /* Line color */
-    width: 50px; /* Width of the top line */
-    height: 3px; /* Height of the top line */
-    right: 0; /* Align to the right edge of the .cs-title */
-    top: 10px; /* Position at the top */
-}
+    background: var(--primary);
+    /* Line color */
+    width: 50px;
+    /* Width of the top line */
+    height: 3px;
+    /* Height of the top line */
+    right: 0;
+    /* Align to the right edge of the .cs-title */
+    top: 10px;
+    /* Position at the top */
+  }
 
-   #RPsbs-products .cs-title::after {
+  #RPsbs-products .cs-title::after {
     content: '';
     position: absolute;
-    background: var(--primary); /* Line color */
-    width: 30px; /* Width of the bottom line */
-    height: 3px; /* Height of the bottom line */
-    right: 20px; /* Align to the right edge of the .cs-title */
-    top: 18px; /* Position slightly below the top line */
-}
+    background: var(--primary);
+    /* Line color */
+    width: 30px;
+    /* Width of the bottom line */
+    height: 3px;
+    /* Height of the bottom line */
+    right: 20px;
+    /* Align to the right edge of the .cs-title */
+    top: 18px;
+    /* Position slightly below the top line */
+  }
 
 
   #RPsbs-products .cs-text {
@@ -3529,7 +3621,7 @@ iframe {
     transition: width 0.3s;
   }
 
- 
+
   #RPsbs-products .cs-button-solid:hover:before {
     width: 100%;
   }
@@ -3562,7 +3654,7 @@ iframe {
 /* Tablet - 768px */
 @media only screen and (min-width: 48rem) {
 
- 
+
   #RPsbs-products .cs-container {
     max-width: 80rem;
     flex-direction: row;

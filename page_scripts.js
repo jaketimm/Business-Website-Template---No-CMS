@@ -34,55 +34,35 @@ for (const item of dropDowns) {
 	item.addEventListener('click', onClick);
 }
 
-// Script to position the banner so the top edge always aligns with the nav bar's bottom edge.
-
-window.addEventListener('load', adjustBannerSectionOffset);
-window.addEventListener('resize', adjustBannerSectionOffset);
-
-function adjustBannerSectionOffset() {
+// Single function to adjust padding based on the navigation header height
+function adjustSectionsOffset() {
     // Get the height of the navigation header
     const header = document.getElementById('cs-navigation');
+    if (!header) return;  // Ensure header exists
+
     const headerHeight = header.offsetHeight;
 
-    // Get the Banner Section and set its top margin
+    // Adjust Banner Section (both cases)
     const bannerSection = document.getElementById('Banner-Section');
-    bannerSection.style.paddingTop = `${headerHeight}px`;
-}
+    if (bannerSection) {
+        bannerSection.style.paddingTop = `${headerHeight}px`;
+    }
 
-
-// Script to position the banner so the top edge always aligns with the nav bar's bottom edge.
-
-window.addEventListener('load', adjustTextBannerSectionOffset);
-window.addEventListener('resize', adjustTextBannerSectionOffset);
-
-function adjustTextBannerSectionOffset() {
-    // Get the height of the navigation header
-    const header = document.getElementById('cs-navigation');
-    const headerHeight = header.offsetHeight;
-
-    // Get the Banner Section and set its top margin
     const bannerSectionText = document.getElementById('Banner-Section-With-Text');
-    bannerSectionText.style.paddingTop = `${headerHeight}px`;
-}
+    if (bannerSectionText) {
+        bannerSectionText.style.paddingTop = `${headerHeight}px`;
+    }
 
-
-
-
-
-// Script to position the toppers so the top edge always aligns with the nav bar's bottom edge.
-
-window.addEventListener('load', adjustTopperSectionOffset);
-window.addEventListener('resize', adjustTopperSectionOffset);
-
-function adjustTopperSectionOffset() {
-    // Get the height of the navigation header
-    const header = document.getElementById('cs-navigation');
-    const headerHeight = header.offsetHeight;
-
-    // Get the top information section and set its top margin
+    // Adjust Topper Section
     const topperSection = document.getElementById('cs-content-831');
-    topperSection.style.paddingTop = `${headerHeight + 50}px`;
+    if (topperSection) {
+        topperSection.style.paddingTop = `${headerHeight + 50}px`;
+    }
 }
+
+// Attach event listeners once
+window.addEventListener('load', adjustSectionsOffset);
+window.addEventListener('resize', adjustSectionsOffset);
 
 
 

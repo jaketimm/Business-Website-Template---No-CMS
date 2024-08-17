@@ -2999,9 +2999,22 @@ iframe {
   #RPsbs-why-us .cs-title {
     display: inline-block; /* Keeps the header from stretching full-width */
     position: relative; /* For positioning the pseudo-elements */
-    color: var(--bodyTextColor);
-    margin-bottom: 10%; /* Space below the title */
+    color: var(--primary);
     padding-right: 60px; /* Space on the right for the lines */
+    margin-bottom: 0;
+  }
+
+  #RPsbs-why-us .cs-title-second-line {
+    position: relative; /* For positioning the pseudo-elements */
+    color: var(--bodyTextColor);
+    margin-top: 0;
+    margin-bottom: 10%; /* Space below the title */
+    font-size: var(--headerFontSize);
+    font-weight: 900;
+    line-height: 1.2em;
+    text-align: inherit;
+    max-width: 43.75rem;
+    position: relative;
   }
 
   #RPsbs-why-us .cs-title::before {
@@ -3432,8 +3445,21 @@ iframe {
     display: inline-block; /* Keeps the header from stretching full-width */
     position: relative; /* For positioning the pseudo-elements */
     color: var(--primary);
-    margin-bottom: 10%; /* Space below the title */
     padding-right: 60px; /* Space on the right for the lines */
+    margin-bottom: 0;
+  }
+
+  #RPsbs-products .cs-title-second-line {
+    position: relative; /* For positioning the pseudo-elements */
+    color: var(--bodyTextColor);
+    margin-top: 0;
+    margin-bottom: 10%; /* Space below the title */
+    font-size: var(--headerFontSize);
+    font-weight: 900;
+    line-height: 1.2em;
+    text-align: inherit;
+    max-width: 43.75rem;
+    position: relative;
   }
 
   #RPsbs-products .cs-title::before {

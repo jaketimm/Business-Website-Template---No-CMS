@@ -3273,7 +3273,7 @@ iframe {
   /* Mobile-specific styles */
   @media (max-width: 600px) {
     #cta-51 .cs-container {
-      margin-bottom: 25%;
+      margin-bottom: 30%;
     }
   }
 

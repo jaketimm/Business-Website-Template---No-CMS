@@ -3390,13 +3390,15 @@ iframe {
   width: 100%;
   overflow: hidden;
   line-height: 0;
+
 }
 
 #cta-51 .custom-shape-divider-bottom-1723582066 svg {
   position: relative;
   display: block;
-  width: calc(100% + 1.3px);
-  height: 101px;
+  width: 100%;
+  height: 100px;
+  overflow: hidden;
 }
 
 #cta-51 .custom-shape-divider-bottom-1723582066 .shape-fill {

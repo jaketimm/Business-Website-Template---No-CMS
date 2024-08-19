@@ -1,5 +1,4 @@
-// Scripts to run the top banner nav bar
-
+///Standard nav menu with dropdown.
 // add classes for mobile navigation toggling
 var CSbody = document.querySelector('body');
 const CSnavbarMenu = document.querySelector('#cs-navigation');
@@ -25,7 +24,7 @@ function ariaExpanded() {
 	}
 }
 
-// mobile nav toggle code
+// mobile nav dropdown code
 const dropDowns = Array.from(document.querySelectorAll('#cs-navigation .cs-dropdown'));
 for (const item of dropDowns) {
 	const onClick = () => {
@@ -34,6 +33,7 @@ for (const item of dropDowns) {
 	item.addEventListener('click', onClick);
 }
 
+///////////////////////////////////////////////////////////////////////////////////////////////////////////
 // Single function to adjust padding based on the navigation header height
 function adjustSectionsOffset() {
     // Get the height of the navigation header

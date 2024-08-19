@@ -2719,7 +2719,7 @@ iframe {
 }
 
 /* Mobile styles */
-@media (max-width: 768px) {
+@media (max-width: 1200px) {
   #posts-container {
     padding: 10px;
   }
@@ -3256,6 +3256,7 @@ iframe {
     padding: var(--sectionPadding);
     position: relative;
     /*background-color: #fff8f8;*/
+    bottom: -5px; /* Adjust to control the overlap (Need this so there is not gap between sections i.e. line*/ 
   }
 
   #cta-51 .cs-container {
@@ -3267,17 +3268,16 @@ iframe {
     align-items: center;
     /* 48px - 64px */
     gap: clamp(3rem, 6vw, 4rem);
-    margin-bottom: 1%;
+
   }
 
   /* Mobile-specific styles */
   @media (max-width: 600px) {
     #cta-51 .cs-container {
-      margin-bottom: 30%;
+      margin-bottom: 10vh;
     }
+
   }
-
-
 
   #cta-51 .cs-content {
     /* set text align to left if content needs to be left aligned */
@@ -3389,7 +3389,6 @@ iframe {
   left: 0;
   width: 100%;
   overflow: hidden;
-  line-height: 0;
 
 }
 

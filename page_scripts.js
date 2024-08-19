@@ -58,6 +58,7 @@ function adjustSectionsOffset() {
     if (topperSection) {
         topperSection.style.paddingTop = `${headerHeight + 50}px`;
     }
+
 }
 
 // Attach event listeners once

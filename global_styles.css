@@ -1019,8 +1019,8 @@ html {
   }
 }
 
-/* Tablet - 768px */
-@media only screen and (min-width: 48rem) {
+/* Tablet - 800px */
+@media only screen and (min-width: 50rem) {
   #meet-us-1021 .cs-card-group {
     display: grid;
     grid-template-columns: repeat(12, 1fr);
@@ -1032,8 +1032,17 @@ html {
   }
 }
 
-/* Mobile - 360px and up */
-@media only screen and (max-width: 48rem) {
+/* Ipad Mini /Small Tablets */
+@media only screen and (max-width: 49rem) {
+  #meet-us-1021 .cs-picture {
+    height: 65vw;
+    /* Ensure height is adjusted automatically */
+    width: auto;
+  }
+}
+
+/* Mobile - 360px and up to about 700 px */
+@media only screen and (max-width: 47rem) {
   #meet-us-1021 .cs-picture {
     height: 90vw;
     /* Ensure height is adjusted automatically */

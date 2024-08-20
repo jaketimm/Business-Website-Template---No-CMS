@@ -223,7 +223,7 @@ html {
     #cs-navigation.cs-active:after {
         width: 100%;
         max-width: 100%;
-        background-color: #484848;
+        background-color: #ffffff;
     }
     #cs-navigation.cs-active:before {
         height: 150vh;

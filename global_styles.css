@@ -3941,7 +3941,7 @@ html {
       min-height: 18.125rem;
       /* 16px - 24px left & right */
       padding: 1rem clamp(1rem, 1.8vw, 1.5rem);
-      border-bottom: 1px solid var(--headerColor);
+      border-bottom: 1px solid var(--primary);
       /* prevents padding and border from affecting height and width */
       box-sizing: border-box;
       display: flex;

@@ -34,10 +34,21 @@
             <!-- We need a wrapper div so we can set a fixed height on the cs-ul in case the nav list gets too long from too many dropdowns being opened and needs to have an overflow scroll. This wrapper acts as the background so it can go the full height of the screen and not cut off any overflowing nav items while the cs-ul stops short of the bottom of the screen, which keeps all nav items in view no matter how mnay there are-->
             <div class="cs-ul-wrapper">
                 <ul id="cs-expanded" class="cs-ul" aria-expanded="false">
-                    <li class="cs-li">
-                        <a href="index.html" class="cs-li-link">
-                            Home
-                        </a>
+                    <li class="cs-li cs-dropdown" tabindex="0">
+                        <span class="cs-li-link">
+                           Home
+                            <img class="cs-drop-icon"
+                                src="https://www.svgrepo.com/show/495005/arrow-down.svg" alt="dropdown icon"
+                                width="15" height="15" decoding="async" aria-hidden="true">
+                        </span>
+                        <ul class="cs-drop-ul">
+                            <li class="cs-drop-li">
+                                <a href="index.html" class="cs-li-link cs-drop-link">Home</a>
+                            </li>
+                            <li class="cs-drop-li">
+                                <a href="home_page_2.html" class="cs-li-link cs-drop-link">Other Resources</a>
+                            </li>
+                        </ul>
                     </li>
                     <li class="cs-li">
                         <a href="about_page.html" class="cs-li-link">

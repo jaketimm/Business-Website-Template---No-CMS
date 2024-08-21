@@ -4,12 +4,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Blog Posts</title>
-    <link rel="stylesheet" href="global_styles.css"> <!-- Optional: Your CSS file -->
-    <script src="blog_API_scripts.js" defer></script>
+    <title>Business Page Template</title>
+    <link rel="stylesheet" href="global_styles.css">
 </head>
 
-<body>
+<body class="product-page">
 
     <!-- ============================================ -->
     <!--       Standard Navigation & dropdown         -->
@@ -18,8 +17,7 @@
     <header id="cs-navigation">
         <!--Nav Logo-->
         <a href="index.html" class="cs-logo" aria-label="back to home">
-            <img src="images/logo.jpg" alt="logo" width="210"
-                height="29" aria-hidden="true" decoding="async">
+            <img src="images/logo.jpg" alt="logo" width="210" height="29" aria-hidden="true" decoding="async">
         </a>
         <!--Navigation List-->
         <nav class="cs-nav" role="navigation">
@@ -36,10 +34,9 @@
                 <ul id="cs-expanded" class="cs-ul" aria-expanded="false">
                     <li class="cs-li cs-dropdown" tabindex="0">
                         <span class="cs-li-link">
-                           Home
-                            <img class="cs-drop-icon"
-                                src="https://www.svgrepo.com/show/495005/arrow-down.svg" alt="dropdown icon"
-                                width="15" height="15" decoding="async" aria-hidden="true">
+                            Home
+                            <img class="cs-drop-icon" src="https://www.svgrepo.com/show/495005/arrow-down.svg"
+                                alt="dropdown icon" width="15" height="15" decoding="async" aria-hidden="true">
                         </span>
                         <ul class="cs-drop-ul">
                             <li class="cs-drop-li">
@@ -59,9 +56,8 @@
                     <li class="cs-li cs-dropdown" tabindex="0">
                         <span class="cs-li-link">
                             Services
-                            <img class="cs-drop-icon"
-                                src="https://www.svgrepo.com/show/495005/arrow-down.svg" alt="dropdown icon"
-                                width="15" height="15" decoding="async" aria-hidden="true">
+                            <img class="cs-drop-icon" src="https://www.svgrepo.com/show/495005/arrow-down.svg"
+                                alt="dropdown icon" width="15" height="15" decoding="async" aria-hidden="true">
                         </span>
                         <ul class="cs-drop-ul">
                             <li class="cs-drop-li">
@@ -71,10 +67,10 @@
                                 <a href="services_page_2.html" class="cs-li-link cs-drop-link">Pricing</a>
                             </li>
                             <li class="cs-drop-li">
-                                <a href="product_page.html" class="cs-li-link cs-drop-link">Product 1</a>
+                                <a href="product_page_2.html" class="cs-li-link cs-drop-link">Product 1</a>
                             </li>
                             <li class="cs-drop-li">
-                                <a href="product_page_2.html" class="cs-li-link cs-drop-link">Product 2</a>
+                                <a href="product_page.html" class="cs-li-link cs-drop-link">Product 2</a>
                             </li>
                         </ul>
                     </li>
@@ -84,7 +80,7 @@
                         </a>
                     </li>
                     <li class="cs-li">
-                        <a href="blog.html" class="cs-li-link cs-active">
+                        <a href="blog.html" class="cs-li-link">
                             Blog
                         </a>
                     </li>
@@ -103,38 +99,155 @@
     </button> -->
     </header>
 
+    <!-- ============================================ -->
+    <!--             Banner With Text                 -->
+    <!-- ============================================ -->
+
+    <section id="Banner-Section-With-Text">
+        <div class="banner">
+            <picture>
+                <!-- Mobile image -->
+                <source media="(max-width: 63.9375rem)" srcset="images/teton_mountains-banner.webp">
+                <!-- Desktop image -->
+                <img src="images/teton_mountains-banner.webp" alt="Banner Image">
+            </picture>
+
+            <div class="text-box">
+                <h1>PRODUCT TYPE</h1>
+                <p>Specific Product Name</p>
+            </div>
+        </div>
+    </section>
+
 
     <!-- ============================================ -->
-    <!--                 Title/Topper                 -->
+    <!--            Side By Side Reverse              -->
     <!-- ============================================ -->
 
-    <div id="cs-content-831">
-        <h1 class="cs-title-decorative">Blog</h1>
-        <div class="cs-title-decorative-second-line">Check Out Our Lastest News and Updates</div>
-    </div>
+    <section id="sbsr-516">
+        <div class="cs-container">
+            <div class="cs-content">
+                <span class="cs-topper">The Future Is Here</span>
+                <h2 class="cs-title">Bringing <span class="cs-color">Your Ideas</span> and Innovations to Life</h2>
+                <p class="cs-text">
+                    Vitae ultricies leo integer malesuada nunc vel. Molestie ac feugiat sed lectus vestibulum mattis
+                    ullamcorper velit. Viverra aliquet eget sit amet tellus cras adipiscing
+                </p>
+                <ul class="cs-ul">
+                    <li class="cs-li">
+                        <img class="cs-icon" aria-hidden="true"
+                            src="https://csimg.nyc3.cdn.digitaloceanspaces.com/SideBySide/sheild.svg" loading="lazy"
+                            decoding="async" alt="icon" width="40" height="40">
+                        Lorem Ipsum Dolor Sit Amet Consectectur
+                    </li>
+                    <li class="cs-li">
+                        <img class="cs-icon" aria-hidden="true"
+                            src="https://csimg.nyc3.cdn.digitaloceanspaces.com/SideBySide/pencil.svg" loading="lazy"
+                            decoding="async" alt="icon" width="40" height="40">
+                        Lorem Ipsum Dolor Sit Amet Consectectur
+                    </li>
+                    <li class="cs-li">
+                        <img class="cs-icon" aria-hidden="true"
+                            src="https://csimg.nyc3.cdn.digitaloceanspaces.com/SideBySide/hat.svg" loading="lazy"
+                            decoding="async" alt="icon" width="40" height="40">
+                        Lorem Ipsum Dolor Sit Amet Consectectur
+                    </li>
+                </ul>
+                <a href="" class="cs-button-solid">More About Us</a>
+            </div>
+            <!--Image Group-->
+            <div class="cs-image-group">
+                <ul class="cs-stat-group">
+                    <li class="cs-stat">
+                        <span class="cs-number">200+</span>
+                        <span class="cs-desc">Lorem Ipsum Dolor Sit Amet Consectetur</span>
+                    </li>
+                    <li class="cs-stat">
+                        <span class="cs-number">99%</span>
+                        <span class="cs-desc">Lorem Ipsum Dolor Sit Amet Consectetur</span>
+                    </li>
+                </ul>
+                <!--Picture-->
+                <picture class="cs-picture">
+                    <source media="(max-width: 600px)"
+                        srcset="https://csimg.nyc3.cdn.digitaloceanspaces.com/SideBySide/lightbulb.jpg">
+                    <source media="(min-width: 601px)"
+                        srcset="https://csimg.nyc3.cdn.digitaloceanspaces.com/SideBySide/lightbulb.jpg">
+                    <img aria-hidden="true" loading="lazy" decoding="async"
+                        src="https://csimg.nyc3.cdn.digitaloceanspaces.com/SideBySide/lightbulb.jpg" alt="lightbulbs"
+                        width="630" height="461">
+                </picture>
+            </div>
+        </div>
+    </section>
+
 
 
     <!-- ============================================ -->
-    <!--               All Blog Posts                 -->
+    <!--             Why Us Side by Side              -->
     <!-- ============================================ -->
-    <div id="posts-container">
 
-        <!-- Posts will be injected here by JavaScript -->
-    </div>
+    <section id="RPsbs-why-us">
+        <div class="cs-container">
+            <!-- Left Image Section -->
+            <picture class="cs-picture">
+                <source media="(max-width: 600px)" srcset="images/pexels-wanderinglenses.jpg">
+                <source media="(min-width: 601px)" srcset="images/pexels-wanderinglenses.jpg">
+                <img decoding="async" src="images/pexels-wanderinglenses.jpg" alt="hiker" width="434" height="434"
+                    aria-hidden="true">
+            </picture>
+            <!-- Right Content Section-->
+            <div class="cs-content">
+                <span class="cs-title">Company Name </span>
+                <span class="cs-title-second-line">Why Choose Us?</span>
+                <!-- Icon and text -->
+                <div class="cs-text-wrapper">
+                    <div class="cs-icon-wrapper">
+                        <img class="cs-icon" src="https://www.svgrepo.com/show/382124/call-support.svg" loading="lazy"
+                            decoding="async" alt="icon" width="32" height="32" aria-hidden="true">
+                    </div>
+                    <div class="cs-text-content">
+                        <div class="cs-topper">Best Service</div>
+                        <p class="cs-text">Tincidunt lobortis feugiat vivamus at augue eget arcu dictum varius.</p>
+                    </div>
+                </div>
 
+                <!-- Icon and text -->
+                <div class="cs-text-wrapper">
+                    <div class="cs-icon-wrapper">
+                        <img class="cs-icon" img class="cs-icon"
+                            src="https://www.svgrepo.com/show/261965/ribbon-label.svg" loading="lazy" decoding="async"
+                            alt="icon" width="32" height="32" aria-hidden="true">
+                    </div>
+                    <div class="cs-text-content">
+                        <div class="cs-topper">Industry Leading Solutions</div>
+                        <p class="cs-text">Tincidunt lobortis feugiat vivamus at augue eget arcu dictum varius.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
 
     <!-- ============================================ -->
-    <!--                Divider                -->
+    <!--                Contact Banner                -->
     <!-- ============================================ -->
     <section id="cta-51">
         <div class="cs-container">
+            <div class="decorative-line"></div>
             <div class="cs-content">
-                <div class="decorative-line"></div>
-                <h2 class="cs-title">Visit Our Full Blog</h2>
-                <a href="https://webdevtestblog5.wordpress.com/" class="cs-button-solid">All Posts</a>
+                <span class="cs-topper">Contact Us</span>
+                <h2 class="cs-title">Questions? Get in Touch Today</h2>
+                <a href="contact_page.html" class="cs-button-solid">Get A Free Quote</a>
             </div>
         </div>
+        <!-- Background Image-->
+        <!--<picture class="cs-picture">
+            <source media="(max-width: 600px)" srcset="https://csimg.nyc3.cdn.digitaloceanspaces.com/Icons/charity-waves.svg">
+            <source media="(min-width: 601px)" srcset="https://csimg.nyc3.cdn.digitaloceanspaces.com/Icons/charity-waves.svg">
+            <img loading="lazy" decoding="async" src="https://csimg.nyc3.cdn.digitaloceanspaces.com/Icons/charity-waves.svg"
+                alt="cabinets" width="1920" height="1280" aria-hidden="true">
+        </picture>-->
         <!-- Bottom Colored Divider -->
         <div class="custom-shape-divider-bottom-1723582066">
             <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120"
@@ -143,6 +256,9 @@
             </svg>
         </div>
     </section>
+
+
+
 
     <!-- ============================================ -->
     <!--                   Footer                     -->
@@ -210,5 +326,3 @@
 
 
 </body>
-
-</html>

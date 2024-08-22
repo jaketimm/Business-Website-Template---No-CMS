@@ -5163,4 +5163,214 @@ html {
     min-height: 15.3125rem;
   }
 }
-                                                                                                            
+
+/*-- -------------------------- -->
+<--- About Comapny Side By Side -->
+<--- -------------------------- -*/
+
+/* Mobile - 360px */
+@media only screen and (min-width: 0rem) {
+
+
+  #RPsbs-company-history {
+    padding: 0 1em;
+    position: relative;
+    z-index: 1;
+    background-color: #fff8f8
+  }
+
+  #RPsbs-company-history .cs-container {
+    width: 100%;
+    /* changes to 1280px on tablet */
+    max-width: 34.375rem;
+    padding: var(--sectionPadding);
+    padding-left: 0;
+    padding-right: 0;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* 48px - 108px */
+    gap: clamp(3rem, 8vw, 6.75rem);
+    position: relative;
+  }
+
+  #RPsbs-company-history .cs-content {
+    text-align: left;
+    width: 100%;
+    max-width: 27.125rem;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  #RPsbs-company-history .cs-title {
+    display: flex;
+    align-items: center;
+    position: relative;
+    color: var(--primary);
+    padding-left: 20px; /* Space on the right for the lines */
+    margin-bottom: 5%;
+  }
+  
+  #RPsbs-company-history .cs-title::before {
+    content: '';
+    position: absolute;
+    background: var(--primary); /* Line color */
+    width: 2px; /* Width of the vertical line */
+    height: 100%;
+    left: 0; /* Adjust this to move the line closer or further from the text */
+  }
+  
+  #RPsbs-company-history .cs-title h1 {
+    margin: 0;
+  }
+  
+  #RPsbs-company-history .cs-title-text {
+    margin-left: 20px; /* Space between the title and the text */
+    display: flex;
+    flex-direction: column;
+  }
+  
+  #RPsbs-company-history .cs-title-text p {
+    margin: 0;
+    font-size: 0.4em; /* Adjust text size as needed */
+    line-height: 1.2;
+    color: var(--bodyTextColor)
+  }
+
+  #RPsbs-company-history .cs-text-wrapper {
+    display: flex;
+    align-items: flex-start;
+    /* Align items to the top */
+    margin-bottom: 1rem;
+    /* Space between this block and the next content */
+    width: 100%;
+    /* Ensure the wrapper takes the full width */
+  }
+
+
+  #RPsbs-company-history .cs-text-content {
+    margin-left: 0;
+    /* Ensure there's space for the icon */
+    display: flex;
+    flex-direction: column;
+    /* Stack topper and text vertically */
+    align-items: flex-start;
+    /* Align topper and text to the left */
+  }
+
+  #RPsbs-company-history .cs-topper {
+    opacity: 0.8;
+    border-bottom: 2px solid var(--primary); /* Adjust the width, style, and color as needed */
+  }
+
+  #RPsbs-company-history .cs-text {
+    margin-top: 0.5rem;
+    /* Space between topper and text */
+    opacity: 0.8;
+  }
+
+  #RPsbs-company-history .cs-text:last-of-type {
+    margin-bottom: 2rem;
+  }
+
+  #RPsbs-company-history .cs-picture {
+    width: 100%;
+    max-width: 27.125rem;
+    margin: 0;
+    border: 1px solid #f1f1f4;
+    position: relative;
+    display: block;
+    /* width divided by height */
+    aspect-ratio: 1;
+    /* prevents border from adding to height and width */
+    box-sizing: border-box;
+  }
+
+
+  #RPsbs-company-history .cs-picture img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+  }
+
+  #RPsbs-company-history .cs-button-solid {
+    font-size: 1rem;
+    /* 46px - 56px */
+    line-height: clamp(2.875rem, 5.5vw, 3.5rem);
+    text-decoration: none;
+    font-weight: 700;
+    text-align: center;
+    margin: 0;
+    color: #fff;
+    min-width: 9.375rem;
+    padding: 0 1.5rem;
+    background-color: var(--primary);
+    border-radius: 0.25rem;
+    display: inline-block;
+    position: relative;
+    z-index: 1;
+    /* prevents padding from adding to the width */
+    box-sizing: border-box;
+  }
+
+  #RPsbs-company-history .cs-button-solid:before {
+    content: "";
+    position: absolute;
+    height: 100%;
+    width: 0%;
+    background: #000;
+    opacity: 1;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    border-radius: 0.25rem;
+    transition: width 0.3s;
+  }
+
+  #RPsbsr-248 .cs-button-solid:hover:before {
+    width: 100%;
+  }
+}
+
+/* Tablet - 768px */
+@media only screen and (min-width: 48rem) {
+
+
+  #RPsbs-company-history .cs-container {
+    max-width: 80rem;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+  }
+
+
+  #RPsbs-company-history .cs-lines {
+    height: 100%;
+    width: 35%;
+    display: block;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: -1;
+  }
+
+
+
+  #RPsbs-company-history .cs-picture {
+    /* 344px - 434px */
+    width: clamp(21.5rem, 37.5vw, 27.125rem);
+    flex: none;
+  }
+
+
+  #RPsbs-company-history .cs-content {
+    max-width: 33.875rem;
+    margin: 0;
+    width: 45%;
+  }
+}

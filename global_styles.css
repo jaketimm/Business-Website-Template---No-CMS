@@ -1795,13 +1795,13 @@ html {
 @media only screen and (min-width: 0rem) {
   #RPsbsr-248 {
     padding: 0 1rem;
-    background-color: #2b2b2b;
+    background-color: #a6a6a6;
   }
 
   #RPsbsr-248 .cs-container {
     /* 60px - 100px top and bottom */
     padding: clamp(3.75rem, 7.82vw, 6.25rem) 0;
-    background-color: #2b2b2b;
+    background-color: #a6a6a6;
   }
 
   #RPsbsr-248 .cs-container:before {
@@ -1887,15 +1887,15 @@ html {
   }
 
   #RPsbsr-248 .cs-topper {
-    color: var(--bodyTextColorWhite);
+    color: var(--bodyTextColor);
   }
 
   #RPsbsr-248 .cs-title {
-    color: var(--bodyTextColorWhite);
+    color: var(--bodyTextColor);
   }
 
   #RPsbsr-248 .cs-text {
-    color: var(--bodyTextColorWhite);
+    color: var(--bodyTextColor);
   }
 }
 
@@ -4624,7 +4624,7 @@ html {
 @media only screen and (min-width: 0rem) {
   #sbsr-516 {
       padding: var(--sectionPadding);
-      background: #2b2b2b;
+      background: #d6d5d5;
   }
   #sbsr-516 .cs-container {
       width: 100%;
@@ -4653,11 +4653,11 @@ html {
   }
   #sbsr-516 .cs-topper,
   #sbsr-516 .cs-title {
-      color: var(--bodyTextColorWhite);
+      color: var(--bodyTextColor);
   }
   #sbsr-516 .cs-text {
       margin-bottom: 1rem;
-      color: var(--bodyTextColorWhite);
+      color: var(--bodyTextColor);
       opacity: 0.8;
   }
   #sbsr-516 .cs-text:last-of-type {
@@ -4681,7 +4681,7 @@ html {
       line-height: 1.5em;
       font-weight: 700;
       margin: 0;
-      color: var(--bodyTextColorWhite);
+      color: var(--bodyTextColor);
       display: flex;
       justify-content: flex-start;
       align-items: center;
@@ -4762,7 +4762,7 @@ html {
       line-height: 1.5em;
       font-weight: 400;
       margin: 0;
-      color: var(--bodyTextColorWhite);
+      color: var(--bodyTextColor);
   }
   #sbsr-516 .cs-picture {
       width: 100%;

@@ -3918,7 +3918,7 @@ html {
 @media only screen and (min-width: 0rem) {
   #steps-585 {
       padding: var(--sectionPadding);
-      background-color: #edededc1
+      background-color: #edededc1;
   }
   #steps-585 .cs-container {
       width: 100%;
@@ -4624,7 +4624,7 @@ html {
 @media only screen and (min-width: 0rem) {
   #sbsr-516 {
       padding: var(--sectionPadding);
-      background: #d6d5d5;
+      background: #edededc1;
   }
   #sbsr-516 .cs-container {
       width: 100%;

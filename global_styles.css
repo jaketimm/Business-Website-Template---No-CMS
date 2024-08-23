@@ -5395,8 +5395,7 @@ html {
   border-radius: 8px;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
   padding: 20px;
-  width: 80%; /* Adjust as needed */
-  max-width: 1200px; /* Adjust as needed */
+  width: 50%; /* Adjust as needed */
 }
 
 /* Styles for Event Rows */
@@ -5405,7 +5404,6 @@ html {
   margin-bottom: 20px;
   align-items: center;
   border-bottom: 1px solid var(--primary);
-  width: 50%;
 }
 
 /* Default Styles for Columns */

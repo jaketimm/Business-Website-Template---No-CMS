@@ -5406,12 +5406,13 @@ html {
   align-items: center;
 }
 
-#events-table .col-a{
+/* Default Styles for Columns */
+#events-table .col-a {
   color: var(--primary);
   margin-right: 10px;
 }
 
-#events-table .col-b{
+#events-table .col-b {
   margin-right: 10px;
   font-weight: bold;
 }
@@ -5424,8 +5425,26 @@ html {
 #events-table h2 {
   margin-top: 0;
 }
+
+/* Mobile */
 @media only screen and (max-width: 48rem) {
   #events-table {
     width: 100%;
+  }
+
+  /* Change .row to grid layout for mobile view */
+  #events-table .row {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 10px;
+    margin-bottom: 20px; /* Increase bottom margin for better spacing on mobile */
+  }
+
+  /* Ensure all elements are full width on mobile */
+  #events-table .col-a,
+  #events-table .col-b,
+  #events-table .time {
+    margin-right: 0; /* Remove right margin for stacked layout */
+    margin-left: 0; /* Remove left margin for stacked layout */
   }
 }

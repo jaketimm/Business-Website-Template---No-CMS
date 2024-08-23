@@ -5424,3 +5424,8 @@ html {
 #events-table h2 {
   margin-top: 0;
 }
+@media only screen and (max-width: 48rem) {
+  #events-table {
+    width: 100%;
+  }
+}

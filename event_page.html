@@ -2,11 +2,29 @@
 <html>
 <head>
   <title>Google Sheets API Example</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+    }
+    .row {
+      display: flex;
+      margin-bottom: 10px;
+      align-items: center;
+    }
+    .col-a, .col-b {
+      margin-right: 10px;
+    }
+    .time {
+      margin-left: 10px;
+      font-weight: bold;
+    }
+  </style>
   <script src="https://apis.google.com/js/api.js"></script>
   <script>
-    var API_KEY = 'AIzaSyBoE1l0ANCfKp7nbESVXprAJdonqRsvwC0'; //From Google Project Page
-    var SHEET_ID = '1Tp5iSPMOH0D6Up66iLtwkhGLbmGcJBmaas3PCcs4Xm4'; //part of Google Sheet URL between d/ and the /edit
-    var RANGE = 'Sheet1!A2:D4'; // Modify as needed
+    var API_KEY = 'AIzaSyBoE1l0ANCfKp7nbESVXprAJdonqRsvwC0';  // Replace with your API key
+    var SHEET_ID = '1Tp5iSPMOH0D6Up66iLtwkhGLbmGcJBmaas3PCcs4Xm4';  // Replace with your Google Sheet ID
+    var RANGE = 'Sheet1!A2:D4'; // Adjust the range as needed
 
     function onApiLoad() {
       gapi.load('client', initClient);
@@ -31,15 +49,14 @@
       }).then(function(response) {
         var values = response.result.values;
         if (values && values.length > 0) {
-          var output = '<table border="1" cellpadding="5">';
+          var output = '';
           for (var i = 0; i < values.length; i++) {
-            output += '<tr>';
-            for (var j = 0; j < values[i].length; j++) {
-              output += '<td>' + (values[i][j] || '') + '</td>';
-            }
-            output += '</tr>';
+            output += '<div class="row">';
+            output += '<div class="col-a">' + (values[i][0] || '') + '</div>';
+            output += '<div class="col-b">' + (values[i][1] || '') + '</div>';
+            output += '<div class="time">Time(s): ' + (values[i][2] || '') + ' ' + (values[i][3] || '') + '</div>';
+            output += '</div>';
           }
-          output += '</table>';
           document.getElementById('output').innerHTML = output;
         } else {
           document.getElementById('output').innerText = 'No data found.';

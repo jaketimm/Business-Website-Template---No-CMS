@@ -5406,9 +5406,14 @@ html {
   align-items: center;
 }
 
-#events-table .col-a,
-#events-table .col-b {
+#events-table .col-a{
+  color: var(--primary);
   margin-right: 10px;
+}
+
+#events-table .col-b{
+  margin-right: 10px;
+  font-weight: bold;
 }
 
 #events-table .time {

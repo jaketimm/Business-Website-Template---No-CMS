@@ -30,7 +30,7 @@ function readSheetData() {
                 output += '<div class="row">';
                 output += '<div class="col-a">' + (values[i][0] || '') + '</div>';
                 output += '<div class="col-b">Date: ' + (values[i][1] || '') + '</div>';
-                output += '<div class="time">Time(s): ' + (values[i][2] || '') + '   ' + (values[i][3] || '') + '</div>';
+                output += '<div class="time">Time(s): ' + (values[i][2] || '') + ' ' + (values[i][3] || '') + '</div>';
                 output += '</div>';
             }
             document.getElementById('output').innerHTML = output;

@@ -2,31 +2,26 @@
 <html>
 
 <head>
-    <style> /*Styles for Events */
-        body {
-            font-family: Arial, sans-serif;
-            padding: 20px;
-        }
-
-        .row {
+    <style> 
+        /*Styles for Events */
+        #events-table .row {
             display: flex;
             margin-bottom: 10px;
             align-items: center;
         }
 
-        .col-a,
-        .col-b {
+        #events-table .col-a,
+        #events-table .col-b {
             margin-right: 10px;
         }
 
-        .time {
+        #events-table .time {
             margin-left: 10px;
             font-weight: bold;
         }
 
-        .section {   /* Holds Event Data */
-            margin-top: 10%;
-            margin-bottom: 20px;
+        #events-table .section {   /* Holds Event Data */
+            margin-bottom: 2%;
         }
 
     </style>
@@ -175,7 +170,22 @@
     </button> -->
     </header>
 
-    <section class="section" id="data-section"> 
+    <!-- ============================================ -->
+    <!--                 Title/Topper                 -->
+    <!-- ============================================ -->
+
+    <div id="cs-content-831">
+        <h1 class="cs-title-decorative">Events</h1>
+        <div class="cs-title-decorative-second-line">Upcoming Events and Dates</div>
+        <p class="cs-text">
+            Lorem ipsum odor amet, consectetuer adipiscing elit. Euismod egestas potenti fames nascetur amet mi amet
+            nibh. Lorem ipsum odor amet, consectetuer adipiscing elit. Euismod egestas potenti fames nascetur amet mi
+            amet
+            nibh.
+        </p>
+    </div>
+
+    <section id = "events-table"> 
         <h2>Data from Google Sheets</h2>
         <div id="output">Loading...</div>
     </section>

@@ -5402,9 +5402,10 @@ html {
 /* Styles for Event Rows */
 #events-table .row {
   display: flex;
-  margin-bottom: 10px;
+  margin-bottom: 20px;
   align-items: center;
   border-bottom: 1px solid var(--primary);
+  width: 50%;
 }
 
 /* Default Styles for Columns */
@@ -5438,7 +5439,8 @@ html {
     display: grid;
     grid-template-columns: 1fr;
     gap: 10px;
-    margin-bottom: 20px; /* Increase bottom margin for better spacing on mobile */
+    margin-bottom: 25px; /* Increase bottom margin for better spacing on mobile */
+    width: 100%;
   }
 
   /* Ensure all elements are full width on mobile */

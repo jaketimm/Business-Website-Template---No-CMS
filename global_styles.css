@@ -5375,3 +5375,36 @@ html {
     width: 45%;
   }
 }
+
+
+/*-- -------------------------- -->
+<--- Google Sheets API Events   -->
+<--- -------------------------- -*/
+
+/*Styles for Events */
+#events-table .row {
+  display: flex;
+  margin-bottom: 10px;
+  align-items: center;
+}
+
+#events-table .col-a,
+#events-table .col-b {
+  margin-right: 10px;
+}
+
+#events-table .time {
+  margin-left: 10px;
+  font-weight: bold;
+}
+
+#events-table .section {   /* Holds Event Data */
+  margin-bottom: 2%;
+}
+
+#events-table .data-container {
+  background: #e9ecef;
+  padding: 15px;
+  border-radius: 8px;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+}

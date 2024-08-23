@@ -2,34 +2,11 @@
 <html>
 
 <head>
-    <style> 
-        /*Styles for Events */
-        #events-table .row {
-            display: flex;
-            margin-bottom: 10px;
-            align-items: center;
-        }
-
-        #events-table .col-a,
-        #events-table .col-b {
-            margin-right: 10px;
-        }
-
-        #events-table .time {
-            margin-left: 10px;
-            font-weight: bold;
-        }
-
-        #events-table .section {   /* Holds Event Data */
-            margin-bottom: 2%;
-        }
-
-    </style>
     <script src="https://apis.google.com/js/api.js"></script>
     <script>
-        var API_KEY = 'AIzaSyBoE1l0ANCfKp7nbESVXprAJdonqRsvwC0';  // Replace with your API key
-        var SHEET_ID = '1Tp5iSPMOH0D6Up66iLtwkhGLbmGcJBmaas3PCcs4Xm4';  // Replace with your Google Sheet ID
-        var RANGE = 'Sheet1!A2:D4'; // Adjust the range as needed
+        var API_KEY = 'AIzaSyBoE1l0ANCfKp7nbESVXprAJdonqRsvwC0';  // Google Cloud API key
+        var SHEET_ID = '1Tp5iSPMOH0D6Up66iLtwkhGLbmGcJBmaas3PCcs4Xm4';  // Google Sheet ID
+        var RANGE = 'Sheet1!A2:D4'; // Cell Range to read
 
         function onApiLoad() {
             gapi.load('client', initClient);
@@ -185,9 +162,14 @@
         </p>
     </div>
 
+    <!-- ============================================ -->
+    <!--                 Events Table                 -->
+    <!-- ============================================ -->
+
     <section id = "events-table"> 
-        <h2>Data from Google Sheets</h2>
-        <div id="output">Loading...</div>
+        <div class="data-container">
+            <div id="data-output">Loading...</div>
+          </div>
     </section>
 
 

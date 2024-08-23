@@ -5381,7 +5381,17 @@ html {
 <--- Google Sheets API Events   -->
 <--- -------------------------- -*/
 
-/*Styles for Events */
+/* Section Styling for Centering */
+#events-table {
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  width: 80%; /* Adjust as needed */
+  max-width: 800px; /* Adjust as needed */
+}
+
+/* Styles for Event Rows */
 #events-table .row {
   display: flex;
   margin-bottom: 10px;
@@ -5398,13 +5408,6 @@ html {
   font-weight: bold;
 }
 
-#events-table .section {   /* Holds Event Data */
-  margin-bottom: 2%;
-}
-
-#events-table .data-container {
-  background: #e9ecef;
-  padding: 15px;
-  border-radius: 8px;
-  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+#events-table h2 {
+  margin-top: 0;
 }

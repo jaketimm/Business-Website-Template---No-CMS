@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Google Sheets API Example</title>
+  <script src="https://apis.google.com/js/api.js"></script>
+  <script>
+    var API_KEY = 'AIzaSyBoE1l0ANCfKp7nbESVXprAJdonqRsvwC0'; //From Google Project Page
+    var SHEET_ID = '1Tp5iSPMOH0D6Up66iLtwkhGLbmGcJBmaas3PCcs4Xm4'; //part of Google Sheet URL between d/ and the /edit
+    var RANGE = 'Sheet1!A2:D4'; // Modify as needed
+
+    function onApiLoad() {
+      gapi.load('client', initClient);
+    }
+
+    function initClient() {
+      gapi.client.init({
+        apiKey: API_KEY,
+        discoveryDocs: ["https://sheets.googleapis.com/$discovery/rest?version=v4"]
+      }).then(function () {
+        readSheetData();
+      });
+    }
+
+    function readSheetData() {
+      gapi.client.sheets.spreadsheets.values.get({
+        spreadsheetId: SHEET_ID,
+        range: RANGE
+      }).then(function(response) {
+        var value = response.result.values ? response.result.values[0][0] : 'No data';
+        document.getElementById('output').innerText = value;
+      }, function(response) {
+        console.error('Error: ' + response.result.error.message);
+      });
+    }
+  </script>
+</head>
+<body onload="onApiLoad()">
+  <h1>Google Sheets API Data</h1>
+  <div id="output">Loading...</div>
+</body>
+</html>

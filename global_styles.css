@@ -5381,13 +5381,22 @@ html {
 <--- Google Sheets API Events   -->
 <--- -------------------------- -*/
 
-/* Section Styling for Centering */
+/* Specific Container for Centering */
+#events-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 10vh; /* Full viewport height */
+}
+
+/* Events Table Styling */
 #events-table {
   background: #fff;
   border-radius: 8px;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
   padding: 20px;
-  width: 100%; /* Adjust as needed */
+  width: 80%; /* Adjust as needed */
+  max-width: 800px; /* Adjust as needed */
 }
 
 /* Styles for Event Rows */

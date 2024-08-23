@@ -5395,7 +5395,7 @@ html {
   border-radius: 8px;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
   padding: 20px;
-  width: 50%; /* Adjust as needed */
+  width: 35%; /* Adjust as needed */
 }
 
 /* Styles for Event Rows */
@@ -5424,6 +5424,13 @@ html {
 
 #events-table h2 {
   margin-top: 0;
+}
+
+/* Tablet */
+@media only screen and (min-width: 44rew) and (max-width: 50rem) {
+  #events-table {
+    width: 75%;
+  }
 }
 
 /* Mobile */

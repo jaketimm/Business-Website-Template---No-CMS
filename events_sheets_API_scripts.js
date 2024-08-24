@@ -1,6 +1,6 @@
 var API_KEY = 'AIzaSyBoE1l0ANCfKp7nbESVXprAJdonqRsvwC0';  // Google Cloud API key
 var SHEET_ID = '1Tp5iSPMOH0D6Up66iLtwkhGLbmGcJBmaas3PCcs4Xm4';  // Google Sheet ID
-var RANGE = 'Sheet1!A2:D25'; // Cell Range to read
+var RANGE = 'Sheet1!A2:C25'; // Cell Range to read
 
 function onApiLoad() {
     gapi.load('client', initClient);
@@ -28,9 +28,9 @@ function readSheetData() {
             var output = '';
             for (var i = 0; i < values.length; i++) {
                 output += '<div class="row">';
-                output += '<div class="col-a">' + (values[i][0] || '') + '</div>';
-                output += '<div class="col-b">Date: ' + (values[i][1] || '') + '</div>';
-                output += '<div class="time">Time(s): ' + (values[i][2] || '') + ' ' + (values[i][3] || '') + '</div>';
+                output += '<div class="col-a">' + String((values[i][0] || '')) + '</div>';
+                output += '<div class="col-b">Date: ' + String((values[i][1] || '')) + '</div>';
+                output += '<div class="time">Time(s): ' + String((values[i][2] || '')) + ' ' + '</div>';
                 output += '</div>';
             }
             document.getElementById('output').innerHTML = output;

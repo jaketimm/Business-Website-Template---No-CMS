@@ -24,21 +24,33 @@ function readSheetData() {
         range: RANGE
     }).then(function (response) {
         var values = response.result.values;
+        var output = '';
+
         if (values && values.length > 0) {
-            var output = '';
             for (var i = 0; i < values.length; i++) {
-                output += '<div class="row">';
-                output += '<div class="col-a">' + String((values[i][0] || '')) + '</div>';
-                output += '<div class="col-b">Date: ' + String((values[i][1] || '')) + '</div>';
-                output += '<div class="time">Time(s): ' + String((values[i][2] || '')) + ' ' + '</div>';
-                output += '</div>';
+                var colA = escapeHtml(values[i][0] || '');
+                var colB = escapeHtml('Date: ' + (values[i][1] || ''));
+                var time = escapeHtml('Time(s): ' + (values[i][2] || ''));
+
+                output += colA + ' | ' + colB + ' | ' + time + '\n';
             }
-            document.getElementById('output').innerHTML = output;
+            document.getElementById('output').textContent = output;
         } else {
-            document.getElementById('output').innerText = 'No data found.';
+            document.getElementById('output').textContent = 'No data found.';
         }
     }).catch(function (error) {
         console.error('Error reading data:', error);
-        document.getElementById('output').innerText = 'Error fetching data.';
+        document.getElementById('output').textContent = 'Error fetching data.';
     });
 }
+
+// Function to escape HTML special characters to prevent rendering HTML
+function escapeHtml(text) {
+    return text
+        .replace(/&/g, '&amp;')
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;')
+        .replace(/"/g, '&quot;')
+        .replace(/'/g, '&#039;');
+}
+

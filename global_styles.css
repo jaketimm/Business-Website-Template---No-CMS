@@ -5456,3 +5456,334 @@ html {
     margin-left: 0; /* Remove left margin for stacked layout */
   }
 }
+
+
+/*-- -------------------------- -->
+<---          Steps             -->
+<--- -------------------------- -*/
+
+/* Mobile - 360px */
+@media only screen and (min-width: 0rem) {
+  #steps-1713 {
+    overflow: hidden;
+    position: relative;
+    z-index: 1;
+  }
+  #steps-1713 .cs-container {
+    max-width: 80rem;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+  }
+  #steps-1713 .cs-wrapper {
+    /* changes to 630px on tablet */
+    max-width: 31.25rem;
+    margin: auto;
+    padding: var(--sectionPadding);
+    display: flex;
+    flex-direction: column;
+    /* 48px - 64px */
+    gap: clamp(3rem, 6vw, 4rem);
+  }
+  #steps-1713 .cs-content {
+    /* set text align to center if content needs to be centrally aligned */
+    text-align: left;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    /* aligns content to the left, set to center to centrally align */
+    align-items: flex-start;
+  }
+  #steps-1713 .cs-title {
+    margin: 0;
+  }
+  #steps-1713 .cs-card-group {
+    margin: 0;
+    padding: 0;
+    display: grid;
+    justify-items: center;
+    align-items: stretch;
+    /* 24px - 32px */
+    gap: clamp(1.5rem, 3vw, 2rem);
+    grid-auto-flow: row;
+  }
+  #steps-1713 .cs-item {
+    list-style: none;
+    display: flex;
+    align-items: flex-start;
+    position: relative;
+  }
+  #steps-1713 .cs-number {
+    /* 80px - 100px */
+    font-size: clamp(5rem, 9vw, 6.25rem);
+    font-weight: 900;
+    line-height: 1.2em;
+    letter-spacing: -2px;
+    margin-right: 1.25rem;
+    color: var(--primary);
+    opacity: 0.12;
+    display: block;
+  }
+  #steps-1713 .cs-h3 {
+    font-size: 1.5625rem;
+    font-weight: 700;
+    line-height: 1.2em;
+    margin: 0 0 0.75rem 0;
+    color: var(--bodyTextColor);
+  }
+  #steps-1713 .cs-item-text {
+    /* 14px - 16px */
+    font-size: clamp(0.875rem, 2vw, 1rem);
+    line-height: 1.5em;
+    text-align: left;
+    margin: 0;
+    color: var(--bodyTextColor);
+  }
+  #steps-1713 .cs-background {
+    width: 100%;
+    height: 22.5rem;
+    display: block;
+  }
+  #steps-1713 .cs-background img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+}
+/* Tablet - 768px */
+@media only screen and (min-width: 48rem) {
+  #steps-1713 {
+    padding: var(--sectionPadding);
+  }
+  #steps-1713 .cs-container {
+    padding: 0;
+    flex-direction: row;
+    justify-content: flex-end;
+  }
+  #steps-1713 .cs-title {
+    margin: 0;
+  }
+  #steps-1713 .cs-wrapper {
+    width: 65vw;
+    max-width: 39.375rem;
+    margin: 0;
+    padding: 0;
+  }
+  #steps-1713 .cs-card-group {
+    /* 16px - 32px */
+    gap: clamp(1rem, 3vw, 2rem);
+  }
+  #steps-1713 .cs-item {
+    flex-direction: row;
+  }
+  #steps-1713 .cs-picture {
+    width: 11.25rem;
+    height: 11.25rem;
+  }
+  #steps-1713 .cs-background {
+    width: 30%;
+    height: auto;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+  }
+}
+/* Desktop - 1024px */
+@media only screen and (min-width: 64rem) {
+  #steps-1713 .cs-wrapper {
+    width: 50vw;
+  }
+  #steps-1713 .cs-background {
+    width: 50vw;
+    right: 50%;
+    left: auto;
+    margin-right: 8rem;
+  }
+}
+
+/*-- -------------------------- -->
+<---            CTA             -->
+<--- -------------------------- -*/
+
+/* Mobile - 360px */
+@media only screen and (min-width: 0rem) {
+  #cta-1094 {
+      padding: var(--sectionPadding);
+      position: relative;
+      z-index: 1;
+  }
+  #cta-1094 .cs-container {
+      width: 100%;
+      max-width: 80rem;
+      margin: auto;
+      padding: var(--sectionPadding);
+      /* prevents padding and border from affecting height and width */
+      box-sizing: border-box;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      /* 48px - 64px */
+      gap: clamp(3rem, 6vw, 4rem);
+      position: relative;
+      background-color: var(--primary);
+
+  }
+  #cta-1094 .cs-content {
+      /* set text align to left if content needs to be left aligned */
+      text-align: center;
+      width: 100%;
+      /* changes to 100% at tablet */
+      max-width: 25rem;
+      display: flex;
+      flex-direction: column;
+      /* centers content horizontally, set to flex-start to left align */
+      align-items: center;
+  }
+
+  #cta-1094 .cs-title {
+      width: 100%;
+      font-size: 1.9375rem;
+      margin: 0 0 1.5rem;
+      color: var(--bodyTextColorWhite);
+  }
+  #cta-1094 .cs-form {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 1rem;
+      /* prevents flexbox from squishing it */
+      flex: none;
+  }
+  #cta-1094 .cs-input {
+      font-size: 1rem;
+      width: 100%;
+      height: clamp(2.875rem, 5.5vw, 3.5rem);
+      margin: 0;
+      padding: 0;
+      padding-left: 1.25rem;
+      border: none;
+      /* prevents padding from adding to width and height */
+      box-sizing: border-box;
+      display: block;
+  }
+  #cta-1094 .cs-input::placeholder {
+      color: #767676;
+  }
+  #cta-1094 .cs-button-solid {
+      font-size: 1rem;
+      /* 46px - 56px */
+      line-height: clamp(2.875rem, 5.5vw, 3.5rem);
+      text-decoration: none;
+      font-weight: 700;
+      text-align: center;
+      margin: 0;
+      color: #fff;
+      min-width: 9.375rem;
+      padding: 0 1.5rem;
+      background-color: var(--bodyTextColor);
+      display: inline-block;
+      position: relative;
+      z-index: 1;
+      /* prevents padding from adding to the width */
+      box-sizing: border-box;
+  }
+  #cta-1094 .cs-button-solid:before {
+      content: "";
+      position: absolute;
+      height: 100%;
+      width: 0%;
+      background: #000;
+      opacity: 1;
+      top: 0;
+      left: 0;
+      z-index: -1;
+      transition: width 0.3s;
+  }
+  #cta-1094 .cs-button-solid:hover:before {
+      width: 100%;
+  }
+  #cta-1094 .cs-submit {
+      width: 100%;
+      border: none;
+      transition: color 0.3s;
+  }
+  #cta-1094 .cs-submit:before {
+      background-color: #fff;
+  }
+  #cta-1094 .cs-submit:hover {
+      color: var(--primary);
+  }
+  #cta-1094 .cs-background {
+      width: 100%;
+      height: 100%;
+      display: block;
+      position: absolute;
+      top: 0;
+      left: 0;
+      z-index: -1;
+  }
+  #cta-1094 .cs-background:before {
+      /* black overlay */
+      content: "";
+      width: 100%;
+      height: 100%;
+      background: #1a1a1a;
+      opacity: 0.88;
+      position: absolute;
+      display: block;
+      top: 0;
+      left: 0;
+      z-index: 1;
+  }
+  #cta-1094 .cs-background img {
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: 100%;
+      width: 100%;
+      object-fit: cover;
+  }
+}
+/* Tablet - 768px */
+@media only screen and (min-width: 48rem) {
+  #cta-1094 .cs-container {
+      padding-left: 3.75rem;
+      padding-right: 3.75rem;
+  }
+  #cta-1094 .cs-content {
+      max-width: 100%;
+  }
+  #cta-1094 .cs-form {
+      flex-direction: row;
+  }
+  #cta-1094 .cs-input {
+      width: 100%;
+      max-width: 32.8125rem;
+  }
+  #cta-1094 .cs-submit {
+      width: auto;
+      min-width: 11.875rem;
+      /* prevents flexbox from squishing it */
+      flex: none;
+  }
+}
+/* Desktop - 1300px */
+@media only screen and (min-width: 81.25rem) {
+  #cta-1094 .cs-content {
+      flex-direction: row;
+      justify-content: space-between;
+  }
+  #cta-1094 .cs-title {
+      margin: 0;
+  }
+  #cta-1094 .cs-form {
+      width: 100%;
+      max-width: 45.625rem;
+  }
+}
+
+                              
+                      

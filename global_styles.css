@@ -5396,46 +5396,55 @@ html {
   background: #fff;
   border-radius: 8px;
   padding: 20px;
-  width: 75%; /* Full width of the container */
-  align-items: center;
+  width: 75%; /* Adjust as needed */
   overflow-x: auto; /* Handle overflow if necessary */
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Center align content horizontally */
 }
 
-/* Events Table Styling */
+/* Centering the output and h2 */
+#events-table h2 {
+  text-align: center; /* Center text horizontally */
+  margin: 0; /* Remove margin if needed */
+  margin-bottom: 20px; /* Spacing below h2 */
+}
+
 #events-table .output {
-  align-items: center;
+  width: 100%; /* Make sure the output takes full width of the container */
+  text-align: center; /* Center text horizontally inside .output */
 }
 
 /* Styles for Event Rows */
 #events-table .row {
   display: flex;
+  justify-content: center; /* Center align items horizontally */
   margin-bottom: 20px;
   align-items: center;
   border-bottom: 1px solid var(--primary);
   padding: 10px 0; /* Add padding for spacing */
+  width: 100%; /* Ensure rows span full width */
 }
 
 /* Default Styles for Columns */
+#events-table .col-a,
+#events-table .col-b,
+#events-table .time {
+  margin-right: 10px; /* Margin between columns */
+  flex: 1; /* Distribute space evenly */
+}
+
 #events-table .col-a {
   color: var(--primary);
-  margin-right: 10px;
-  flex: 1;
 }
 
 #events-table .col-b {
-  margin-right: 10px;
   font-weight: bold;
-  flex: 1;
 }
 
 #events-table .time {
-  margin-left: 10px;
   font-weight: bold;
-  flex: 1;
-}
-
-#events-table h2 {
-  margin-top: 0;
+  margin-left: 10px;
 }
 
 /* Tablet */

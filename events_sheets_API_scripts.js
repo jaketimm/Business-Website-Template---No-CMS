@@ -24,17 +24,22 @@ function readSheetData() {
         range: RANGE
     }).then(function (response) {
         var values = response.result.values;
-        var output = '';
+        var outputHtml = '';
 
         if (values && values.length > 0) {
-            for (var i = 0; i < values.length; i++) {
-                var colA = escapeHtml(values[i][0] || '');
-                var colB = escapeHtml('Date: ' + (values[i][1] || ''));
-                var time = escapeHtml('Time(s): ' + (values[i][2] || ''));
+            // Create table rows
+            outputHtml += '<div id="events-table">';
+            values.forEach(function (row, index) {
+                // Adjust the HTML structure to match your styling needs
+                outputHtml += '<div class="row">';
+                outputHtml += '<div class="col-a">' + escapeHtml(row[0] || '') + '</div>';
+                outputHtml += '<div class="col-b">Date: ' + escapeHtml(row[1] || '') + '</div>';
+                outputHtml += '<div class="time">Time(s): ' + escapeHtml(row[2] || '') + '</div>';
+                outputHtml += '</div>';
+            });
+            outputHtml += '</div>';
 
-                output += colA + ' | ' + colB + ' | ' + time + '\n';
-            }
-            document.getElementById('output').textContent = output;
+            document.getElementById('output').innerHTML = outputHtml;
         } else {
             document.getElementById('output').textContent = 'No data found.';
         }
@@ -43,6 +48,7 @@ function readSheetData() {
         document.getElementById('output').textContent = 'Error fetching data.';
     });
 }
+
 
 // Function to escape HTML special characters to prevent rendering HTML
 function escapeHtml(text) {

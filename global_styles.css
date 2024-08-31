@@ -5448,12 +5448,6 @@ html {
   margin-left: 10px;
 }
 
-/* Tablet */
-@media only screen and (max-width: 85rem) {
-  #events-table {
-    width: 90%;
-  }
-}
 
 /* Mobile */
 @media only screen and (max-width: 44rem) {

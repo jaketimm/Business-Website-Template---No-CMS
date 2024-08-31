@@ -5397,6 +5397,7 @@ html {
   border-radius: 8px;
   padding: 20px;
   width: 75%; /* Full width of the container */
+  align-items: center;
   overflow-x: auto; /* Handle overflow if necessary */
 }
 

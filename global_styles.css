@@ -5436,7 +5436,7 @@ html {
 /* Tablet */
 @media only screen and (max-width: 85rem) {
   #events-table {
-    width: 75%;
+    width: 90%;
   }
 }
 

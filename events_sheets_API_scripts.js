@@ -30,16 +30,19 @@ function readSheetData() {
             // Create table rows
             outputHtml += '<div id="events-table">';
             values.forEach(function (row, index) {
-                // Adjust the HTML structure to match your styling needs
-                outputHtml += '<div class="row">';
-                outputHtml += '<div class="col-a">' + escapeHtml(row[0] || '') + '</div>';
-                outputHtml += '<div class="col-b">Date: ' + escapeHtml(row[1] || '') + '</div>';
-                outputHtml += '<div class="time">Time(s): ' + escapeHtml(row[2] || '') + '</div>';
-                outputHtml += '</div>';
+                // Check if all cells in the row are non-empty
+                if (row.length >= 3 && row.every(cell => cell.trim() !== '')) {
+                    // Adjust the HTML structure to match your styling needs
+                    outputHtml += '<div class="row">';
+                    outputHtml += '<div class="col-a">' + escapeHtml(row[0]) + '</div>';
+                    outputHtml += '<div class="col-b">Date: ' + escapeHtml(row[1]) + '</div>';
+                    outputHtml += '<div class="time">Time(s): ' + escapeHtml(row[2]) + '</div>';
+                    outputHtml += '</div>';
+                }
             });
             outputHtml += '</div>';
 
-            document.getElementById('output').innerHTML = outputHtml;
+            document.getElementById('output').innerHTML = outputHtml || 'No complete data found.';
         } else {
             document.getElementById('output').textContent = 'No data found.';
         }

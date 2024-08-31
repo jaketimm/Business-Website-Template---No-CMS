@@ -5401,6 +5401,10 @@ html {
   overflow-x: auto; /* Handle overflow if necessary */
 }
 
+/* Events Table Styling */
+#events-table .output {
+  align-items: center;
+}
 
 /* Styles for Event Rows */
 #events-table .row {

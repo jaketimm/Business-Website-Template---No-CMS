@@ -5387,6 +5387,8 @@ html {
   justify-content: center;
   align-items: center;
   min-height: 10vh; /* Full viewport height */
+  width: 100%; /* Ensure it spans the full width */
+  padding: 10px; /* Add padding if needed */
 }
 
 /* Events Table Styling */
@@ -5394,8 +5396,12 @@ html {
   background: #fff;
   border-radius: 8px;
   padding: 20px;
-  width: 75%; /* Adjust as needed */
+  width: 100%; /* Full width of the container */
+  max-width: 800px; /* Adjust as needed for responsiveness */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Optional for better visibility */
+  overflow-x: auto; /* Handle overflow if necessary */
 }
+
 
 /* Styles for Event Rows */
 #events-table .row {

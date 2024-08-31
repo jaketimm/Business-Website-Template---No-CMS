@@ -5396,9 +5396,7 @@ html {
   background: #fff;
   border-radius: 8px;
   padding: 20px;
-  width: 100%; /* Full width of the container */
-  max-width: 800px; /* Adjust as needed for responsiveness */
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Optional for better visibility */
+  width: 75%; /* Full width of the container */
   overflow-x: auto; /* Handle overflow if necessary */
 }
 

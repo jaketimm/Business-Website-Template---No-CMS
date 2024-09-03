@@ -7,6 +7,7 @@
     <meta name="description" content="A Business Sandbox Website">
     <title>Business Page Template</title>
     <link rel="stylesheet" href="global_styles.css">
+    <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
 </head>
 
 <body class="home-page">
@@ -424,5 +425,19 @@
 
     <!-- Link to gloabl Javascript file -->
     <script src="page_scripts.js"></script>
+
+    <!-- Script needed for Decap CMS -->
+    <script>
+        if (window.netlifyIdentity) {
+          window.netlifyIdentity.on("init", user => {
+            if (!user) {
+              window.netlifyIdentity.on("login", () => {
+                document.location.href = "/admin/";
+              });
+            }
+          });
+        }
+      </script>
+      
 
 </body>

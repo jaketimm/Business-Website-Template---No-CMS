@@ -34,7 +34,7 @@
     <script>
         async function loadBlogPreviews() {
             const blogFolder = 'blog/';
-            const response = await fetch('blogFiles.json');
+            const response = await fetch('blog/blogFiles.json');
             const blogFiles = await response.json(); // Get the list of .md files
 
             const contentDiv = document.getElementById('content');

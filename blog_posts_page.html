@@ -1,39 +1,110 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="A Business Sandbox Website">
-    <title>Business Page Template</title>
+    <title>Blog Preview</title>
     <link rel="stylesheet" href="global_styles.css">
+    <style>
+        /* Add some basic styling for the preview cards */
+        .blog-preview {
+            border: 1px solid #ddd;
+            padding: 16px;
+            margin: 16px;
+            border-radius: 8px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .blog-preview img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+        }
+        .blog-preview h2 {
+            margin: 16px 0 8px;
+        }
+        .blog-preview p {
+            color: #555;
+        }
+    </style>
 </head>
-
 <body>
     <div id="content">Loading...</div>
 
     <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
     <script>
-        //load the unstyled contents of a post.
-        const postFilePath = 'blog/long-test-post.md';
+        async function loadBlogPreviews() {
+            const blogFolder = 'blog/';
+            const blogFiles = ['long-test-post.md', 'test-post.md']; // List your .md files here
 
-        fetch(postFilePath)
-            .then(response => {
-                if (!response.ok) {
-                    throw new Error(`HTTP error! status: ${response.status}`);
+            const contentDiv = document.getElementById('content');
+            contentDiv.innerHTML = '';
+
+            for (const file of blogFiles) {
+                try {
+                    const response = await fetch(blogFolder + file);
+                    if (!response.ok) {
+                        throw new Error(`HTTP error! status: ${response.status}`);
+                    }
+                    const markdown = await response.text();
+                    const html = marked.parse(markdown);
+
+                    // Extract metadata from markdown
+                    const titleMatch = html.match(/<h2>(.*?)<\/h2>/);
+                    const title = titleMatch ? titleMatch[1] : 'Untitled';
+
+                    // Simple regex to find the first paragraph
+                    const paragraphMatch = html.match(/<p>(.*?)<\/p>/);
+                    const description = paragraphMatch ? paragraphMatch[1] : 'No description available';
+
+                    // Extract metadata using regex from the markdown
+                    const metaData = {
+                        title: 'Untitled',
+                        url: file,
+                        description: description,
+                        author: 'Unknown',
+                        date: 'Unknown',
+                        tags: [],
+                        image: 'default-image.jpg',
+                        imageAlt: 'Image'
+                    };
+                    
+                    const metaMatch = markdown.match(/title:\s*(.*?)\nurl:\s*(.*?)\ndescription:\s*(.*?)\nauthor:\s*(.*?)\ndate:\s*(.*?)\ntags:\s*([\s\S]*?)\nimage:\s*(.*?)\nimageAlt:\s*(.*)/);
+                    if (metaMatch) {
+                        metaData.title = metaMatch[1];
+                        metaData.url = metaMatch[2];
+                        metaData.description = metaMatch[3];
+                        metaData.author = metaMatch[4];
+                        metaData.date = metaMatch[5];
+                        metaData.tags = metaMatch[6].trim().split(/\s+/);
+                        metaData.image = metaMatch[7];
+                        metaData.imageAlt = metaMatch[8];
+                    }
+
+                    // Create blog preview card
+                    const cardHtml = `
+                        <div class="blog-preview">
+                            <picture>
+                                <img src="${blogFolder + metaData.image}" alt="${metaData.imageAlt}">
+                            </picture>
+                            <h2>${metaData.title}</h2>
+                            <p>${metaData.description}</p>
+                            <a href="${blogFolder + metaData.url}">Read more</a>
+                        </div>
+                    `;
+                    contentDiv.innerHTML += cardHtml;
+
+                } catch (error) {
+                    console.error('Error loading post:', error);
+                    contentDiv.innerHTML += `<p>Error loading post: ${error.message}</p>`;
                 }
-                return response.text();
-            })
-            .then(markdown => {
-                const html = marked.parse(markdown);
-                document.getElementById('content').innerHTML = html;
-            })
-            .catch(error => {
-                document.getElementById('content').innerHTML = `Error loading post: ${error.message}`;
-                console.error('Error loading post:', error);
-            });
-    </script>
+            }
+        }
 
+        // Load blog previews when the page loads
+        window.onload = loadBlogPreviews;
+    </script>
 
     <!-- ============================================ -->
     <!--                Contact Banner                -->
@@ -48,17 +119,14 @@
         </div>
         <!-- Bottom Colored Divider -->
         <div class="custom-shape-divider-bottom-1723582066">
-            <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120"
-                preserveAspectRatio="none">
+            <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
                 <path d="M598.97 114.72L0 0 0 120 1200 120 1200 0 598.97 114.72z" class="shape-fill"></path>
             </svg>
         </div>
     </section>
 
-
-    <!-- Link to gloabl Javascript file -->
+    <!-- Link to global JavaScript file -->
     <script src="page_scripts.js"></script>
 
 </body>
-
 </html>

@@ -12,4 +12,3 @@ imageAlt: Bird
 Run!
 
 
-https://jjtbusinesswebstitetemplatenocms.netlify.app/blog/post

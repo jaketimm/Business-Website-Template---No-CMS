@@ -12,9 +12,6 @@
 
     <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
     <script>
-        
-        import { marked } from 'marked'
-
         // Correct URL path
         const postFilePath = 'blog/test-post.md';
 
@@ -26,7 +23,7 @@
                 return response.text();
             })
             .then(markdown => {
-                const html = marked(markdown);
+                const html = marked.parse(markdown);
                 document.getElementById('content').innerHTML = html;
             })
             .catch(error => {

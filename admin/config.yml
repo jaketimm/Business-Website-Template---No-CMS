@@ -10,7 +10,7 @@ collections:
   - name: "blog" # Used in routes, e.g., /admin/collections/post
     label: "Blog" # Used in the UI
     folder: "blog" # The path to the folder where the documents are stored
-    path: "{{slug}}"
+    path: "{{slug}}"  #posts are at www.site.app/blog/urlslug
     media_folder: "" # Save images in the post's own folder instead of the static folder
     public_folder: ""
     create: true # Allow users to create new documents in this collection

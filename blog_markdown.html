@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Markdown Renderer</title>
     <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script> <!-- Path to the Marked library -->
-    <script src="https://cdn.jsdelivr.net/npm/gray-matter@4.0.3/dist/gray-matter.min.js"></script> <!-- CDN for gray-matter -->
 </head>
 
 
@@ -16,12 +15,41 @@
         // URL of the Markdown file
         const markdownFilePath = 'content/posts/this-is-a-test-post/index.md';
 
+        // Function to split the front matter and Markdown content
+        function splitFrontMatter(markdown) {
+            const frontMatterRegex = /^---\n([\s\S]*?)\n---\n/;
+            const match = markdown.match(frontMatterRegex);
+            let frontMatter = {};
+            let content = markdown;
+
+            if (match) {
+                // Extract front matter and Markdown content
+                frontMatter = parseYAML(match[1]);
+                content = markdown.slice(match[0].length);
+            }
+
+            return { frontMatter, content };
+        }
+
+        // Simple YAML parser function (you can use a more robust parser if needed)
+        function parseYAML(yamlString) {
+            const lines = yamlString.split('\n');
+            const result = {};
+            for (const line of lines) {
+                const [key, value] = line.split(':');
+                if (key && value) {
+                    result[key.trim()] = value.trim();
+                }
+            }
+            return result;
+        }
+
         // Fetch the Markdown file
         fetch(markdownFilePath)
             .then(response => response.text())
             .then(data => {
-                // Parse the front matter and Markdown content
-                const { data: frontMatter, content } = window.grayMatter(data);
+                // Split the front matter and content
+                const { frontMatter, content } = splitFrontMatter(data);
 
                 // Convert Markdown to HTML
                 const html = marked(content);

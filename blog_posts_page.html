@@ -1,14 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Blog Preview</title>
-    <link rel="stylesheet" href="global_styles.css">
-    <script src="generate_blog_files.js"></script>
+    <title>Blog Previews</title>
     <style>
-        /* Add some basic styling for the preview cards */
         .blog-preview {
             border: 1px solid #ddd;
             padding: 16px;
@@ -18,23 +14,19 @@
             flex-direction: column;
             align-items: center;
         }
-
         .blog-preview img {
             max-width: 100%;
             height: auto;
             border-radius: 8px;
         }
-
         .blog-preview h2 {
             margin: 16px 0 8px;
         }
-
         .blog-preview p {
             color: #555;
         }
     </style>
 </head>
-
 <body>
     <div id="content">Loading...</div>
 
@@ -42,7 +34,8 @@
     <script>
         async function loadBlogPreviews() {
             const blogFolder = 'blog/';
-            const blogFiles = ['long-test-post.md', 'test-post.md']; // List your .md files here
+            const response = await fetch('blogFiles.json');
+            const blogFiles = await response.json(); // Get the list of .md files
 
             const contentDiv = document.getElementById('content');
             contentDiv.innerHTML = '';
@@ -92,7 +85,7 @@
                     const cardHtml = `
                         <div class="blog-preview">
                             <picture>
-                            <img src="${blogFolder + metaData.image}" alt="${metaData.imageAlt}">
+                                <img src="${blogFolder + metaData.image}" alt="${metaData.imageAlt}">
                             </picture>
                             <h2>${metaData.title}</h2>
                             <p>${metaData.description}</p>
@@ -111,30 +104,5 @@
         // Load blog previews when the page loads
         window.onload = loadBlogPreviews;
     </script>
-
-    <!-- ============================================ -->
-    <!--                Contact Banner                -->
-    <!-- ============================================ -->
-    <section id="cta-51">
-        <div class="cs-container">
-            <div class="cs-content">
-                <div class="decorative-line"></div>
-                <span class="cs-topper">test post</span>
-                <a href="blog_markdown.html" class="cs-button-solid">View</a>
-            </div>
-        </div>
-        <!-- Bottom Colored Divider -->
-        <div class="custom-shape-divider-bottom-1723582066">
-            <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120"
-                preserveAspectRatio="none">
-                <path d="M598.97 114.72L0 0 0 120 1200 120 1200 0 598.97 114.72z" class="shape-fill"></path>
-            </svg>
-        </div>
-    </section>
-
-    <!-- Link to global JavaScript file -->
-    <script src="page_scripts.js"></script>
-
 </body>
-
 </html>

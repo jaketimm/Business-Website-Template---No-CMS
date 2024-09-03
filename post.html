@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog Post</title>
+    <style>
+        body { font-family: Arial, sans-serif; line-height: 1.6; margin: 20px; }
+        img { max-width: 100%; height: auto; display: block; margin: 20px 0; }
+        .content { max-width: 800px; margin: auto; }
+    </style>
+</head>
+<body>
+    <div id="post-content" class="content">Loading...</div>
+
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const urlParams = new URLSearchParams(window.location.search);
+            const postFile = urlParams.get('post');
+
+            if (postFile) {
+                fetch(`blog/${postFile}`)
+                    .then(response => {
+                        if (!response.ok) {
+                            throw new Error(`HTTP error! status: ${response.status}`);
+                        }
+                        return response.text();
+                    })
+                    .then(markdown => {
+                        const htmlContent = marked.parse(markdown);
+                        document.getElementById('post-content').innerHTML = htmlContent;
+
+                        // Extract metadata for title and image
+                        const metaMatch = markdown.match(/title:\s*(.*?)\nimage:\s*(.*?)\nimageAlt:\s*(.*)/);
+                        if (metaMatch) {
+                            document.title = metaMatch[1];
+                            document.getElementById('post-content').insertAdjacentHTML('afterbegin', `
+                                <h1>${metaMatch[1]}</h1>
+                                <picture>
+                                    <img src="blog/${metaMatch[2]}" alt="${metaMatch[3]}">
+                                </picture>
+                            `);
+                        }
+                    })
+                    .catch(error => {
+                        document.getElementById('post-content').innerHTML = `Error loading post: ${error.message}`;
+                        console.error('Error loading post:', error);
+                    });
+            } else {
+                document.getElementById('post-content').innerHTML = 'No post specified.';
+            }
+        });
+    </script>
+</body>
+</html>

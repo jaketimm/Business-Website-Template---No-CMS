@@ -1,24 +1,36 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Blog Post Markdown</title>
+    <title>Blog Post</title>
     <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
 </head>
+
 <body>
-    <div id="content"></div>
+    <div id="content">Loading...</div>
 
     <script>
-        const postFilePath = 'content/this-is-a-test-blog-post/index.md';
+        // Correct URL path
+        const postFilePath = 'content/posts/this-is-a-test-post/index.md';
 
         fetch(postFilePath)
-            .then(response => response.text())
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error(`HTTP error! status: ${response.status}`);
+                }
+                return response.text();
+            })
             .then(markdown => {
                 const html = marked(markdown);
                 document.getElementById('content').innerHTML = html;
             })
-            .catch(error => console.error('Error loading post:', error));
+            .catch(error => {
+                document.getElementById('content').innerHTML = `Error loading post: ${error.message}`;
+                console.error('Error loading post:', error);
+            });
     </script>
 </body>
+
 </html>

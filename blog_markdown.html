@@ -4,10 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Markdown Renderer</title>
-    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script> <!-- Path to the Marked library -->
+    <!-- Include Marked library -->
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
 </head>
-
-
 <body>
     <div id="content"></div>
 
@@ -31,7 +30,7 @@
             return { frontMatter, content };
         }
 
-        // Simple YAML parser function (you can use a more robust parser if needed)
+        // Simple YAML parser function
         function parseYAML(yamlString) {
             const lines = yamlString.split('\n');
             const result = {};
@@ -57,7 +56,7 @@
                 // Insert the HTML into the page
                 document.getElementById('content').innerHTML = html;
 
-                // Optionally, you can also display front matter data
+                // Optionally, display front matter data
                 console.log('Front Matter:', frontMatter);
             })
             .catch(error => {

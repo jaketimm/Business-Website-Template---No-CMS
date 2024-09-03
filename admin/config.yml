@@ -3,7 +3,7 @@
 backend:
   name: git-gateway
   branch: main
-  
+
 media_folder: "blog/images" # Folder where user uploaded files should go
 public_folder: "images"
 collections:
@@ -12,9 +12,9 @@ collections:
     folder: "blog" # The path to the folder where the documents are stored
     path: "{{slug}}"
     media_folder: "" # Save images in the post's own folder instead of the static folder
-    public_folder: "blog"
+    public_folder: ""
     create: true # Allow users to create new documents in this collection
-     fields:
+    fields:
           - { label: "Title", name: "title", widget: "string" }
           - {
                 label: "URL Slug",

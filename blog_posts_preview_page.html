@@ -188,7 +188,7 @@
                         imageAlt: 'Image'
                     };
 
-                    const metaMatch = markdown.match(/title:\s*(.*?)\nurl:\s*(.*?)\ndescription:\s*(.*?)\nauthor:\s*(.*?)\ndate:\s*(.*?)\ntags:\s*([\s\S]*?)\nimage:\s*(.*?)\nimageAlt:\s*(.*)/);
+                    const metaMatch = markdown.match(/^---\s*[\s\S]*?\ntitle:\s*(.*?)\n(?:description:\s*(.*?)\n)?(?:author:\s*(.*?)\n)?(?:date:\s*(.*?)\n)?(?:tags:\s*[\s\S]*?\n)?(?:image:\s*(.*?)\n)?(?:imageAlt:\s*(.*?)\n)?---/);
                     if (metaMatch) {
                         metaData.title = metaMatch[1];
                         metaData.description = metaMatch[2];

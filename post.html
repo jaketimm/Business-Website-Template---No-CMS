@@ -5,10 +5,92 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Blog Post</title>
     <style>
-        body { font-family: Arial, sans-serif; line-height: 1.6; margin: 20px; }
-        img { max-width: 100%; height: auto; display: block; margin: 20px 0; }
-        .content { max-width: 800px; margin: auto; }
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 20px;
+            background-color: #f4f4f4; /* Light background for better readability */
+            color: #333; /* Dark text for good contrast */
+        }
+    
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+            margin: 20px 0;
+        }
+    
+        .content {
+            max-width: 800px;
+            margin: auto;
+            background: #fff; /* White background for the content area */
+            padding: 20px; /* Add padding inside the content area */
+            border-radius: 8px; /* Rounded corners */
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Soft shadow */
+        }
+    
+        header {
+            margin-bottom: 20px;
+            padding-bottom: 20px;
+            border-bottom: 2px solid #ddd; /* Separator line */
+        }
+    
+        header h1 {
+            font-size: 2.5em;
+            margin: 0;
+            color: #222; /* Slightly darker color for the title */
+        }
+    
+        header .url {
+            font-size: 1.2em;
+            color: #007bff; /* Blue color for the URL */
+            text-decoration: none;
+            display: block;
+            margin: 10px 0;
+        }
+    
+        header .description {
+            font-size: 1.1em;
+            color: #555; /* Gray color for description */
+            margin: 10px 0;
+        }
+    
+        header .author,
+        header .date {
+            font-size: 0.9em;
+            color: #888; /* Lighter gray for author and date */
+        }
+    
+        header .tags {
+            margin-top: 10px;
+        }
+    
+        header .tags span {
+            background-color: #e9ecef; /* Light background for tags */
+            border-radius: 3px;
+            padding: 5px 10px;
+            margin: 0 5px;
+            font-size: 0.9em;
+            display: inline-block;
+            color: #495057; /* Darker gray for tags */
+        }
+    
+        /* Additional styling for responsiveness */
+        @media (max-width: 768px) {
+            .content {
+                padding: 15px;
+            }
+    
+            header h1 {
+                font-size: 2em;
+            }
+    
+            header .url {
+                font-size: 1em;
+            }
+        }
     </style>
+    
 </head>
 <body>
     <div id="post-content" class="content">Loading...</div>

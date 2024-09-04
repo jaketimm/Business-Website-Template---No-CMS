@@ -19,17 +19,13 @@ imageAlt: CMS
 
 ##### **Heading 5**
 
-
-
 **Bold text**
 
 *Italics*
 
-* *Abulleted list*
+* *A bulleted list*
 
   * *Another bullet*
-
-
 
 1. Numerical list
 2. Numerical list

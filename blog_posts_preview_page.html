@@ -191,13 +191,12 @@
                     const metaMatch = markdown.match(/title:\s*(.*?)\nurl:\s*(.*?)\ndescription:\s*(.*?)\nauthor:\s*(.*?)\ndate:\s*(.*?)\ntags:\s*([\s\S]*?)\nimage:\s*(.*?)\nimageAlt:\s*(.*)/);
                     if (metaMatch) {
                         metaData.title = metaMatch[1];
-                        metaData.url = metaMatch[2];
-                        metaData.description = metaMatch[3];
-                        metaData.author = metaMatch[4];
-                        metaData.date = metaMatch[5];
-                        metaData.tags = metaMatch[6].trim().split(/\s+/);
-                        metaData.image = metaMatch[7];
-                        metaData.imageAlt = metaMatch[8];
+                        metaData.description = metaMatch[2];
+                        metaData.author = metaMatch[3];
+                        metaData.date = metaMatch[4];
+                        metaData.tags = metaMatch[5].trim().split(/\s+/);
+                        metaData.image = metaMatch[6];
+                        metaData.imageAlt = metaMatch[7];
                     }
 
                     // Create blog preview card

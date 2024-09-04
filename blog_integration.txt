@@ -1,0 +1,19 @@
+This is a guide to adding a blog with built in CMS to a website. 
+
+Steps: 
+
+1. Copy in the admin folder as is. This sets the CMS system behavior and imports Decap's scipts.
+2. Copy in the .github folder as is. This creates a github workflow that updates 'blogFiles.json'
+when a post is added or removed.
+3. Copy in the blog folder. The .md posts and images can be removed. Do not delete the 'blogFiles.json'
+file as it is needed. Leave the images/ folder as this is where uploaded images are stored.
+4. Copy the extra blog logic into the index page (scripts at the top and bottom)
+5. Copy in the blog_posts_preview_page.html as is. This page loads and renders preview cards for all posts.
+6. Copy in the post.html page as is. This is a generic page for showing any blog post.
+7. Copy in the package.json file as is.
+8. Copy in the generate_blog_files.js script as is. This updates 'blogFiles.json' with the current list
+of all markdown blog files. It runs automatically using the github workflow.
+
+A guide to configure the neflify project online to allow CMS and Decap:
+https://arshsharma.com/posts/2023-11-15-building-a-blog-with-a-cms-using-hugo-and-netlify/
+

@@ -8,89 +8,73 @@
         body {
             font-family: Arial, sans-serif;
             line-height: 1.6;
-            margin: 20px;
-            background-color: #f4f4f4; /* Light background for better readability */
-            color: #333; /* Dark text for good contrast */
+            margin: 0;
+            background-color: #f4f4f4;
+            color: #333;
         }
-    
+
+        .content {
+            max-width: 800px;
+            margin: 20px auto;
+            background: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            font-size: 2.5em;
+            margin-top: 0;
+            color: #222;
+        }
+
         img {
             max-width: 100%;
             height: auto;
             display: block;
             margin: 20px 0;
+            border-radius: 8px; /* Rounded corners for images */
         }
-    
-        .content {
-            max-width: 800px;
-            margin: auto;
-            background: #fff; /* White background for the content area */
-            padding: 20px; /* Add padding inside the content area */
-            border-radius: 8px; /* Rounded corners */
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Soft shadow */
-        }
-    
-        header {
-            margin-bottom: 20px;
-            padding-bottom: 20px;
-            border-bottom: 2px solid #ddd; /* Separator line */
-        }
-    
-        header h1 {
-            font-size: 2.5em;
-            margin: 0;
-            color: #222; /* Slightly darker color for the title */
-        }
-    
-        header .url {
-            font-size: 1.2em;
-            color: #007bff; /* Blue color for the URL */
-            text-decoration: none;
+
+        picture {
             display: block;
-            margin: 10px 0;
+            margin-bottom: 20px;
         }
-    
-        header .description {
-            font-size: 1.1em;
-            color: #555; /* Gray color for description */
-            margin: 10px 0;
-        }
-    
-        header .author,
-        header .date {
+
+        .metadata {
             font-size: 0.9em;
-            color: #888; /* Lighter gray for author and date */
+            color: #888;
+            margin-bottom: 20px;
         }
-    
-        header .tags {
+
+        .metadata .author, .metadata .date {
+            display: block;
+        }
+
+        .metadata .tags {
             margin-top: 10px;
         }
-    
-        header .tags span {
-            background-color: #e9ecef; /* Light background for tags */
+
+        .metadata .tags span {
+            background-color: #e9ecef;
             border-radius: 3px;
             padding: 5px 10px;
             margin: 0 5px;
             font-size: 0.9em;
             display: inline-block;
-            color: #495057; /* Darker gray for tags */
+            color: #495057;
         }
-    
-        /* Additional styling for responsiveness */
+
         @media (max-width: 768px) {
             .content {
                 padding: 15px;
             }
-    
-            header h1 {
+
+            h1 {
                 font-size: 2em;
-            }
-    
-            header .url {
-                font-size: 1em;
             }
         }
     </style>
-    
 </head>
 <body>
     <div id="post-content" class="content">Loading...</div>
@@ -113,15 +97,27 @@
                         const htmlContent = marked.parse(markdown);
                         document.getElementById('post-content').innerHTML = htmlContent;
 
-                        // Extract metadata for title and image
-                        const metaMatch = markdown.match(/title:\s*(.*?)\nimage:\s*(.*?)\nimageAlt:\s*(.*)/);
+                        // Extract metadata for title, image, and other details
+                        const metaMatch = markdown.match(/title:\s*(.*?)\nurl:\s*(.*?)\ndescription:\s*(.*?)\nauthor:\s*(.*?)\ndate:\s*(.*?)\ntags:\s*([\s\S]*?)\nimage:\s*(.*?)\nimageAlt:\s*(.*)/);
+
                         if (metaMatch) {
-                            document.title = metaMatch[1];
+                            const [_, title, url, description, author, date, tags, image, imageAlt] = metaMatch;
+
+                            document.title = title;
                             document.getElementById('post-content').insertAdjacentHTML('afterbegin', `
-                                <h1>${metaMatch[1]}</h1>
-                                <picture>
-                                    <img src="blog/${metaMatch[2]}" alt="${metaMatch[3]}">
-                                </picture>
+                                <header>
+                                    <h1>${title}</h1>
+                                    <div class="metadata">
+                                        <a href="${url}" class="url">${url}</a>
+                                        <div class="description">${description}</div>
+                                        <div class="author">Author: ${author}</div>
+                                        <div class="date">Date: ${new Date(date).toLocaleDateString()}</div>
+                                        <div class="tags">${tags.split('\n').map(tag => `<span>${tag}</span>`).join('')}</div>
+                                    </div>
+                                    <picture>
+                                        <img src="blog/${image}" alt="${imageAlt}">
+                                    </picture>
+                                </header>
                             `);
                         }
                     })

@@ -97,18 +97,17 @@
                         const htmlContent = marked.parse(markdown);
                         document.getElementById('post-content').innerHTML = htmlContent;
 
-                        // Extract metadata for title, image, and other details
-                        const metaMatch = markdown.match(/title:\s*(.*?)\nurl:\s*(.*?)\ndescription:\s*(.*?)\nauthor:\s*(.*?)\ndate:\s*(.*?)\ntags:\s*([\s\S]*?)\nimage:\s*(.*?)\nimageAlt:\s*(.*)/);
+                        // Extract metadata for title, description, author, date, tags, image, and imageAlt
+                        const metaMatch = markdown.match(/title:\s*(.*?)\ndescription:\s*(.*?)\nauthor:\s*(.*?)\ndate:\s*(.*?)\ntags:\s*([\s\S]*?)\nimage:\s*(.*?)\nimageAlt:\s*(.*)/);
 
                         if (metaMatch) {
-                            const [_, title, url, description, author, date, tags, image, imageAlt] = metaMatch;
+                            const [_, title, description, author, date, tags, image, imageAlt] = metaMatch;
 
                             document.title = title;
                             document.getElementById('post-content').insertAdjacentHTML('afterbegin', `
                                 <header>
                                     <h1>${title}</h1>
                                     <div class="metadata">
-                                        <a href="${url}" class="url">${url}</a>
                                         <div class="description">${description}</div>
                                         <div class="author">Author: ${author}</div>
                                         <div class="date">Date: ${new Date(date).toLocaleDateString()}</div>

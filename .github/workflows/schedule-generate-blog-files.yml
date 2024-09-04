@@ -2,8 +2,8 @@ name: Generate Blog Files
 
 on:
   schedule:
-    # Cron syntax to run every 1 minutes
-    - cron: '*/1 * * * *'
+    # Cron syntax to run every hour
+    - cron: '0 * * * *'
   workflow_dispatch:
 
 jobs:

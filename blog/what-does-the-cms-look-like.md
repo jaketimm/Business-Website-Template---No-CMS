@@ -8,6 +8,6 @@ tags:
 image: pexels-pixabay-262508.jpg
 imageAlt: The Content Management Page
 ---
-When the CMS system is active, this is what you will see after logging in. You can upload you own photos and write posts all from this page.
+When the CMS system is active, this is what you will see after logging in. You can upload your own photos and write posts all from this page.
 
 ![](cms.png)

@@ -7,28 +7,25 @@ on:
   workflow_dispatch:
 
 jobs:
-  generate:
+  update-blog-files:
     runs-on: ubuntu-latest
+    permissions:
+      contents: write  # Grant write access to the repository contents
+
     steps:
       - name: Checkout code
         uses: actions/checkout@v3
 
-      - name: Set up Node.js
-        uses: actions/setup-node@v3
-        with:
-          node-version: '20' # Use the appropriate Node.js version
+      - name: Run script to generate blogFiles.json
+        run: |
+          node generate_blog_files.js
 
-      - name: Install dependencies
-        run: npm install
-
-      - name: Run generate_blog_files.js
-        run: node generate_blog_files.js
-
-      - name: Commit and push changes (optional)
-        if: ${{ github.event_name == 'schedule' }}
+      - name: Commit and push changes
         run: |
           git config --global user.name 'GitHub Actions'
           git config --global user.email 'actions@github.com'
-          git add blog/blogFiles.json
+          git add blogFiles.json
           git commit -m 'Update blogFiles.json'
           git push
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  # Use GitHub's token to authenticate

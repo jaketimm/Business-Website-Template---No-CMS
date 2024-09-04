@@ -108,6 +108,8 @@
                         tempDiv.innerHTML = htmlContent;
 
                         // Remove any h2 elements containing "imageAlt"
+                        // The metadata will show up in a h2 element, so this deletes it. As
+                        // long as the user doesn't put imageAlt in their heading it should work,
                         const h2Elements = tempDiv.querySelectorAll('h2');
                         h2Elements.forEach(h2 => {
                             if (h2.textContent.includes('imageAlt')) {

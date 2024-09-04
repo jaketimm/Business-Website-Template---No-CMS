@@ -109,6 +109,11 @@ body {
   background-color: #fff8f8;
 }
 
+/* Apply only to product page */
+.blog-preview-page {
+  background-color: #fff8f8;
+}
+
 /*-- -------------------------- -->
 <---     YT Players Grid        -->
 <--- -------------------------- -*/

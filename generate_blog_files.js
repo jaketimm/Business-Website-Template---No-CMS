@@ -2,7 +2,7 @@ const fs = require('fs');
 const path = require('path');
 
 const blogFolder = path.join(__dirname, 'blog');
-const outputFilePath = path.join(__dirname, 'blogFiles.json');
+const outputFilePath = path.join(__dirname, 'blog/blogFiles.json');
 
 // Read all Markdown files from the blog folder
 fs.readdir(blogFolder, (err, files) => {

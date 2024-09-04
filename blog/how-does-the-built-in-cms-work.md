@@ -9,4 +9,8 @@ tags:
 image: pexels-pixabay-262508.jpg
 imageAlt: Blog
 ---
-This is a step by step overview of how the CMS system works.
+This is a step by step overview of how the CMS system works. 
+
+## Step 1:
+
+You will be sent an invite to register your email with the website. Once registered, the login site looks like this.

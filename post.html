@@ -80,54 +80,69 @@
     <div id="post-content" class="content">Loading...</div>
 
     <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
-    <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            const urlParams = new URLSearchParams(window.location.search);
-            const postFile = urlParams.get('post');
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const urlParams = new URLSearchParams(window.location.search);
+        const postFile = urlParams.get('post');
 
-            if (postFile) {
-                fetch(`blog/${postFile}`)
-                    .then(response => {
-                        if (!response.ok) {
-                            throw new Error(`HTTP error! status: ${response.status}`);
-                        }
-                        return response.text();
-                    })
-                    .then(markdown => {
-                        const htmlContent = marked.parse(markdown);
-                        document.getElementById('post-content').innerHTML = htmlContent;
+        if (postFile) {
+            fetch(`blog/${postFile}`)
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error(`HTTP error! status: ${response.status}`);
+                    }
+                    return response.text();
+                })
+                .then(markdown => {
+                    // Extract metadata for title, image, and other details
+                    const metaMatch = markdown.match(/title:\s*(.*?)\nurl:\s*(.*?)\ndescription:\s*(.*?)\nauthor:\s*(.*?)\ndate:\s*(.*?)\ntags:\s*([\s\S]*?)\nimage:\s*(.*?)\nimageAlt:\s*(.*)/);
 
-                        // Extract metadata for title, image, and other details
-                        const metaMatch = markdown.match(/title:\s*(.*?)\nurl:\s*(.*?)\ndescription:\s*(.*?)\nauthor:\s*(.*?)\ndate:\s*(.*?)\ntags:\s*([\s\S]*?)\nimage:\s*(.*?)\nimageAlt:\s*(.*)/);
+                    if (metaMatch) {
+                        const [_, title, url, description, author, date, tags, image, imageAlt] = metaMatch;
 
-                        if (metaMatch) {
-                            const [_, title, url, description, author, date, tags, image, imageAlt] = metaMatch;
+                        // Create HTML content from markdown
+                        let htmlContent = marked.parse(markdown);
 
-                            document.title = title;
-                            document.getElementById('post-content').insertAdjacentHTML('afterbegin', `
-                                <header>
-                                    <h1>${title}</h1>
-                                    <div class="metadata">
-                                        <div class="description">${description}</div>
-                                        <div class="author">Author: ${author}</div>
-                                        <div class="date">Date: ${new Date(date).toLocaleDateString()}</div>
-                                        <div class="tags">${tags.split('\n').map(tag => `<span>${tag}</span>`).join('')}</div>
-                                    </div>
-                                    <picture>
-                                        <img src="blog/${image}" alt="${imageAlt}">
-                                    </picture>
-                                </header>
-                            `);
-                        }
-                    })
-                    .catch(error => {
-                        document.getElementById('post-content').innerHTML = `Error loading post: ${error.message}`;
-                        console.error('Error loading post:', error);
-                    });
-            } else {
-                document.getElementById('post-content').innerHTML = 'No post specified.';
-            }
-        });
-    </script>
+                        // Create a temporary div to manipulate the HTML
+                        const tempDiv = document.createElement('div');
+                        tempDiv.innerHTML = htmlContent;
+
+                        // Remove any h2 elements containing "imageAlt"
+                        const h2Elements = tempDiv.querySelectorAll('h2');
+                        h2Elements.forEach(h2 => {
+                            if (h2.textContent.includes('imageAlt')) {
+                                h2.remove();
+                            }
+                        });
+
+                        // Set the modified HTML content
+                        document.getElementById('post-content').innerHTML = `
+                            <header>
+                                <h1>${title}</h1>
+                                <div class="metadata">
+                                    <div class="description">${description}</div>
+                                    <div class="author">Author: ${author}</div>
+                                    <div class="date">Date: ${new Date(date).toLocaleDateString()}</div>
+                                    <div class="tags">${tags.split('\n').map(tag => `<span>${tag}</span>`).join('')}</div>
+                                </div>
+                                <picture>
+                                    <img src="blog/${image}" alt="${imageAlt}">
+                                </picture>
+                            </header>
+                        `;
+
+                        // Append the rest of the content
+                        document.getElementById('post-content').insertAdjacentHTML('beforeend', tempDiv.innerHTML);
+                    }
+                })
+                .catch(error => {
+                    document.getElementById('post-content').innerHTML = `Error loading post: ${error.message}`;
+                    console.error('Error loading post:', error);
+                });
+        } else {
+            document.getElementById('post-content').innerHTML = 'No post specified.';
+        }
+    });
+</script>
 </body>
 </html>

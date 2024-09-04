@@ -13,4 +13,14 @@ This is a step by step overview of how the CMS system works.
 
 ## Step 1:
 
-You will be sent an invite to register your email with the website. Once registered, the login site looks like this.
+You will be sent an invite to register your email with the website. Once registered, the login page on the site looks like this.
+
+![](decap.png "Decap Login")
+
+## Step 2:
+
+Once you've logged in, the content manager looks like this: 
+
+
+
+![](cms.png "CMS Page")

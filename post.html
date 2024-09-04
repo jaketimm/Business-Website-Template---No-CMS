@@ -94,17 +94,20 @@
                         return response.text();
                     })
                     .then(markdown => {
-                        const htmlContent = marked.parse(markdown);
-                        document.getElementById('post-content').innerHTML = htmlContent;
-
-                        // Extract metadata for title, image, and other details
-                        const metaMatch = markdown.match(/title:\s*(.*?)\nurl:\s*(.*?)\ndescription:\s*(.*?)\nauthor:\s*(.*?)\ndate:\s*(.*?)\ntags:\s*([\s\S]*?)\nimage:\s*(.*?)\nimageAlt:\s*(.*)/);
+                        // Extract metadata and content
+                        const metaMatch = markdown.match(/title:\s*(.*?)\ndescription:\s*(.*?)\nauthor:\s*(.*?)\ndate:\s*(.*?)\ntags:\s*([\s\S]*?)\nimage:\s*(.*?)\nimageAlt:\s*(.*)/);
 
                         if (metaMatch) {
-                            const [_, title, url, description, author, date, tags, image, imageAlt] = metaMatch;
+                            const [_, title, description, author, date, tags, image, imageAlt] = metaMatch;
 
+                            // Set the title of the document
                             document.title = title;
-                            document.getElementById('post-content').insertAdjacentHTML('afterbegin', `
+
+                            // Remove metadata from markdown content
+                            const contentMarkdown = markdown.replace(/title:.*?\n|description:.*?\n|author:.*?\n|date:.*?\n|tags:.*?\n|image:.*?\n|imageAlt:.*?\n/, '');
+
+                            // Insert metadata
+                            document.getElementById('post-content').innerHTML = `
                                 <header>
                                     <h1>${title}</h1>
                                     <div class="metadata">
@@ -117,7 +120,13 @@
                                         <img src="blog/${image}" alt="${imageAlt}">
                                     </picture>
                                 </header>
-                            `);
+                            `;
+
+                            // Append the rest of the content
+                            document.getElementById('post-content').insertAdjacentHTML('beforeend', marked.parse(contentMarkdown));
+                        } else {
+                            // Handle cases where metadata extraction fails
+                            document.getElementById('post-content').innerHTML = `Error processing metadata.`;
                         }
                     })
                     .catch(error => {

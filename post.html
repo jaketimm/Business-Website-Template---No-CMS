@@ -132,11 +132,8 @@
                                 tempDiv.querySelectorAll('p').forEach(p => {
                                 const img = p.querySelector('img');
                                 if (img) {
-                                    // Prepend 'blog/' to the image src if not already present
-                                    if (!img.src.startsWith('http') && !img.src.startsWith('//')) {
-                                        img.src = `blog/${img.src}`;
-                                    }
 
+                                    img.src = `blog/${img.src}`;
                                     const imgWrapper = document.createElement('div');
                                     imgWrapper.classList.add('image-wrapper');
                                     imgWrapper.appendChild(img);

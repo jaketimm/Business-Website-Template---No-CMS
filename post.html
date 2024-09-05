@@ -127,26 +127,22 @@
                                 }
                             });
 
-                            // Correct image placement: Move images out of <p> tags if necessary
-                            tempDiv.querySelectorAll('p').forEach(p => {
+                            // Correct image placement: Move images out of <p> tags and ensure proper path
+                                tempDiv.querySelectorAll('p').forEach(p => {
                                 const img = p.querySelector('img');
                                 if (img) {
+                                    // Prepend 'blog/' to the image src if not already present
+                                    if (!img.src.startsWith('http') && !img.src.startsWith('//')) {
+                                        img.src = `blog/${img.src}`;
+                                    }
+
                                     const imgWrapper = document.createElement('div');
                                     imgWrapper.classList.add('image-wrapper');
                                     imgWrapper.appendChild(img);
                                     p.replaceWith(imgWrapper);
-
-                                    // Ensure image is fully loaded
-                                    img.onload = () => {
-                                        imgWrapper.style.height = `${img.height}px`;
-                                    };
-
-                                    img.onerror = () => {
-                                        imgWrapper.innerHTML = `<p>Error loading image</p>`;
-                                    };
                                 }
                             });
-
+                            
                             // Set the modified HTML content
                             document.getElementById('post-content').innerHTML = `
                                 <header>

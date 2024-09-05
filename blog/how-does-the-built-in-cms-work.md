@@ -21,6 +21,16 @@ You will be sent an invite to register your email with the website. Once registe
 
 Once you've logged in, the content manager looks like this: 
 
-
-
 ![](cms.png "CMS Page")
+
+## Step 3:
+
+Clicking on New Blog opens an editor that looks like this:
+
+![editor](blog-editor.png)
+
+From here you can do all of the standard blog formatting, including different header sizes, text styles, as well as inserting images directly into the posts.
+
+Once you publish a post, it will automatically be saved in your websites files and added to the blog post preview page.
+
+Posts can be added, removed, or edited at any time.

@@ -132,8 +132,10 @@
                                 tempDiv.querySelectorAll('p').forEach(p => {
                                 const img = p.querySelector('img');
                                 if (img) {
+                                    // Ensure image src is set to only the filename
+                                    const srcPath = img.src.split('/').pop(); // Get the filename only
+                                    img.src = `blog/${srcPath}`; // Prepend 'blog/' to the filename
 
-                                    img.src = `blog/${img.src}`;
                                     const imgWrapper = document.createElement('div');
                                     imgWrapper.classList.add('image-wrapper');
                                     imgWrapper.appendChild(img);

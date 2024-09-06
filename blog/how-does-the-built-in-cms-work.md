@@ -9,21 +9,21 @@ tags:
 image: pexels-pixabay-262508.jpg
 imageAlt: Blog
 ---
-This is a step by step overview of how the CMS system works. 
+This is an overview of how the CMS system works. 
 
-## Step 1:
+## Login Page:
 
 You will be sent an invite to register your email with the website. Once registered, the login page on the site looks like this.
 
 ![](decap.png "Decap Login")
 
-## Step 2:
+## Content Manager:
 
 Once you've logged in, the content manager looks like this: 
 
 ![](cms.png "CMS Page")
 
-## Step 3:
+## Editing Posts:
 
 Clicking on New Blog opens an editor that looks like this:
 
@@ -31,6 +31,10 @@ Clicking on New Blog opens an editor that looks like this:
 
 From here you can do all of the standard blog formatting, including different header sizes, text styles, as well as inserting images directly into the posts.
 
-Once you publish a post, it will automatically be saved in your websites files and added to the blog post preview page.
+## Publish Posts:
+
+Once you publish a post, it will automatically be saved in your website's files and added to the blog post preview page.
+
+![](publish-post.png "publish")
 
 Posts can be added, removed, or edited at any time.

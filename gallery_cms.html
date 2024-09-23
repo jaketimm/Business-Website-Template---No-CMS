@@ -1,70 +1,63 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Image Gallery</title>
-<style>
-  /* CSS Reset */
-  * {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-  }
-
-  /* Style the gallery container */
-  .gallery {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between; /* Adjust for spacing */
-    margin-top: 20px;
-  }
-
-  /* Style the images */
-  .gallery img {
-    max-height: 500px;
-    width: 48%; /* Two images per row with space */
-    object-fit: cover;
-    margin: 4px;
-    border-radius: 5px;
-  }
-
-  /* Image wider than 600px takes full width */
-  .gallery img.wide {
-    width: 100%;
-  }
-
-  @media (max-width: 768px) {
-    .gallery img {
-      width: 100%; /* Full width on smaller screens */
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Image Gallery</title>
+  <style>
+    /* CSS Reset */
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
     }
-  }
-</style>
+
+    /* Style the gallery container */
+    .gallery {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-around;
+      margin-top: 20px;
+    }
+
+    /* Style the images */
+    .gallery img {
+      max-height: 500px;
+      width: auto;
+      object-fit: cover;
+      margin: 4px;
+      border-radius: 5px;
+    }
+
+    @media (max-width: 768px) {
+      .gallery {
+        flex-direction: column;
+      }
+    }
+  </style>
 </head>
+
 <body>
   <div class="gallery"></div>
-<script>
-  // Function to create and append images to the gallery
-  function createImageElements(images) {
-    const galleryContainer = document.querySelector('.gallery');
-    images.forEach((image) => {
-      const imgElement = document.createElement('img');
-      imgElement.src = image.filePath;
+  <script>
+    // Function to create and append images to the gallery
+    function createImageElements(images) {
+      const galleryContainer = document.querySelector('.gallery');
+      images.forEach((image) => {
+        const imgElement = document.createElement('img');
+        imgElement.src = image.filePath;
+        imgElement.style.setProperty('--aspect-ratio', image.aspectRatio);
+        galleryContainer.appendChild(imgElement);
+      });
+    }
 
-       // Check if the aspect ratio exceeds 2
-       if (image.aspectRatio > 2) {
-        imgElement.classList.add('wide');
-      }
-      
-      galleryContainer.appendChild(imgElement);
-    });
-  }
-
-  // Fetch data from images.json
-  fetch('images.json')
-    .then(response => response.json())
-    .then(data => createImageElements(data))
-    .catch(error => console.error('Error reading images.json:', error));
-</script>
+    // Fetch data from images.json
+    fetch('images.json')
+      .then(response => response.json())
+      .then(data => createImageElements(data))
+      .catch(error => console.error('Error reading images.json:', error));
+  </script>
 </body>
+
 </html>

@@ -59,7 +59,7 @@
     }
 
     // Fetch data from images.json
-    fetch('images.json')
+    fetch('blog/images.json')
       .then(response => response.json())
       .then(data => createImageElements(data))
       .catch(error => console.error('Error reading images.json:', error));

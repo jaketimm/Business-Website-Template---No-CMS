@@ -2,8 +2,8 @@ const fs = require('fs');
 const path = require('path');
 const sharp = require('sharp');
 
-const imagesFolderPath = 'images';
-const imagesJsonPath = 'images.json';
+const imagesFolderPath = 'blog/images';
+const imagesJsonPath = 'blog/images.json';
 
 async function updateImagesJson() {
   const imagesData = [];

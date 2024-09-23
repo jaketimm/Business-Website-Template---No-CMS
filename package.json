@@ -4,12 +4,12 @@
     "description": "A template for a business website using markdown files",
     "main": "index.js",
     "scripts": {
-      "generate": "node generate_blog_files.js"
+        "generate": "node generate_blog_files.js"
     },
     "author": "Your Name",
     "license": "ISC",
     "dependencies": {
-      "marked": "^4.0.0"
+        "marked": "^4.0.0",
+        "sharp": "^0.33.5"
     }
-  }
-  
+}

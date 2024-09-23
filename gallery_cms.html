@@ -51,8 +51,8 @@
       const imgElement = document.createElement('img');
       imgElement.src = image.filePath;
 
-      // Check if the image width exceeds 600px
-      if (image.width > 600) {
+       // Check if the aspect ratio exceeds 2
+       if (image.aspectRatio > 2) {
         imgElement.classList.add('wide');
       }
       

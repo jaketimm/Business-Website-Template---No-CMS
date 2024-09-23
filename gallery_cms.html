@@ -1,66 +1,60 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Image Gallery</title>
-    <style>
-        /* Reset styles to remove default browser styles */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Image Gallery</title>
+<style>
+  /* CSS Reset */
+  * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
 
-        /* Style the gallery container */
-        .gallery {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: space-between;
-            padding: 16px;
-        }
+  /* Style the gallery container */
+  .gallery {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    margin-top: 20px;
+  }
 
-        /* Style the images */
-        .gallery img {
-            object-fit: cover;
-            width: 30%;
-            max-height: 500px;
-            margin-bottom: 16px;
-            flex: 1 0 30%;
-        }
+  /* Style the images */
+  .gallery img {
+    max-height: 500px;
+    width: auto;
+    object-fit: cover;
+    margin: 4px;
+    border-radius: 5px;
+  }
 
-        /* Mobile responsiveness: Flex the images into a column on small screens */
-        @media (max-width: 768px) {
-            .gallery {
-                flex-direction: column;
-            }
-            .gallery img {
-                width: 100%;
-                flex: 1 0 100%;
-            }
-        }
-    </style>
+  @media (max-width: 768px) {
+    .gallery {
+      flex-direction: column;
+    }
+  }
+</style>
 </head>
 <body>
-    <div class="gallery"></div>
+  <div class="gallery"></div>
+<script>
+  // Function to create and append images to the gallery
+  function createImageElements(images) {
+    const galleryContainer = document.querySelector('.gallery');
+    images.forEach((image) => {
+      const imgElement = document.createElement('img');
+      imgElement.src = image.filePath;
+      imgElement.style.setProperty('--aspect-ratio', image.aspectRatio);
+      galleryContainer.appendChild(imgElement);
+    });
+  }
 
-    <script>
-        // Function to create the image elements and add them to the gallery
-        function createImageElements(images) {
-            const galleryContainer = document.querySelector('.gallery');
-            images.forEach(image => {
-                const img = document.createElement('img');
-                img.src = image.filePath;
-                img.style.setProperty('--aspect-ratio', image.aspectRatio);
-                galleryContainer.appendChild(img);
-            });
-        }
-
-        // Load the images.json file and parse the data
-        fetch('images.json')
-            .then(response => response.json())
-            .then(data => createImageElements(data))
-            .catch(error => console.error('Error loading JSON:', error));
-    </script>
+  // Fetch data from images.json
+  fetch('images.json')
+    .then(response => response.json())
+    .then(data => createImageElements(data))
+    .catch(error => console.error('Error reading images.json:', error));
+</script>
 </body>
-</html>
+</html>  

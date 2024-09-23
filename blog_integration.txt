@@ -10,7 +10,7 @@ file as it is needed. Leave the images/ folder as this is where uploaded images 
 4. Copy the extra blog logic into the index page (scripts at the top and bottom)
 5. Copy in the blog_posts_preview_page.html as is. This page loads and renders preview cards for all posts.
 6. Copy in the post.html page as is. This is a generic page for showing any blog post.
-7. Copy in the package.json file as is.
+7. Copy in the package.json file as is. Also copy in the node_modules folder and package-lock.json as is.
 8. Copy in the generate_blog_files.js script as is. This updates 'blogFiles.json' with the current list
 of all markdown blog files. It runs automatically using the github workflow.
 

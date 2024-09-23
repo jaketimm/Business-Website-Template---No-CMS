@@ -16,28 +16,22 @@
   .gallery {
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-between; /* Adjust for spacing */
+    justify-content: space-around;
     margin-top: 20px;
   }
 
   /* Style the images */
   .gallery img {
     max-height: 500px;
-    width: 50%; /* Each image takes half the screen */
+    width: auto;
     object-fit: cover;
-    margin: 4px 0; /* Vertical margins */
+    margin: 4px;
     border-radius: 5px;
   }
 
-  /* Image wider than 600px takes full width */
-  .gallery img.wide {
-    width: 100%; /* Full width for wide images */
-    margin: 4px 0; /* Adjust margin for wide images */
-  }
-
   @media (max-width: 768px) {
-    .gallery img {
-      width: 100%; /* Full width on smaller screens */
+    .gallery {
+      flex-direction: column;
     }
   }
 </style>
@@ -51,12 +45,7 @@
     images.forEach((image) => {
       const imgElement = document.createElement('img');
       imgElement.src = image.filePath;
-
-      // Check if the image width exceeds 600px
-      if (image.width > 600) {
-        imgElement.classList.add('wide');
-      }
-      
+      imgElement.style.setProperty('--aspect-ratio', image.aspectRatio);
       galleryContainer.appendChild(imgElement);
     });
   }
@@ -68,4 +57,4 @@
     .catch(error => console.error('Error reading images.json:', error));
 </script>
 </body>
-</html>
+</html>  

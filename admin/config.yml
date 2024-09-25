@@ -7,11 +7,10 @@ backend:
 media_folder: "blog/images" # Folder where user uploaded files should go
 public_folder: "images"
 
- media_library:
+media_library:
     config:
       max_file_size: 5242880 # (5 MB) in bytes, only for default media library
-
-
+      
 collections:
   - name: "blog" # Used in routes, e.g., /admin/collections/post
     label: "Post" # Used in the UI

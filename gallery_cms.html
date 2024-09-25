@@ -180,9 +180,9 @@
               const blob = await response.blob();
       
               // Check the size of the image
-              if (blob.size > 5 * 1024 * 1024) { // 5 MB
+              if (blob.size > 10 * 1024 * 1024) { // 10 MB
                 const errorBox = document.createElement('div');
-                errorBox.textContent = 'Error: Image is larger than 5MB';
+                errorBox.textContent = 'Error: Image is larger than 10MB';
                 errorBox.style.border = '1px solid red';
                 errorBox.style.padding = '10px';
                 errorBox.style.textAlign = 'center';

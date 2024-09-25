@@ -1,5 +1,3 @@
-#static/admin/config.yml
-
 backend:
   name: git-gateway
   branch: main
@@ -7,29 +5,27 @@ backend:
 media_folder: "blog/images" # Folder where user uploaded files should go
 public_folder: "images"
 
-media_library:
-    config:
-      max_file_size: 5242880 # (5 MB) in bytes, only for default media library
-      
 collections:
   - name: "blog" # Used in routes, e.g., /admin/collections/post
     label: "Post" # Used in the UI
     folder: "blog" # The path to the folder where the documents are stored
-    path: "{{slug}}"  #posts are at www.site.app/blog/urlslug
+    path: "{{slug}}"  # Posts are at www.site.app/blog/urlslug
     media_folder: "" # Save images in the post's own folder instead of the static folder
     public_folder: ""
     create: true # Allow users to create new documents in this collection
     fields:
-          - { label: "Title", name: "title", widget: "string" }
-          - {
-                label: "URL Slug",
-                name: "url",
-                widget: "string"
-            }
-          - { label: "Description", name: "description", widget: "string" }
-          - { label: "Author", name: "author", widget: "string" }
-          - { label: "Date", name: "date", widget: "datetime" }
-          - { label: "Tags", name: "tags", widget: "list", default: ["post"] }
-          - { label: "Featured Image", name: "image", widget: "image" }
-          - { label: "Image Caption", name: "imageAlt", widget: "string" }
-          - { label: "Body", name: "body", widget: "markdown" }
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "URL Slug", name: "url", widget: "string" }
+      - { label: "Description", name: "description", widget: "string" }
+      - { label: "Author", name: "author", widget: "string" }
+      - { label: "Date", name: "date", widget: "datetime" }
+      - { label: "Tags", name: "tags", widget: "list", default: ["post"] }
+      - label: "Featured Image"
+        name: "image"
+        widget: "image"
+        media:
+          max_file_size: 5242880 # 5MB in bytes
+      - { label: "Image Caption", name: "imageAlt", widget: "string" }
+      - { label: "Body", name: "body", widget: "markdown" }
+
+# Featured Images configuration should be inside a collection or a specific field, not at the top level

@@ -3,7 +3,7 @@ backend:
   branch: main
 
 media_folder: "blog/images" # Folder where user uploaded files should go
-public_folder: "images"
+
 
 collections:
   - name: "blog" # Used in routes, e.g., /admin/collections/post
@@ -23,9 +23,24 @@ collections:
       - label: "Featured Image"
         name: "image"
         widget: "image"
-        media:
-          max_file_size: 5242880 # 5MB in bytes
+        media_library:
+          config:
+            max_file_size: 5242880 # 5MB in bytes
       - { label: "Image Caption", name: "imageAlt", widget: "string" }
       - { label: "Body", name: "body", widget: "markdown" }
-
-# Featured Images configuration should be inside a collection or a specific field, not at the top level
+  - name: "images" # New collection for images
+    label: "Image Gallery" # Label for the UI
+    folder: "blog/images" # Folder where images will be stored
+    create: true # Allow users to create new image entries
+    fields:
+      - label: "Image"
+        name: "image"
+        widget: "image"
+        media:
+          max_file_size: 5242880 # 5MB in bytes
+      - label: "Image Caption"
+        name: "caption"
+        widget: "string"
+      - label: "Alt Text"
+        name: "alt_text"
+        widget: "string"

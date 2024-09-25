@@ -95,84 +95,132 @@
 
     <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
     <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            const urlParams = new URLSearchParams(window.location.search);
-            const postFile = urlParams.get('post');
-
-            if (postFile) {
-                fetch(`blog/${postFile}`)
-                    .then(response => {
-                        if (!response.ok) {
-                            throw new Error(`HTTP error! status: ${response.status}`);
-                        }
-                        return response.text();
-                    })
-                    .then(markdown => {
-                        // Extract metadata for title, image, and other details
-                        const metaMatch = markdown.match(/title:\s*(.*?)\nurl:\s*(.*?)\ndescription:\s*(.*?)\nauthor:\s*(.*?)\ndate:\s*(.*?)\ntags:\s*([\s\S]*?)\nimage:\s*(.*?)\nimageAlt:\s*(.*)/);
-
-                        if (metaMatch) {
-                            const [_, title, url, description, author, date, tags, image, imageAlt] = metaMatch;
-
-                            // Create HTML content from markdown
-                            let htmlContent = marked.parse(markdown);
-
-                            // Create a temporary div to manipulate the HTML
-                            const tempDiv = document.createElement('div');
-                            tempDiv.innerHTML = htmlContent;
-
-                            // Remove any h2 elements containing "imageAlt"
-                            const h2Elements = tempDiv.querySelectorAll('h2');
-                            h2Elements.forEach(h2 => {
-                                if (h2.textContent.includes('imageAlt')) {
-                                    h2.remove();
-                                }
-                            });
-
-                            // Correct image placement: Move images out of <p> tags and ensure proper path
-                                tempDiv.querySelectorAll('p').forEach(p => {
-                                const img = p.querySelector('img');
-                                if (img) {
-                                    // Ensure image src is set to only the filename
-                                    const srcPath = img.src.split('/').pop(); // Get the filename only
-                                    img.src = `blog/${srcPath}`; // Prepend 'blog/' to the filename
-
-                                    const imgWrapper = document.createElement('div');
-                                    imgWrapper.classList.add('image-wrapper');
-                                    imgWrapper.appendChild(img);
-                                    p.replaceWith(imgWrapper);
-                                }
-                            });
-                            
-                            // Set the modified HTML content
-                            document.getElementById('post-content').innerHTML = `
-                                <header>
-                                    <h1>${title}</h1>
-                                    <div class="metadata">
-                                        <div class="description">${description}</div>
-                                        <div class="author">Author: ${author}</div>
-                                        <div class="date">Date: ${new Date(date).toLocaleDateString()}</div>
-                                        <div class="tags">${tags.split('\n').map(tag => `<span>${tag}</span>`).join('')}</div>
-                                    </div>
-                                    <picture>
-                                        <img src="blog/${image}" alt="${imageAlt}">
-                                    </picture>
-                                    <a href="blog_posts_preview_page.html">Back to blog</a>
-                                </header>
-                            `;
-
-                            // Append the rest of the content
-                            document.getElementById('post-content').insertAdjacentHTML('beforeend', tempDiv.innerHTML);
-                        }
-                    })
-                    .catch(error => {
-                        document.getElementById('post-content').innerHTML = `Error loading post: ${error.message}`;
-                        console.error('Error loading post:', error);
-                    });
-            } else {
-                document.getElementById('post-content').innerHTML = 'No post specified.';
+        document.addEventListener('DOMContentLoaded', async () => {
+          const urlParams = new URLSearchParams(window.location.search);
+          const postFile = urlParams.get('post');
+      
+          if (postFile) {
+            try {
+              const response = await fetch(`blog/${postFile}`);
+              if (!response.ok) {
+                throw new Error(`HTTP error! status: ${response.status}`);
+              }
+              const markdown = await response.text();
+      
+              // Extract metadata for title, image, and other details
+              const metaMatch = markdown.match(/title:\s*(.*?)\nurl:\s*(.*?)\ndescription:\s*(.*?)\nauthor:\s*(.*?)\ndate:\s*(.*?)\ntags:\s*([\s\S]*?)\nimage:\s*(.*?)\nimageAlt:\s*(.*)/);
+      
+              if (metaMatch) {
+                const [_, title, url, description, author, date, tags, image, imageAlt] = metaMatch;
+      
+                // Create HTML content from markdown
+                let htmlContent = marked.parse(markdown);
+      
+                // Create a temporary div to manipulate the HTML
+                const tempDiv = document.createElement('div');
+                tempDiv.innerHTML = htmlContent;
+      
+                // Remove any h2 elements containing "imageAlt"
+                const h2Elements = tempDiv.querySelectorAll('h2');
+                h2Elements.forEach(h2 => {
+                  if (h2.textContent.includes('imageAlt')) {
+                    h2.remove();
+                  }
+                });
+      
+                // Function to check image size
+                const checkImageSize = async (src) => {
+                  try {
+                    const response = await fetch(src);
+                    const blob = await response.blob();
+                    return blob.size <= 10 * 1024 * 1024; // 10 MB
+                  } catch {
+                    return false; // Assume image is too large if fetch fails
+                  }
+                };
+      
+                // Correct image placement: Move images out of <p> tags and ensure proper path
+                const imagePromises = [];
+                tempDiv.querySelectorAll('p').forEach(p => {
+                  const img = p.querySelector('img');
+                  if (img) {
+                    // Ensure image src is set to only the filename
+                    const srcPath = img.src.split('/').pop(); // Get the filename only
+                    const fullSrc = `blog/${srcPath}`; // Prepend 'blog/' to the filename
+      
+                    // Check the image size and handle accordingly
+                    imagePromises.push(checkImageSize(fullSrc).then(isValid => {
+                      const imgWrapper = document.createElement('div');
+                      imgWrapper.classList.add('image-wrapper');
+      
+                      if (isValid) {
+                        img.src = fullSrc;
+                        imgWrapper.appendChild(img);
+                      } else {
+                        imgWrapper.appendChild(createErrorBox('Error: Image is larger than 10MB'));
+                      }
+      
+                      p.replaceWith(imgWrapper);
+                    }));
+                  }
+                });
+      
+                // Handle the post header and content
+                const headerHtml = `
+                  <header>
+                    <h1>${title}</h1>
+                    <div class="metadata">
+                      <div class="description">${description}</div>
+                      <div class="author">Author: ${author}</div>
+                      <div class="date">Date: ${new Date(date).toLocaleDateString()}</div>
+                      <div class="tags">${tags.split('\n').map(tag => `<span>${tag}</span>`).join('')}</div>
+                    </div>
+                    <picture>
+                      <img src="blog/${image}" alt="${imageAlt}" id="post-image">
+                    </picture>
+                    <a href="blog_posts_preview_page.html">Back to blog</a>
+                  </header>
+                `;
+      
+                // Set the modified HTML content
+                document.getElementById('post-content').innerHTML = headerHtml;
+      
+                // Check the main image size
+                const mainImageSrc = `blog/${image}`;
+                const mainImageValid = await checkImageSize(mainImageSrc);
+                const postImageElement = document.getElementById('post-image');
+                
+                if (mainImageValid) {
+                  postImageElement.src = mainImageSrc;
+                } else {
+                  postImageElement.replaceWith(createErrorBox('Error: Image is larger than 10MB'));
+                }
+      
+                // Wait for all image size checks to complete
+                await Promise.all(imagePromises);
+                // Append the rest of the content
+                document.getElementById('post-content').insertAdjacentHTML('beforeend', tempDiv.innerHTML);
+              }
+            } catch (error) {
+              document.getElementById('post-content').innerHTML = `Error loading post: ${error.message}`;
+              console.error('Error loading post:', error);
             }
+          } else {
+            document.getElementById('post-content').innerHTML = 'No post specified.';
+          }
+      
+          // Helper function to create error box
+          function createErrorBox(message) {
+            const errorBox = document.createElement('div');
+            errorBox.textContent = message;
+            errorBox.style.border = '1px solid red';
+            errorBox.style.padding = '10px';
+            errorBox.style.textAlign = 'center';
+            return errorBox;
+          }
         });
-    </script>
+      </script>
+      
+      
 </body>
 </html>

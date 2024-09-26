@@ -171,65 +171,82 @@
             const contentDiv = document.getElementById('content');
             contentDiv.innerHTML = '';
 
-            for (const file of blogFiles) {
-                try {
-                    const response = await fetch(blogFolder + file);
-                    if (!response.ok) {
-                        throw new Error(`HTTP error! status: ${response.status}`);
-                    }
-                    const markdown = await response.text();
-                    const html = marked.parse(markdown);
+    for (const file of blogFiles) {
+    try {
+        const response = await fetch(blogFolder + file);
+        if (!response.ok) {
+            throw new Error(`HTTP error! status: ${response.status}`);
+        }
+        const markdown = await response.text();
+        const html = marked.parse(markdown);
 
-                    // Extract metadata from markdown
-                    const titleMatch = html.match(/<h2>(.*?)<\/h2>/);
-                    const title = titleMatch ? titleMatch[1] : 'Untitled';
+        // Extract metadata from markdown
+        const titleMatch = html.match(/<h2>(.*?)<\/h2>/);
+        const title = titleMatch ? titleMatch[1] : 'Untitled';
 
-                    // Simple regex to find the first paragraph
-                    const paragraphMatch = html.match(/<p>(.*?)<\/p>/);
-                    const description = paragraphMatch ? paragraphMatch[1] : 'No description available';
+        // Simple regex to find the first paragraph
+        const paragraphMatch = html.match(/<p>(.*?)<\/p>/);
+        const description = paragraphMatch ? paragraphMatch[1] : 'No description available';
 
-                    // Extract metadata using regex from the markdown
-                    const metaData = {
-                        title: 'Untitled',
-                        url: file,
-                        description: description,
-                        author: 'Unknown',
-                        date: 'Unknown',
-                        tags: [],
-                        image: 'default-image.jpg',
-                        imageAlt: 'Image'
-                    };
+        // Extract metadata using regex from the markdown
+        const metaData = {
+            title: 'Untitled',
+            url: file,
+            description: description,
+            author: 'Unknown',
+            date: 'Unknown',
+            tags: [],
+            image: 'default-image.jpg',
+            imageAlt: 'Image'
+        };
 
-                    const metaMatch = markdown.match(/title:\s*(.*?)\nurl:\s*(.*?)\ndescription:\s*(.*?)\nauthor:\s*(.*?)\ndate:\s*(.*?)\ntags:\s*([\s\S]*?)\nimage:\s*(.*?)\nimageAlt:\s*(.*)/);
-                    if (metaMatch) {
-                        metaData.title = metaMatch[1];
-                        metaData.url = metaMatch[2];
-                        metaData.description = metaMatch[3];
-                        metaData.author = metaMatch[4];
-                        metaData.date = metaMatch[5];
-                        metaData.tags = metaMatch[6].trim().split(/\s+/);
-                        metaData.image = metaMatch[7];
-                        metaData.imageAlt = metaMatch[8];
-                    }
+        const metaMatch = markdown.match(/title:\s*(.*?)\nurl:\s*(.*?)\ndescription:\s*(.*?)\nauthor:\s*(.*?)\ndate:\s*(.*?)\ntags:\s*([\s\S]*?)\nimage:\s*(.*?)\nimageAlt:\s*(.*)/);
+        if (metaMatch) {
+            metaData.title = metaMatch[1];
+            metaData.url = metaMatch[2];
+            metaData.description = metaMatch[3];
+            metaData.author = metaMatch[4];
+            metaData.date = metaMatch[5];
+            metaData.tags = metaMatch[6].trim().split(/\s+/);
+            metaData.image = metaMatch[7];
+            metaData.imageAlt = metaMatch[8];
+        }
 
-                    // Create blog preview card
-                    const cardHtml = `
-                        <div class="blog-preview">
-                            <picture>
-                                <img src="${blogFolder + metaData.image}" alt="${metaData.imageAlt}">
-                            </picture>
-                            <h2>${metaData.title}</h2>
-                            <p>${metaData.description}</p>
-                            <a href="post.html?post=${encodeURIComponent(file)}">Read more</a>
-                        </div>
-                    `;
-                    contentDiv.innerHTML += cardHtml;
+        // Check image size
+        const imageUrl = blogFolder + metaData.image;
+        const imageResponse = await fetch(imageUrl, { method: 'HEAD' });
+        const imageSize = imageResponse.headers.get('content-length');
 
-                } catch (error) {
-                    console.error('Error loading post:', error);
-                    contentDiv.innerHTML += `<p>Error loading post: ${error.message}</p>`;
-                }
-            }
+        if (imageSize && Number(imageSize) > 10 * 1024 * 1024) { // Check if size is greater than 10 MB
+            // Flagging error if image is too large
+            contentDiv.innerHTML += `
+                <div class="blog-preview error">
+                    <h2>Error</h2>
+                    <p>The image "${metaData.image}" exceeds the size limit of 10 MB.</p>
+                </div>
+            `;
+        } 
+        else {
+            // Create blog preview card
+            const cardHtml = `
+                <div class="blog-preview">
+                    <picture>
+                        <img src="${imageUrl}" alt="${metaData.imageAlt}">
+                    </picture>
+                    <h2>${metaData.title}</h2>
+                    <p>${metaData.description}</p>
+                    <a href="post.html?post=${encodeURIComponent(file)}">Read more</a>
+                </div>
+            `;
+            contentDiv.innerHTML += cardHtml;
+        }
+
+        } catch (error) {
+            console.error('Error loading post:', error);
+            contentDiv.innerHTML += `<p>Error loading post: ${error.message}</p>`;
+        }
+    }
+
         }
 
         // Load blog previews when the page loads

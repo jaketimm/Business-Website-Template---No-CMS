@@ -2,7 +2,11 @@ backend:
   name: git-gateway
   branch: main
 
+media_folder: "blog/images" # Folder where user uploaded files should go
+public_folder: "images"
+
 media_library:
+  name: "media-library"  # Required property
   config:
     max_file_size: 10485760 # 10 MB in bytes
     media_folder: "blog/images"  # Location in your repo for uploaded files

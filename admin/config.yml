@@ -2,8 +2,12 @@ backend:
   name: git-gateway
   branch: main
 
-media_folder: "blog/images" # Folder where user uploaded files should go
-public_folder: "images"
+media_library:
+  config:
+    max_file_size: 10485760 # 10 MB in bytes
+    media_folder: "blog/images"  # Location in your repo for uploaded files
+    public_folder: "/uploads" # Public URL path for uploaded files
+    allowed_file_types: ["image/png", "image/jpeg", "image/gif"] # Allowed image types
 
 collections:
   - name: "blog" # Used in routes, e.g., /admin/collections/post
@@ -27,4 +31,4 @@ collections:
           config:
             max_file_size: 10485760 # 10MB in bytes
       - { label: "Image Caption", name: "imageAlt", widget: "string"}
-      - { label: "Body", name: "body", widget: "markdown", upload: custom_Image_Upload_Handler }
+      - { label: "Body", name: "body", widget: "markdown" }

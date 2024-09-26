@@ -5,14 +5,6 @@ backend:
 media_folder: "blog/images" # Folder where user uploaded files should go
 public_folder: "images"
 
-media_library:
-  name: "media-library"  # Required property
-  config:
-    max_file_size: 10485760 # 10 MB in bytes
-    media_folder: "blog/images"  # Location in your repo for uploaded files
-    public_folder: "/uploads" # Public URL path for uploaded files
-    allowed_file_types: ["image/png", "image/jpeg", "image/gif"] # Allowed image types
-
 collections:
   - name: "blog" # Used in routes, e.g., /admin/collections/post
     label: "Post" # Used in the UI

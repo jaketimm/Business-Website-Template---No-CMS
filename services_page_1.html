@@ -361,7 +361,43 @@
         </div>
     </section>
 
+    <!-- ============================================ -->
+    <!--             Scrolling Logo Bar               -->
+    <!-- ============================================ -->
 
+    <section id="logo-bar">
+        <div class="logo-bar">
+            <div class="logo-container logo-container1">
+                <img src="svg/check-circle-svgrepo-com(1).svg" alt="Logo" class="logo">
+                <img src="svg/check-circle-svgrepo-com(1).svg" alt="Logo" class="logo">
+                <img src="svg/check-circle-svgrepo-com(1).svg" alt="Logo" class="logo">
+                <img src="svg/seo-mobile-setting-gear-cog-06-svgrepo-com.svg" alt="Logo" class="logo">
+            </div>
+            <div class="logo-container logo-container2">
+                <img src="svg/check-circle-svgrepo-com(1).svg" alt="Logo" class="logo">
+                <img src="svg/check-circle-svgrepo-com(1).svg" alt="Logo" class="logo">
+                <img src="svg/seo-mobile-setting-gear-cog-06-svgrepo-com.svg" alt="Logo" class="logo">
+                <img src="svg/design-and-development-01-svgrepo-com.svg" alt="Logo" class="logo">
+            </div>
+            <div class="logo-container logo-container3">
+                <img src="svg/check-circle-svgrepo-com(1).svg" alt="Logo" class="logo">
+                <img src="svg/seo-mobile-setting-gear-cog-06-svgrepo-com.svg" alt="Logo" class="logo">
+                <img src="svg/design-and-development-01-svgrepo-com.svg" alt="Logo" class="logo">
+                <img src="svg/seo-mobile-setting-gear-cog-06-svgrepo-com.svg" alt="Logo" class="logo">
+            </div>
+        </div>
+    </section>
+    <script>
+        let currentContainer = 0;
+        const containers = document.querySelectorAll('.logo-container');
+
+        setInterval(() => {
+            containers[currentContainer].style.opacity = 0; // Fade out current
+            currentContainer = (currentContainer + 1) % containers.length; // Switch container
+            containers[currentContainer].style.opacity = 1; // Fade in new
+        }, 4000); // Change every 4 seconds
+    </script>
+    
     <!-- ============================================ -->
     <!--             Why Us Side by Side              -->
     <!-- ============================================ -->

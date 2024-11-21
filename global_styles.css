@@ -4831,7 +4831,7 @@ html {
 @media only screen and (min-width: 0rem) {
   #sbsr-516 {
     padding: var(--sectionPadding);
-    background: #edededc1;
+    
   }
 
   #sbsr-516 .cs-container {
@@ -6570,9 +6570,12 @@ html {
 /* Desktop - 1024px */
 @media only screen and (min-width: 0rem) {
 
+  #logo-bar {
+    background-color: #f0f0f0;
+  }
+
   #logo-bar .logo-bar {
     height: 200px;
-    background-color: #f0f0f0;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -6991,5 +6994,39 @@ html {
     max-width: 33.875rem;
     margin: 0;
     width: 45%;
+  }
+}
+
+
+/*-- -------------------------- -->
+<---    Embedded FB Posts       -->
+<--- -------------------------- -*/
+
+/* Container for the Facebook posts */
+.facebook-posts-container {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px; /* Space between posts */
+  flex-wrap: wrap; /* Allow wrapping of items */
+  margin: 20px;
+}
+
+/* Individual post container */
+.facebook-post {
+  flex: 1 1 30%; /* Allow each post to take up 30% width, but can shrink or grow */
+  max-width: 33%; /* Ensure they don't exceed 33% width */
+  box-sizing: border-box;
+}
+
+/* Responsiveness: Stack posts vertically on small screens */
+@media screen and (max-width: 768px) {
+  .facebook-posts-container {
+      flex-direction: column;
+      align-items: center;
+  }
+
+  .facebook-post {
+      max-width: 100%; /* On mobile, make each post take full width */
+      margin-bottom: 20px; /* Add space between stacked posts */
   }
 }

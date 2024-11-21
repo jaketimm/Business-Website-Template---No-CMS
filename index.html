@@ -20,8 +20,7 @@
     <header id="cs-navigation">
         <!--Nav Logo-->
         <a href="index.html" class="cs-logo" aria-label="back to home">
-            <img src="images/logo.jpg" alt="logo" width="210"
-                height="29" aria-hidden="true" decoding="async">
+            <img src="images/logo.jpg" alt="logo" width="210" height="29" aria-hidden="true" decoding="async">
         </a>
         <!--Navigation List-->
         <nav class="cs-nav" role="navigation">
@@ -38,10 +37,9 @@
                 <ul id="cs-expanded" class="cs-ul" aria-expanded="false">
                     <li class="cs-li cs-dropdown" tabindex="0">
                         <span class="cs-li-link">
-                           Single Page Collections
-                            <img class="cs-drop-icon"
-                                src="https://www.svgrepo.com/show/495005/arrow-down.svg" alt="dropdown icon"
-                                width="15" height="15" decoding="async" aria-hidden="true">
+                            Single Page Collections
+                            <img class="cs-drop-icon" src="https://www.svgrepo.com/show/495005/arrow-down.svg"
+                                alt="dropdown icon" width="15" height="15" decoding="async" aria-hidden="true">
                         </span>
                         <ul class="cs-drop-ul">
                             <li class="cs-drop-li">
@@ -51,12 +49,13 @@
                                 <a href="bio_sections.html" class="cs-li-link cs-drop-link">Bio Sections</a>
                             </li>
                             <li class="cs-drop-li">
-                                <a href="homepage_general_store.html" class="cs-li-link cs-drop-link">General Store Sections</a>
+                                <a href="homepage_general_store.html" class="cs-li-link cs-drop-link">General Store
+                                    Sections</a>
                             </li>
                             <li class="cs-drop-li">
                                 <a href="misc_sections.html" class="cs-li-link cs-drop-link">Misc. Sections</a>
-                            </li>      
-                            
+                            </li>
+
                         </ul>
                     </li>
                     <li class="cs-li">
@@ -94,7 +93,7 @@
         </nav>
     </header>
 
-        <!-- ============================================ -->
+    <!-- ============================================ -->
     <!--                    Hero                      -->
     <!-- ============================================ -->
 
@@ -213,7 +212,7 @@
     </section>
 
 
-     <!-- ============================================ -->
+    <!-- ============================================ -->
     <!--            Side By Side Reverse              -->
     <!-- ============================================ -->
 
@@ -275,7 +274,7 @@
     </section>
 
 
-     <!-- ============================================ -->
+    <!-- ============================================ -->
     <!--                 Title/Topper                 -->
     <!-- ============================================ -->
 
@@ -374,11 +373,11 @@
     </section>
 
 
-    <div class="facebook-posts-container" id="facebook-posts-container">
-        <!-- Posts will be injected here via JavaScript -->
-    </div>
-
-    
+    <iframe
+        src="http://www.facebook.com/plugins/likebox.php?href=http%3A%2F%2Fwww.facebook.com%2F100010519415486&width=600&colorscheme=light&show_faces=true&border_color&stream=true&header=true&height=435"
+        scrolling="yes" style="border:none; overflow:hidden; width:600px; height:430px; background: white; float:left; "
+        allowtransparency="true" frameborder="0">
+    </iframe>
 
     <!-- ============================================ -->
     <!--                Contact Banner                -->
@@ -468,22 +467,18 @@
     <!-- Link to gloabl Javascript file -->
     <script src="page_scripts.js"></script>
 
-
-    <!-- Link to gloabl Javascript file -->
-    <script src="facebook_api.js"></script>
-
     <!-- Script needed for Decap CMS -->
     <script>
         if (window.netlifyIdentity) {
-          window.netlifyIdentity.on("init", user => {
-            if (!user) {
-              window.netlifyIdentity.on("login", () => {
-                document.location.href = "/admin/";
-              });
-            }
-          });
+            window.netlifyIdentity.on("init", user => {
+                if (!user) {
+                    window.netlifyIdentity.on("login", () => {
+                        document.location.href = "/admin/";
+                    });
+                }
+            });
         }
     </script>
-      
+
 
 </body>

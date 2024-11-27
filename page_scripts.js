@@ -77,3 +77,29 @@ window.addEventListener('resize', adjustSectionsOffset);
 
 
 
+
+// Select all elements with the 'counter' class
+const counterElements = document.querySelectorAll('.counter');
+
+// Create an IntersectionObserver
+const observer = new IntersectionObserver((entries, observer) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      // Add the 'in-view' class to trigger the animation when the element comes into view
+      entry.target.classList.add('in-view');
+      // Optional: Stop observing the element after it has triggered the animation
+      observer.unobserve(entry.target);
+    }
+  });
+}, {
+  threshold: 0.5 // Trigger when 50% of the element is in view (adjust as needed)
+});
+
+// Observe each counter element
+counterElements.forEach(counter => {
+  observer.observe(counter);
+});
+
+
+
+

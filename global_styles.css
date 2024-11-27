@@ -4959,7 +4959,7 @@ html {
     display: flex;
     justify-content: space-between;
     align-items: flex-start;
-    gap: 1rem;
+    gap: 3rem;
   }
 
   #sbsr-516 .cs-stat {
@@ -4977,6 +4977,74 @@ html {
     line-height: 1.2em;
     font-weight: 900;
     color: var(--primary);
+  }
+
+  /* need to add observer JS for the counters to work (page scripts) */
+  .counter-container {
+    display: inline-flex;
+    align-items: center;
+  }
+  
+  .counter {
+    font: 800 60px system-ui;
+    text-align: center;
+    color: darkblue;
+    width: 5rem;
+  }
+
+  .counter-text {
+    font: 800 60px system-ui;
+    margin-left: 0.5rem;
+    text-align: left;
+    color: darkblue;
+  }
+  
+  @property --first-num {
+    syntax: "<integer>";
+    initial-value: 0;
+    inherits: false;
+  }
+  
+  @property --second-num {
+    syntax: "<integer>";
+    initial-value: 0; 
+    inherits: false;
+  }
+  
+  .first-counter.in-view {
+    animation: firstCounter 4s ease-in-out forwards;
+    counter-reset: first-num var(--first-num);
+  }
+  
+  @keyframes firstCounter {
+    from {
+      --first-num: 0;
+    }
+    to {
+      --first-num: 55;  /* Change this for the first counter */
+    }
+  }
+  
+  .second-counter.in-view {
+    animation: secondCounter 4s ease-in-out forwards;
+    counter-reset: second-num var(--second-num);
+  }
+  
+  @keyframes secondCounter {
+    from {
+      --second-num: 0;
+    }
+    to {
+      --second-num: 99;   /* Change this for the second counter */
+    }
+  }
+  
+  .first-counter::after {
+    content: counter(first-num);
+  }
+  
+  .second-counter::after {
+    content: counter(second-num);
   }
 
   #sbsr-516 .cs-desc {

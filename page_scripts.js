@@ -92,7 +92,7 @@ const observer = new IntersectionObserver((entries, observer) => {
     }
   });
 }, {
-  threshold: 0.5 // Trigger when 50% of the element is in view (adjust as needed)
+  threshold: 0.2 // Trigger when 50% of the element is in view (adjust as needed)
 });
 
 // Observe each counter element

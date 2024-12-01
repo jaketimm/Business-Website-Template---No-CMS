@@ -7111,3 +7111,20 @@ html {
     /* Add space between stacked posts */
   }
 }
+
+
+.calendar-container {
+  max-width: 100%;
+  width: 800px; /* You can set a max-width or a specific width */
+  margin: 0 auto; /* Centers the container horizontally */
+  padding: 20px; /* Optional: adds space around the calendar */
+  box-sizing: border-box;
+  display: flex;
+  justify-content: center;
+}
+
+.calendar-container iframe {
+  width: 100%;
+  height: 600px; /* You can adjust this as needed */
+  border: none;
+}

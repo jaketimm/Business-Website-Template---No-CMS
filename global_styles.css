@@ -5014,7 +5014,6 @@ html {
   }
 
 
-
   .first-counter.in-view {
     animation: firstCounter 4s ease-in-out forwards;
     counter-reset: first-num var(--first-num);
@@ -5022,7 +5021,7 @@ html {
 
   @keyframes firstCounter {
     from {
-      --first-num: 0;
+      --first-num: 55;  /* Can't use until wider support for @property */
     }
 
     to {
@@ -5038,7 +5037,7 @@ html {
 
   @keyframes secondCounter {
     from {
-      --second-num: 0;
+      --second-num: 99; /* Can't use until wider support for @property */
     }
 
     to {

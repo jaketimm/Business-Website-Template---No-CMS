@@ -78,61 +78,28 @@ window.addEventListener('resize', adjustSectionsOffset);
 
 
 
-document.addEventListener('DOMContentLoaded', function() {
-    // Check if @property is supported
-    const isPropertySupported = CSS.hasOwnProperty('registerProperty');
-    
-    // Select all elements with the 'counter' class
-    const counterElements = document.querySelectorAll('.counter');
-  
-    // Create an IntersectionObserver
-    const observer = new IntersectionObserver((entries, observer) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          // Add the 'in-view' class to trigger the animation when the element comes into view
-          entry.target.classList.add('in-view');
-  
-          if (!isPropertySupported) {
-            // Fallback: Set final values of the counters manually using JavaScript if @property isn't supported
-            const firstCounter = document.querySelector('.first-counter');
-            const secondCounter = document.querySelector('.second-counter');
-  
-            // Manually set counter values for browsers that don't support @property
-            if (firstCounter) {
-              firstCounter.textContent = 55;  // Set final value for first counter
-            }
-            if (secondCounter) {
-              secondCounter.textContent = 99;  // Set final value for second counter
-            }
-          }
-          
-          // Optional: Stop observing the element after it has triggered the animation
-          observer.unobserve(entry.target);
-        }
-      });
-    }, {
-      threshold: 0.2 // Trigger when 20% of the element is in view
-    });
-  
-    // Observe each counter element
-    counterElements.forEach(counter => {
-      observer.observe(counter);
-    });
-  
-    // Handle the case where @property is not supported
-    if (!isPropertySupported) {
-      // Directly set the final value for counters if @property is not supported
-      const firstCounter = document.querySelector('.first-counter');
-      const secondCounter = document.querySelector('.second-counter');
-      
-      if (firstCounter) {
-        firstCounter.textContent = 55; // Final value for the first counter
-      }
-      if (secondCounter) {
-        secondCounter.textContent = 99; // Final value for the second counter
-      }
+// Select all elements with the 'counter' class
+const counterElements = document.querySelectorAll('.counter');
+
+// Create an IntersectionObserver
+const observer = new IntersectionObserver((entries, observer) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      // Add the 'in-view' class to trigger the animation when the element comes into view
+      entry.target.classList.add('in-view');
+      // Optional: Stop observing the element after it has triggered the animation
+      observer.unobserve(entry.target);
     }
   });
+}, {
+  threshold: 0.2 // Trigger when 20% of the element is in view (adjust as needed)
+});
+
+// Observe each counter element
+counterElements.forEach(counter => {
+  observer.observe(counter);
+});
+
 
 
 

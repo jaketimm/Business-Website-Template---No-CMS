@@ -5047,6 +5047,17 @@ html {
     content: counter(second-num);
   }
 
+  /* Fallback if @property is not supported */
+@supports not (--css-property: foo) {
+  .first-counter::after {
+    content: "55";  /* Static final number if @property is not supported */
+  }
+
+  .second-counter::after {
+    content: "99";  /* Static final number if @property is not supported */
+  }
+}
+
   #sbsr-516 .cs-desc {
     font-size: clamp(0.875rem, 1rem, 1.25rem);
     line-height: 1.5em;

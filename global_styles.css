@@ -4831,7 +4831,7 @@ html {
 @media only screen and (min-width: 0rem) {
   #sbsr-516 {
     padding: var(--sectionPadding);
-    
+
   }
 
   #sbsr-516 .cs-container {
@@ -4984,7 +4984,7 @@ html {
     display: inline-flex;
     align-items: center;
   }
-  
+
   .counter {
     font: 800 60px system-ui;
     text-align: center;
@@ -4998,65 +4998,71 @@ html {
     text-align: left;
     color: darkblue;
   }
-  
+
+
+
   @property --first-num {
     syntax: "<integer>";
     initial-value: 0;
     inherits: false;
   }
-  
+
   @property --second-num {
     syntax: "<integer>";
-    initial-value: 0; 
+    initial-value: 0;
     inherits: false;
   }
-  
+
+  /* Default styles: Set the counter to the final value if @property is not supported */
+  .first-counter::after {
+    content: "55";
+    /* Final value for browsers that don't support @property */
+  }
+
+  .second-counter::after {
+    content: "99";
+    /* Final value for browsers that don't support @property */
+  }
+
   .first-counter.in-view {
     animation: firstCounter 4s ease-in-out forwards;
     counter-reset: first-num var(--first-num);
   }
-  
+
   @keyframes firstCounter {
     from {
       --first-num: 0;
     }
+
     to {
-      --first-num: 55;  /* Change this for the first counter */
+      --first-num: 55;
+      /* Change this for the first counter */
     }
   }
-  
+
   .second-counter.in-view {
     animation: secondCounter 4s ease-in-out forwards;
     counter-reset: second-num var(--second-num);
   }
-  
+
   @keyframes secondCounter {
     from {
       --second-num: 0;
     }
+
     to {
-      --second-num: 99;   /* Change this for the second counter */
+      --second-num: 99;
+      /* Change this for the second counter */
     }
   }
-  
+
   .first-counter::after {
     content: counter(first-num);
   }
-  
+
   .second-counter::after {
     content: counter(second-num);
   }
-
-  /* Fallback if @property is not supported */
-  @supports not (--css-variable: value) {
-  .first-counter::after {
-    content: "55";  /* Static final number if @property is not supported */
-  }
-
-  .second-counter::after {
-    content: "99";  /* Static final number if @property is not supported */
-  }
-}
 
   #sbsr-516 .cs-desc {
     font-size: clamp(0.875rem, 1rem, 1.25rem);
@@ -6890,7 +6896,7 @@ html {
   #quote-form .cs-submit:hover {
     color: #fff;
     cursor: pointer;
-    
+
   }
 
   #quote-form .cs-link {
@@ -7085,27 +7091,33 @@ html {
 .facebook-posts-container {
   display: flex;
   justify-content: space-between;
-  gap: 20px; /* Space between posts */
-  flex-wrap: wrap; /* Allow wrapping of items */
+  gap: 20px;
+  /* Space between posts */
+  flex-wrap: wrap;
+  /* Allow wrapping of items */
   margin: 20px;
 }
 
 /* Individual post container */
 .facebook-post {
-  flex: 1 1 30%; /* Allow each post to take up 30% width, but can shrink or grow */
-  max-width: 33%; /* Ensure they don't exceed 33% width */
+  flex: 1 1 30%;
+  /* Allow each post to take up 30% width, but can shrink or grow */
+  max-width: 33%;
+  /* Ensure they don't exceed 33% width */
   box-sizing: border-box;
 }
 
 /* Responsiveness: Stack posts vertically on small screens */
 @media screen and (max-width: 768px) {
   .facebook-posts-container {
-      flex-direction: column;
-      align-items: center;
+    flex-direction: column;
+    align-items: center;
   }
 
   .facebook-post {
-      max-width: 100%; /* On mobile, make each post take full width */
-      margin-bottom: 20px; /* Add space between stacked posts */
+    max-width: 100%;
+    /* On mobile, make each post take full width */
+    margin-bottom: 20px;
+    /* Add space between stacked posts */
   }
 }

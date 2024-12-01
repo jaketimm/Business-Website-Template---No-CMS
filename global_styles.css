@@ -5048,7 +5048,7 @@ html {
   }
 
   /* Fallback if @property is not supported */
-@supports not (--css-property: foo) {
+  @supports not (--css-variable: value) {
   .first-counter::after {
     content: "55";  /* Static final number if @property is not supported */
   }

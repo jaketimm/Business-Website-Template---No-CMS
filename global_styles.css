@@ -5013,16 +5013,7 @@ html {
     inherits: false;
   }
 
-  /* Default styles: Set the counter to the final value if @property is not supported */
-  .first-counter::after {
-    content: "55";
-    /* Final value for browsers that don't support @property */
-  }
 
-  .second-counter::after {
-    content: "99";
-    /* Final value for browsers that don't support @property */
-  }
 
   .first-counter.in-view {
     animation: firstCounter 4s ease-in-out forwards;

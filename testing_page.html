@@ -88,14 +88,15 @@
                 imageAlt: 'Image'
             };
 
-            const metaMatch = markdown.match(/title:\s*(.*?)\nurl:\s*(.*?)\ndescription:\s*(.*?)\n.*?image:\s*(.*?)\nimageAlt:\s*(.*)/);
-            if (metaMatch) {
-                metaData.title = metaMatch[1];
-                metaData.url = metaMatch[2];
-                metaData.description = metaMatch[3];
-                metaData.image = metaMatch[4];
-                metaData.imageAlt = metaMatch[5];
-            }
+            const metaMatch = markdown.match(/title:\s*(.*?)\nurl:\s*(.*?)\ndescription:\s*(.*?)\nauthor:\s*(.*?)\ndate:\s*(.*?)\ntags:\s*([\s\S]*?)\nimage:\s*(.*?)\nimageAlt:\s*(.*)/);
+                if (metaMatch) {
+                    metaData.title = metaMatch[1];
+                    metaData.url = metaMatch[2];
+                    metaData.description = metaMatch[3];
+                    metaData.image = metaMatch[7];
+                    metaData.imageAlt = metaMatch[8];
+                }
+
 
             // Create blog preview card
             const contentDiv = document.getElementById('newest_post');

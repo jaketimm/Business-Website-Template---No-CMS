@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Homepage</title>
+    <style>
+        /* Basic responsive design */
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 1000px;
+            margin: auto;
+        }
+        .newest_post {
+            max-width: 80%;
+            margin: 20px auto;
+        }
+        @media (min-width: 768px) {
+            .newest_post {
+                max-width: 50%;
+            }
+        }
+        .blog-preview {
+            background: #f4f4f4;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        .blog-preview img {
+            width: 100%;
+            height: auto;
+            border-radius: 4px;
+        }
+        .blog-preview h2 {
+            margin-top: 10px;
+            margin-bottom: 10px;
+        }
+        .blog-preview p {
+            margin-bottom: 10px;
+        }
+        .blog-preview .buttons {
+            display: flex;
+            justify-content: space-between;
+        }
+        .blog-preview a {
+            text-decoration: none;
+            padding: 8px 12px;
+            background-color: #007BFF;
+            color: white;
+            border-radius: 4px;
+        }
+        .blog-preview a:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <section id="newest_post" class="newest_post">
+    </section>
+
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <script>
+        async function loadNewestPost() {
+            const blogFolder = 'blog/';
+            const response = await fetch('blog/blogFiles.json');
+            const blogFiles = await response.json();
+            
+            if (blogFiles.length > 0) {
+                const latestPostFile = blogFiles[0]; // Assuming the first file is the newest post
+                
+                try {
+                    const postResponse = await fetch(blogFolder + latestPostFile);
+                    if (!postResponse.ok) {
+                        throw new Error(`HTTP error! status: ${postResponse.status}`);
+                    }
+                    const markdown = await postResponse.text();
+                    const html = marked.parse(markdown);
+
+                    // Extract metadata from markdown
+                    const metaData = {
+                        title: 'Untitled',
+                        url: latestPostFile,
+                        description: 'No description available',
+                        image: 'default-image.jpg',
+                        imageAlt: 'Image'
+                    };
+
+                    const metaMatch = markdown.match(/title:\s*(.*?)\nurl:\s*(.*?)\ndescription:\s*(.*?)\nauthor:\s*(.*?)\ndate:\s*(.*?)\ntags:\s*([\s\S]*?)\nimage:\s*(.*?)\nimageAlt:\s*(.*)/);
+                    if (metaMatch) {
+                        metaData.title = metaMatch[1];
+                        metaData.description = metaMatch[3];
+                        metaData.image = metaMatch[7];
+                        metaData.imageAlt = metaMatch[8];
+                    }
+
+                    // Create blog preview card
+                    const cardHtml = `
+                        <div class="blog-preview">
+                            <picture>
+                                <img src="${blogFolder + metaData.image}" alt="${metaData.imageAlt}">
+                            </picture>
+                            <h2>${metaData.title}</h2>
+                            <p>${metaData.description}</p>
+                            <div class="buttons">
+                                <a href="post.html?post=${encodeURIComponent(latestPostFile)}">Read more</a>
+                                <a href="blog_posts_preview_page.html">All Posts</a>
+                            </div>
+                        </div>
+                    `;
+                    document.getElementById('newest_post').innerHTML = cardHtml;
+
+                } catch (error) {
+                    console.error('Error loading latest post:', error);
+                    document.getElementById('newest_post').innerHTML = `<p>Error loading latest post: ${error.message}</p>`;
+                }
+            } else {
+                document.getElementById('newest_post').innerHTML = '<p>No posts available.</p>';
+            }
+        }
+
+        // Load the newest post when the page loads
+        window.onload = loadNewestPost;
+    </script>
+</body>
+</html>

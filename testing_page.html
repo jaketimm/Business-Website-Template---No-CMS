@@ -5,125 +5,121 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Homepage</title>
     <style>
-        #newest_post {
-            display: flex;
-            justify-content: center;
-            padding: 20px;
+        /* Basic responsive design */
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 1000px;
+            margin: auto;
+        }
+        .newest_post {
+            max-width: 80%;
+            margin: 20px auto;
+        }
+        @media (min-width: 768px) {
+            .newest_post {
+                max-width: 50%;
+            }
         }
         .blog-preview {
-            width: 50%;
-            max-width: 600px;
-            border: 1px solid #ccc;
-            border-radius: 8px;
+            background: #f4f4f4;
             padding: 20px;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
         }
         .blog-preview img {
             width: 100%;
             height: auto;
             border-radius: 4px;
-            margin-bottom: 10px;
         }
         .blog-preview h2 {
-            margin-top: 0;
+            margin-top: 10px;
             margin-bottom: 10px;
         }
         .blog-preview p {
-            margin-bottom: 20px;
+            margin-bottom: 10px;
         }
         .blog-preview .buttons {
             display: flex;
             justify-content: space-between;
         }
-        .blog-preview .buttons a {
-            padding: 8px 16px;
-            background-color: #007bff;
-            color: #fff;
+        .blog-preview a {
             text-decoration: none;
+            padding: 8px 12px;
+            background-color: #007BFF;
+            color: white;
             border-radius: 4px;
-            transition: background-color 0.3s;
         }
-        .blog-preview .buttons a:hover {
+        .blog-preview a:hover {
             background-color: #0056b3;
-        }
-        @media (max-width: 768px) {
-            .blog-preview {
-                width: 80%;
-            }
         }
     </style>
 </head>
 <body>
-    <section id="newest_post"></section>
+    <section id="newest_post" class="newest_post">
+    </section>
 
     <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
     <script>
-        async function loadNewestPostPreview() {
+        async function loadNewestPost() {
             const blogFolder = 'blog/';
             const response = await fetch('blog/blogFiles.json');
-            const blogFiles = await response.json(); // Get the list of .md files
+            const blogFiles = await response.json();
+            
+            if (blogFiles.length > 0) {
+                const latestPostFile = blogFiles[0]; // Assuming the first file is the newest post
+                
+                try {
+                    const postResponse = await fetch(blogFolder + latestPostFile);
+                    if (!postResponse.ok) {
+                        throw new Error(`HTTP error! status: ${postResponse.status}`);
+                    }
+                    const markdown = await postResponse.text();
+                    const html = marked.parse(markdown);
 
-            const contentDiv = document.getElementById('newest_post');
-            contentDiv.innerHTML = '';
+                    // Extract metadata from markdown
+                    const metaData = {
+                        title: 'Untitled',
+                        url: latestPostFile,
+                        description: 'No description available',
+                        image: 'default-image.jpg',
+                        imageAlt: 'Image'
+                    };
 
-            if (blogFiles.length === 0) {
-                contentDiv.innerHTML = '<p>No posts available.</p>';
-                return;
-            }
+                    const metaMatch = markdown.match(/title:\s*(.*?)\nurl:\s*(.*?)\ndescription:\s*(.*?)\nauthor:\s*(.*?)\ndate:\s*(.*?)\ntags:\s*([\s\S]*?)\nimage:\s*(.*?)\nimageAlt:\s*(.*)/);
+                    if (metaMatch) {
+                        metaData.title = metaMatch[1];
+                        metaData.description = metaMatch[3];
+                        metaData.image = metaMatch[7];
+                        metaData.imageAlt = metaMatch[8];
+                    }
 
-            const file = blogFiles[0]; // Get the first (newest) file
-
-            try {
-                const response = await fetch(blogFolder + file);
-                if (!response.ok) {
-                    throw new Error(`HTTP error! status: ${response.status}`);
-                }
-                const markdown = await response.text();
-                const html = marked.parse(markdown);
-
-                // Extract metadata using regex from the markdown
-                const metaData = {
-                    title: 'Untitled',
-                    url: file,
-                    description: 'No description available',
-                    image: 'default-image.jpg',
-                    imageAlt: 'Image'
-                };
-
-                const metaMatch = markdown.match(/title:\s*(.*?)\nurl:\s*(.*?)\ndescription:\s*(.*?)\nauthor:\s*(.*?)\ndate:\s*(.*?)\ntags:\s*([\s\S]*?)\nimage:\s*(.*?)\nimageAlt:\s*(.*)/);
-                if (metaMatch) {
-                    metaData.title = metaMatch[1];
-                    metaData.url = metaMatch[2];
-                    metaData.description = metaMatch[3];
-                    metaData.image = metaMatch[7];
-                    metaData.imageAlt = metaMatch[8];
-                }
-
-                // Create blog preview card
-                const cardHtml = `
-                    <div class="blog-preview">
-                        <picture>
-                            <img src="${blogFolder + metaData.image}" alt="${metaData.imageAlt}">
-                        </picture>
-                        <h2>${metaData.title}</h2>
-                        <p>${metaData.description}</p>
-                        <div class="buttons">
-                            <a href="post.html?post=${encodeURIComponent(file)}">Read more</a>
-                            <a href="blog_posts_preview_page.html">View All Posts</a>
+                    // Create blog preview card
+                    const cardHtml = `
+                        <div class="blog-preview">
+                            <picture>
+                                <img src="${blogFolder + metaData.image}" alt="${metaData.imageAlt}">
+                            </picture>
+                            <h2>${metaData.title}</h2>
+                            <p>${metaData.description}</p>
+                            <div class="buttons">
+                                <a href="post.html?post=${encodeURIComponent(latestPostFile)}">Read more</a>
+                                <a href="blog_posts_preview_page.html">All Posts</a>
+                            </div>
                         </div>
-                    </div>
-                `;
-                contentDiv.innerHTML = cardHtml;
+                    `;
+                    document.getElementById('newest_post').innerHTML = cardHtml;
 
-            } catch (error) {
-                console.error('Error loading post:', error);
-                contentDiv.innerHTML = `<p>Error loading post: ${error.message}</p>`;
+                } catch (error) {
+                    console.error('Error loading latest post:', error);
+                    document.getElementById('newest_post').innerHTML = `<p>Error loading latest post: ${error.message}</p>`;
+                }
+            } else {
+                document.getElementById('newest_post').innerHTML = '<p>No posts available.</p>';
             }
         }
 
-        // Load newest post preview when the page loads
-        window.onload = loadNewestPostPreview;
+        // Load the newest post when the page loads
+        window.onload = loadNewestPost;
     </script>
 </body>
 </html>

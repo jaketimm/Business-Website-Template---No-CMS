@@ -44,26 +44,24 @@
             text-decoration: none;
             border-radius: 4px;
             transition: background-color 0.3s;
-            white-space: nowrap;
-            /* Prevent button text from wrapping */
             max-width: 150px;
             /* Limit button width */
         }
 
         .newest_post .buttons a:hover {
-            background-color: #02004e;
-            /* A darker shade for hover effect */
+            background-color: #1a1399;
+            /* Darker shade for hover effect */
         }
 
         @media (max-width: 600px) {
             .newest_post .buttons {
-                flex-wrap: wrap;
-                gap: 10px;
-                /* Adds space between buttons when wrapped */
+                flex-direction: column;
             }
 
             .newest_post .buttons a {
-                flex: 1 1 auto;
+                margin-bottom: 10px;
+                width: auto;
+                /* Allow buttons to adjust width naturally */
             }
         }
     </style>

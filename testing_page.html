@@ -3,115 +3,119 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Homepage</title>
+    <title>Homepage with Newest Post Preview</title>
     <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
         .newest_post {
             max-width: 600px;
-            margin: 0 auto;
-            padding: 20px;
-            background-color: #f9f9f9;
+            margin: 20px auto;
+        }
+        .blog-preview {
+            background: #fff;
             border-radius: 8px;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            overflow: hidden;
+            margin-bottom: 20px;
         }
-        .newest_post img {
-            max-width: 100%;
+        .blog-preview img {
+            width: 100%;
             height: auto;
-            border-radius: 4px;
+            display: block;
         }
-        .newest_post h2 {
-            margin-top: 10px;
-            margin-bottom: 10px;
+        .blog-preview h2 {
+            margin: 10px 15px 0;
             font-size: 24px;
         }
-        .newest_post p {
-            margin-bottom: 20px;
-            font-size: 16px;
+        .blog-preview p {
+            margin: 10px 15px 15px;
         }
-        .newest_post .buttons {
+        .button-container {
             display: flex;
             justify-content: space-between;
+            margin: 15px;
         }
-        .newest_post .buttons a {
-            padding: 10px 15px;
+        .button-container a {
+            text-decoration: none;
             background-color: #007BFF;
             color: white;
-            text-decoration: none;
-            border-radius: 4px;
+            padding: 10px 15px;
+            border-radius: 5px;
             transition: background-color 0.3s;
         }
-        .newest_post .buttons a:hover {
+        .button-container a:hover {
             background-color: #0056b3;
         }
-        @media (max-width: 480px) {
-            .newest_post .buttons {
+        @media (max-width: 600px) {
+            .newest_post {
+                padding: 0 10px;
+            }
+            .button-container {
                 flex-direction: column;
             }
-            .newest_post .buttons a {
+            .button-container a {
                 margin-bottom: 10px;
+                width: 100%;
+                text-align: center;
             }
         }
     </style>
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
 </head>
 <body>
-    <section id="newest_post" class="newest_post"></section>
+    <section id="newest_post"></section>
 
-    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
     <script>
         async function loadNewestPostPreview() {
             const blogFolder = 'blog/';
             const response = await fetch('blog/blogFiles.json');
-            const blogFiles = await response.json(); // Get the list of .md files
+            if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
+            const blogFiles = await response.json();
+            
+            // Assuming the first file in the list is the newest
+            const newestFile = blogFiles[0];
+            const responseFile = await fetch(blogFolder + newestFile);
+            if (!responseFile.ok) throw new Error(`HTTP error! status: ${responseFile.status}`);
+            const markdown = await responseFile.text();
+            
+            // Extract metadata from markdown
+            const metaData = {
+                title: 'Untitled',
+                url: newestFile,
+                description: 'No description available',
+                image: 'default-image.jpg',
+                imageAlt: 'Image'
+            };
 
-            const newestFile = blogFiles[0]; // Get the first (newest) entry
+            const metaMatch = markdown.match(/title:\s*(.*?)\nurl:\s*(.*?)\ndescription:\s*(.*?)\n.*?image:\s*(.*?)\nimageAlt:\s*(.*)/);
+            if (metaMatch) {
+                metaData.title = metaMatch[1];
+                metaData.url = metaMatch[2];
+                metaData.description = metaMatch[3];
+                metaData.image = metaMatch[4];
+                metaData.imageAlt = metaMatch[5];
+            }
 
-            try {
-                const response = await fetch(blogFolder + newestFile);
-                if (!response.ok) {
-                    throw new Error(`HTTP error! status: ${response.status}`);
-                }
-                const markdown = await response.text();
-                const html = marked.parse(markdown);
-
-                // Extract metadata using regex from the markdown
-                const metaData = {
-                    title: 'Untitled',
-                    url: newestFile,
-                    description: 'No description available',
-                    image: 'default-image.jpg',
-                    imageAlt: 'Image'
-                };
-
-                const metaMatch = markdown.match(/title:\s*(.*?)\nurl:\s*(.*?)\ndescription:\s*(.*?)\nauthor:\s*(.*?)\ndate:\s*(.*?)\ntags:\s*([\s\S]*?)\nimage:\s*(.*?)\nimageAlt:\s*(.*)/);
-                if (metaMatch) {
-                    metaData.title = metaMatch[1];
-                    metaData.url = metaMatch[2];
-                    metaData.description = metaMatch[3];
-                    metaData.image = metaMatch[7];
-                    metaData.imageAlt = metaMatch[8];
-                }
-
-                // Create blog preview card
-                const contentDiv = document.getElementById('newest_post');
-                const cardHtml = `
+            // Create blog preview card
+            const contentDiv = document.getElementById('newest_post');
+            const cardHtml = `
+                <div class="blog-preview">
                     <picture>
                         <img src="${blogFolder + metaData.image}" alt="${metaData.imageAlt}">
                     </picture>
                     <h2>${metaData.title}</h2>
                     <p>${metaData.description}</p>
-                    <div class="buttons">
+                    <div class="button-container">
                         <a href="post.html?post=${encodeURIComponent(newestFile)}">Read Post</a>
-                        <a href="blog_posts_preview_page.html">View All Posts</a>
+                        <a href="blog_posts_preview_page.html">All Posts</a>
                     </div>
-                `;
-                contentDiv.innerHTML = cardHtml;
-
-            } catch (error) {
-                console.error('Error loading newest post:', error);
-                document.getElementById('newest_post').innerHTML = `<p>Error loading newest post: ${error.message}</p>`;
-            }
+                </div>
+            `;
+            contentDiv.innerHTML = cardHtml;
         }
 
-        // Load newest post preview when the page loads
+        // Load the newest post preview when the page loads
         window.onload = loadNewestPostPreview;
     </script>
 </body>

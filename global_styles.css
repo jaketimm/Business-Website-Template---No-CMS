@@ -7113,6 +7113,7 @@ html {
 }
 
 
+
 .calendar-container {
   max-width: 100%;
   width: 800px; /* You can set a max-width or a specific width */
@@ -7127,4 +7128,70 @@ html {
   width: 100%;
   height: 600px; /* You can adjust this as needed */
   border: none;
+}
+
+
+
+/*-- -------------------------- -->
+<---    Featured CMS Post       -->
+<--- -------------------------- -*/
+
+.newest_post {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.newest_post img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 4px;
+}
+
+.newest_post h2 {
+  margin-top: 10px;
+  margin-bottom: 10px;
+  font-size: 24px;
+}
+
+.newest_post p {
+  margin-bottom: 20px;
+  font-size: 16px;
+}
+
+.newest_post .buttons {
+  display: flex;
+  justify-content: space-between;
+}
+
+.newest_post .buttons a {
+  padding: 10px 15px;
+  background-color: #040079fa;
+  color: white;
+  text-decoration: none;
+  border-radius: 4px;
+  transition: background-color 0.3s;
+  max-width: 150px;
+  /* Limit button width */
+}
+
+.newest_post .buttons a:hover {
+  background-color: #1a1399;
+  /* Darker shade for hover effect */
+}
+
+@media (max-width: 600px) {
+  .newest_post .buttons {
+      flex-direction: column;
+      align-items: center;
+  }
+
+  .newest_post .buttons a {
+      margin-bottom: 10px;
+      width: auto;
+      /* Allow buttons to adjust width naturally */
+  }
 }

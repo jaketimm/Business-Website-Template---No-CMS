@@ -383,8 +383,69 @@
         </div>
     </section>
 
+    <section id="newest_post" class="newest_post"></section>
 
-        <!--<div class="calendar-container">
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <script>
+        async function loadNewestPostPreview() {
+            const blogFolder = 'blog/';
+            const response = await fetch('blog/blogFiles.json');
+            const blogFiles = await response.json(); // Get the list of .md files
+
+            const newestFile = blogFiles[0]; // Get the first (newest) entry
+
+            try {
+                const response = await fetch(blogFolder + newestFile);
+                if (!response.ok) {
+                    throw new Error(`HTTP error! status: ${response.status}`);
+                }
+                const markdown = await response.text();
+                const html = marked.parse(markdown);
+
+                // Extract metadata using regex from the markdown
+                const metaData = {
+                    title: 'Untitled',
+                    url: newestFile,
+                    description: 'No description available',
+                    image: 'default-image.jpg',
+                    imageAlt: 'Image'
+                };
+
+                const metaMatch = markdown.match(/title:\s*(.*?)\nurl:\s*(.*?)\ndescription:\s*(.*?)\nauthor:\s*(.*?)\ndate:\s*(.*?)\ntags:\s*([\s\S]*?)\nimage:\s*(.*?)\nimageAlt:\s*(.*)/);
+                if (metaMatch) {
+                    metaData.title = metaMatch[1];
+                    metaData.url = metaMatch[2];
+                    metaData.description = metaMatch[3];
+                    metaData.image = metaMatch[7];
+                    metaData.imageAlt = metaMatch[8];
+                }
+
+                // Create blog preview card
+                const contentDiv = document.getElementById('newest_post');
+                const cardHtml = `
+                    <picture>
+                        <img src="${blogFolder + metaData.image}" alt="${metaData.imageAlt}">
+                    </picture>
+                    <h2>${metaData.title}</h2>
+                    <p>${metaData.description}</p>
+                    <div class="buttons">
+                        <a href="post.html?post=${encodeURIComponent(newestFile)}">Read Post</a>
+                        <a href="blog_posts_preview_page.html">View All Posts</a>
+                    </div>
+                `;
+                contentDiv.innerHTML = cardHtml;
+
+            } catch (error) {
+                console.error('Error loading newest post:', error);
+                document.getElementById('newest_post').innerHTML = `<p>Error loading newest post: ${error.message}</p>`;
+            }
+        }
+
+        // Load newest post preview when the page loads
+        window.onload = loadNewestPostPreview;
+    </script>
+
+    <!--<div class="calendar-container">
             <iframe src="https://calendar.google.com/calendar/embed?src=jaketimm.01%40gmail.com&ctz=America%2FNew_York" style="border: 0" width="800" height="600" frameborder="0" scrolling="no"></iframe>
         </div>-->
 
